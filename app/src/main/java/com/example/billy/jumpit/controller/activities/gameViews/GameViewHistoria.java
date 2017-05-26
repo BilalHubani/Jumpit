@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
+import com.example.billy.jumpit.controller.activities.Scenes.HistoryScene;
 import com.example.billy.jumpit.controller.activities.Scenes.Scene;
 import com.example.billy.jumpit.controller.activities.main.MainActivity;
 import com.example.billy.jumpit.model.BitmapSet;
@@ -34,7 +35,7 @@ public class GameViewHistoria extends View {
     private BitmapSet bitmapSet;
     private PokemonBitmapSet pokemonBitmapSet;
     private DragonBitmapSet dragonBitmapSet;
-    private Scene scene;
+    private HistoryScene scene;
     private Bonk bonk;
     private DragonSkin dragonSkin;
     private Character character;
@@ -74,14 +75,14 @@ public class GameViewHistoria extends View {
         bitmapSetList = new ArrayList<>();
 // Declaramos y añadimos bitmaps al array
         bitmapSet = new BitmapSet(this.getResources());
-        scene = new Scene(this);
+        scene = new HistoryScene(this);
         pokemonBitmapSet = new PokemonBitmapSet(this.getResources());
         dragonBitmapSet = new DragonBitmapSet(this.getResources());
         bitmapSetList.add(bitmapSet);
         bitmapSetList.add(pokemonBitmapSet);
         bitmapSetList.add(dragonBitmapSet);
         bonk = new Bonk(bitmapSetList.get(bitmapIndex));
-        scene.loadFromFile(R.raw.nivel1);
+        scene.load(R.raw.nivel1);
 //        character = new Character(pokemonBitmapSet);
         dragonSkin = new DragonSkin(bitmapSetList.get(2));
         paint = new Paint();
@@ -246,7 +247,7 @@ public class GameViewHistoria extends View {
         reload.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                scene = new Scene(bitmapSet);
+//                scene = new HistoryScene();
                 bonk = new Bonk(bitmapSet);
 //                character = new Character(pokemonBitmapSet);
                 dragonSkin = new DragonSkin(dragonBitmapSet);
