@@ -52,22 +52,20 @@
         android:layout_alignParentTop="true"
         android:layout_weight="1"
         android:visibility="visible"
-        app:srcCompat="@android:drawable/btn_dialog" />
+        app:srcCompat="@drawable/buttoncancel" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/exitBtn"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="15dp"
-        android:layout_toStartOf="@+id/exitBtn"
+        android:layout_marginBottom="23dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginStart="32dp"
         android:orientation="horizontal"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/exitBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true">
 
         <ImageButton
             android:id="@+id/skinBtnShop"

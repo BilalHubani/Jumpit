@@ -171,7 +171,7 @@ public void onClick(View v) {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-        SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        final SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -314,6 +314,11 @@ public void onClick(View v) {
                 skin.setVisibility(View.VISIBLE);
                 powerUp.setVisibility(View.VISIBLE);
                 gemas.setVisibility(View.VISIBLE);
+                shopButton.setVisibility(View.INVISIBLE);
+                options.setVisibility(View.INVISIBLE);
+                play.setVisibility(View.INVISIBLE);
+                title.setVisibility(View.INVISIBLE);
+                signInButton.setVisibility(View.INVISIBLE);
 
             }
         });
@@ -323,6 +328,11 @@ public void onClick(View v) {
             public void onClick(View view) {
                 vistaTienda.startAnimation(fadeout);
                 vistaTienda.setVisibility(View.INVISIBLE);
+                shopButton.setVisibility(View.VISIBLE);
+                options.setVisibility(View.VISIBLE);
+                play.setVisibility(View.VISIBLE);
+                title.setVisibility(View.VISIBLE);
+                signInButton.setVisibility(View.VISIBLE);
             }
         });
 //crear listener de las opciones

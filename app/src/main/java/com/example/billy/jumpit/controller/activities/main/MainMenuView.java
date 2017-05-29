@@ -14,7 +14,7 @@ import com.example.billy.jumpit.model.Bonk;
  * Created by dam on 20/3/17.
  */
 
-public class MainMenuView extends View {
+public class  MainMenuView extends View {
     private BitmapSet bitmapSet;
     private MainMenuBackgroundScene mainMenuBackgroundScene;
     private Bonk bonk;

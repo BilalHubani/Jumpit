@@ -23,7 +23,7 @@ public class Scene {
 
     private int sceneWidth, sceneHeight;
 
-    private static final String sceneChars = "-.<>";  // CANVIAR
+    private static final String sceneChars = "-.<>s";  // CANVIAR
     private static final int[] sceneIndexes =
             new int[] { 36, 23 };  // CANVIAR
 
