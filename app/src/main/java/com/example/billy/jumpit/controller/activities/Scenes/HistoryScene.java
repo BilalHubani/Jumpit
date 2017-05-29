@@ -32,6 +32,7 @@ public class HistoryScene {
     boolean creatingPlatform = false;
     private int platformsDistance = 0;
     private BitmapSet bitmapSet;
+    private String aux;
     public HistoryScene(GameViewHistoria game) {
         this.game = game;
         this.bitmapSet = game.getBitmapSet();
@@ -85,14 +86,13 @@ public class HistoryScene {
     }
     public void draw(Canvas canvas) {
         if (cont > 15) {
-            scene2 = updateMap();
+            updateMap();
             cont = 0;
         }
         if (scene == null) return;
         for(int y = 0; y < scene.length; y++) {
-            for(int x = 0; x < scene[0].length(); x++) {
+            for(int x = 0; x < 30; x++) {
                 Bitmap bitmap;
-//                Log.e("draw",""+scene[y].charAt(x));
                 switch (scene[y].charAt(x)) {
                     case '.':
                         bitmap = bitmapSet.getBitmap(23);
@@ -113,12 +113,9 @@ public class HistoryScene {
         cont = cont + 4;
     }
 
-    public char[][] updateMap() {
+    public void updateMap() {
         for (int i = 0; i < 16; i++) {
             scene[i] = scene[i].substring(1);
         }
-
-        return scene2;
-
     }
 }
