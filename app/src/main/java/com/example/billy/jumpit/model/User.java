@@ -15,7 +15,7 @@ public class User {
     private List<Skin> skins;
     private List<PowerUp> powerUps;
 
-    public User(String userName, String password, String email, long id) {
+    public User() {
         this.userName = userName;
         this.password = password;
         this.email = email;

@@ -13,24 +13,23 @@
         class="com.example.billy.jumpit.controller.activities.gameViews.PowerUp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="90dp"
         android:alpha="1"
-        android:visibility="invisible"
-        android:layout_alignTop="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout"
-        android:layout_alignBottom="@+id/linearLayout"
-        android:layout_alignStart="@+id/linearLayout" />
+        android:visibility="visible" />
 
     <view
         android:id="@+id/view5"
         class="com.example.billy.jumpit.controller.activities.gameViews.Skin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="90dp"
         android:alpha="1"
-        android:visibility="invisible"
-        android:layout_alignStart="@+id/view6"
-        android:layout_alignTop="@+id/view6"
-        android:layout_alignEnd="@+id/view6"
-        android:layout_alignBottom="@+id/view6" />
+        android:visibility="visible" />
 
     <view
         android:id="@+id/view7"
@@ -38,11 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="1"
-        android:visibility="invisible"
-        android:layout_alignTop="@+id/view6"
-        android:layout_alignEnd="@+id/view6"
-        android:layout_alignBottom="@+id/view6"
-        android:layout_alignStart="@+id/view6" />
+        android:visibility="invisible" />
 
     <ImageButton
         android:id="@+id/exitBtn"
@@ -55,41 +50,42 @@
         app:srcCompat="@drawable/buttoncancel" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/exitBtn"
         android:layout_marginBottom="23dp"
         android:layout_marginEnd="28dp"
         android:layout_marginStart="32dp"
         android:orientation="horizontal"
-        android:id="@+id/linearLayout"
-        android:layout_below="@+id/exitBtn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true">
+        android:visibility="visible">
 
         <ImageButton
             android:id="@+id/skinBtnShop"
             android:layout_width="0px"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/skinsbtn"
-            app:srcCompat="?attr/actionModeBackground"
-            android:layout_weight="1"/>
+            app:srcCompat="?attr/actionModeBackground" />
 
         <ImageButton
             android:id="@+id/powerupBtnShop"
             android:layout_width="0px"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/powerup"
-            app:srcCompat="?attr/actionModeBackground"
-            android:layout_weight="1"/>
+            app:srcCompat="?attr/actionModeBackground" />
 
         <ImageButton
             android:id="@+id/gemas"
             android:layout_width="0px"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/gems"
-            app:srcCompat="?attr/actionModeBackground"
-            android:layout_weight="1"/>
+            app:srcCompat="?attr/actionModeBackground" />
 
     </LinearLayout>
 

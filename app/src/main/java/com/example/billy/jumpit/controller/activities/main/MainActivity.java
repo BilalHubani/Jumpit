@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -38,6 +39,7 @@ public class MainActivity extends FragmentActivity implements SeekBar.OnSeekBarC
     private ImageButton volume;
     private Bundle bundle;
     private ImageButton reloadEndless, goHome;
+    private LinearLayout GemsLinearLayout;
     private ImageButton skin, powerUp, gemas, exit;
 
 
@@ -202,6 +204,7 @@ public void onClick(View v) {
 //crear variables del menu
         final ImageButton play = (ImageButton)findViewById(R.id.play);
         volume = (ImageButton)findViewById(R.id.volumeButton);
+        GemsLinearLayout = (LinearLayout) findViewById(R.id.LinearLayoutMenu);
         final ImageButton options = (ImageButton)findViewById(R.id.optionsButton);
         final ImageButton shopButton = (ImageButton)findViewById(R.id.shopButton);
         ImageButton closeOption = (ImageButton)findViewById(R.id.closeButton);
@@ -222,6 +225,7 @@ public void onClick(View v) {
         reloadEndless = (ImageButton)findViewById(R.id.reloadEndless);
         goHome = (ImageButton)findViewById(R.id.goHome);
         final ImageButton endless = (ImageButton) findViewById(R.id.btnendless);
+        closeShop.setBackgroundResource(R.drawable.buttoncancel);
 
         /*---------------------*/
         vistaskins = findViewById(R.id.view5);
@@ -319,6 +323,9 @@ public void onClick(View v) {
                 play.setVisibility(View.INVISIBLE);
                 title.setVisibility(View.INVISIBLE);
                 signInButton.setVisibility(View.INVISIBLE);
+                GemsLinearLayout.setVisibility(View.INVISIBLE);
+
+
 
             }
         });
@@ -333,6 +340,7 @@ public void onClick(View v) {
                 play.setVisibility(View.VISIBLE);
                 title.setVisibility(View.VISIBLE);
                 signInButton.setVisibility(View.VISIBLE);
+                GemsLinearLayout.setVisibility(View.VISIBLE);
             }
         });
 //crear listener de las opciones

@@ -50,7 +50,7 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
         ClassPowerUp color = data.get(position);
         holder.getTitleTextView().setText(color.getNombre());
         holder.getImageskin().setImageResource(imagenes.get(i));
-        holder.getTextPowerUp().setText(color.getDescripcion());
+//        holder.getTextPowerUp().setText(color.getDescripcion());
         holder.getBtnpowerup();
         i = i+1;
     }
@@ -71,8 +71,8 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
             super(elementskin);
             titleTextView = (TextView) elementskin.findViewById(R.id.namepowerup);
             imagePowerUp = (ImageView) elementskin.findViewById(R.id.photopowerup);
-            textPowerUp = (TextView) elementskin.findViewById(R.id.textpowerup);
-            btnpowerup = (Button) elementskin.findViewById(R.id.buttonpowerup);
+//            textPowerUp = (TextView) elementskin.findViewById(R.id.textpowerup);
+            btnpowerup = (Button) elementskin.findViewById(R.id.buttonGoldShop);
 
             btnpowerup.setOnClickListener(new View.OnClickListener() {
                 @Override
