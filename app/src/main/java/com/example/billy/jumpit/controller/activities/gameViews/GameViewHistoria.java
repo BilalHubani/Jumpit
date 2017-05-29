@@ -57,6 +57,7 @@ public class GameViewHistoria extends View {
     private List<Character> characterList;
     private int characterIndex = 0;
     private int bitmapIndex = 0;
+    int nivel = R.raw.nivel2;
 
 
     private TextView scoreTextView;
@@ -82,7 +83,7 @@ public class GameViewHistoria extends View {
         bitmapSetList.add(pokemonBitmapSet);
         bitmapSetList.add(dragonBitmapSet);
         bonk = new Bonk(bitmapSetList.get(bitmapIndex));
-        scene.load(R.raw.nivel2);
+        scene.load(nivel);
 //        character = new Character(pokemonBitmapSet);
         dragonSkin = new DragonSkin(bitmapSetList.get(2));
         paint = new Paint();
@@ -262,7 +263,7 @@ public class GameViewHistoria extends View {
                 score = 0;
                 goHome.setVisibility(INVISIBLE);
                 reload.setVisibility(INVISIBLE);
-                scene.load(R.raw.nivel2);
+                scene.load(nivel);
             }
         });
     }
