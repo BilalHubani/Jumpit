@@ -57,7 +57,7 @@ public class GameViewHistoria extends View {
     private List<Character> characterList;
     private int characterIndex = 0;
     private int bitmapIndex = 0;
-    int nivel = R.raw.nivel2;
+    int nivel = R.raw.nivel3;
 
 
     private TextView scoreTextView;
@@ -259,7 +259,6 @@ public class GameViewHistoria extends View {
                 stateJumping = false;
                 jumpCounter = 0;
                 jumpIncrement = 2;
-                jumpMaxHeigh = 70;
                 score = 0;
                 goHome.setVisibility(INVISIBLE);
                 reload.setVisibility(INVISIBLE);
