@@ -90,7 +90,6 @@ public class MainActivity extends FragmentActivity implements SeekBar.OnSeekBarC
     }
 //---------- VARIABLES GOOGLE
     private GoogleApiClient mGoogleApiClient;
-    private TextView mStatusTextView;
     private ProgressDialog mProgressDialog;
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
@@ -130,7 +129,6 @@ public void onClick(View v) {
             String personEmail = acct.getEmail();
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
-            mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             Log.e("nombre", personEmail);
             updateUI(true);
         } else {
@@ -141,12 +139,8 @@ public void onClick(View v) {
     private void updateUI(boolean signedIn) {
         if (signedIn) {
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
         } else {
-            mStatusTextView.setText(R.string.signed_out);
-
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-//            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
         }
     }
     private void revokeAccess() {
@@ -179,8 +173,6 @@ public void onClick(View v) {
                 .build();
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
-
-        mStatusTextView = (TextView) findViewById(R.id.status);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)

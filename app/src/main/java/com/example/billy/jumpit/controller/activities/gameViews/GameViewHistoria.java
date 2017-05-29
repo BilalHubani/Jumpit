@@ -82,7 +82,7 @@ public class GameViewHistoria extends View {
         bitmapSetList.add(pokemonBitmapSet);
         bitmapSetList.add(dragonBitmapSet);
         bonk = new Bonk(bitmapSetList.get(bitmapIndex));
-        scene.load(R.raw.nivel3);
+        scene.load(R.raw.nivel2);
 //        character = new Character(pokemonBitmapSet);
         dragonSkin = new DragonSkin(bitmapSetList.get(2));
         paint = new Paint();
@@ -262,6 +262,7 @@ public class GameViewHistoria extends View {
                 score = 0;
                 goHome.setVisibility(INVISIBLE);
                 reload.setVisibility(INVISIBLE);
+                scene.load(R.raw.nivel2);
             }
         });
     }
