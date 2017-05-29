@@ -82,7 +82,7 @@ public class GameViewHistoria extends View {
         bitmapSetList.add(pokemonBitmapSet);
         bitmapSetList.add(dragonBitmapSet);
         bonk = new Bonk(bitmapSetList.get(bitmapIndex));
-        scene.load(R.raw.nivel1);
+        scene.load(R.raw.nivel3);
 //        character = new Character(pokemonBitmapSet);
         dragonSkin = new DragonSkin(bitmapSetList.get(2));
         paint = new Paint();
