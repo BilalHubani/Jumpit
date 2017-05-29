@@ -5,36 +5,27 @@ package com.example.billy.jumpit.model;
  */
 
 public class User {
-    private String usuari;
+    private String userName;
     private String password;
-    private int nivell = 11;
+    private String email;
     private long id;
+    private int level;
 
-    public String getUsuari() {
-        return usuari;
-    }
-
-    public void setUsuari(String usuari) {
-        this.usuari = usuari;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
+    public User(String userName, String password, String email, long id) {
+        this.userName = userName;
         this.password = password;
+        this.email = email;
+        this.id = id;
+        this.level = 1;
     }
-
-    public int getNivell() {
-        return nivell;
-    }
-
-    public void setNivell(int nivell) {
-        this.nivell = nivell;
-    }
-
-    public long getId() {
-        return id;
-    }
+    public String getUserName() {return userName;}
+    public void setUserName(String userName) {this.userName = userName;}
+    public String getPassword() {return password;}
+    public void setPassword(String password) {this.password = password;}
+    public String getEmail() {return email;}
+    public void setEmail(String email) {this.email = email;}
+    public long getId() {return id;}
+    public void setId(long id) {this.id = id;}
+    public int getLevel() {return level;}
+    public void setLevel(int level) {this.level = level;}
 }
