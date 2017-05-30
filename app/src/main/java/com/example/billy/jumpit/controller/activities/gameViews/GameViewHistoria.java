@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.Scenes.HistoryScene;
+import com.example.billy.jumpit.controller.activities.Scenes.Scene;
 import com.example.billy.jumpit.controller.activities.main.MainActivity;
 import com.example.billy.jumpit.model.BitmapSet;
 import com.example.billy.jumpit.model.Bonk;
@@ -18,6 +19,7 @@ import com.example.billy.jumpit.model.Character;
 import com.example.billy.jumpit.model.DragonBitmapSet;
 import com.example.billy.jumpit.model.DragonSkin;
 import com.example.billy.jumpit.model.PokemonBitmapSet;
+import com.example.billy.jumpit.model.TerrenosBitmapSet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,7 @@ public class GameViewHistoria extends View {
     private BitmapSet bitmapSet;
     private PokemonBitmapSet pokemonBitmapSet;
     private DragonBitmapSet dragonBitmapSet;
+    private TerrenosBitmapSet terrenosBitmapSet;
     private HistoryScene scene;
     private Bonk bonk;
     private DragonSkin dragonSkin;
@@ -55,7 +58,7 @@ public class GameViewHistoria extends View {
     private List<BitmapSet> bitmapSetList;
     private List<Character> characterList;
     private int characterIndex = 0;
-    private int bitmapIndex = 0;
+    private int bitmapIndex = 3;
     int nivel = R.raw.nivel3;
 
     public void setNivel(int nivel) {
@@ -69,7 +72,7 @@ public class GameViewHistoria extends View {
     }
 
     public GameViewHistoria(Context context, AttributeSet attrs) {
-        this(context, attrs, 0, R.raw.nivel0);
+        this(context, attrs, 0, R.raw.nivel3);
     }
 
     public GameViewHistoria(Context context, AttributeSet attrs, int defStyleAttr, int nivel) {
@@ -78,6 +81,7 @@ public class GameViewHistoria extends View {
         bitmapSetList = new ArrayList<>();
 // Declaramos y añadimos bitmaps al array
         bitmapSet = new BitmapSet(this.getResources());
+        terrenosBitmapSet = new TerrenosBitmapSet(this.getResources());
         scene = new HistoryScene(this);
         this.nivel = nivel;
         pokemonBitmapSet = new PokemonBitmapSet(this.getResources());
@@ -85,6 +89,7 @@ public class GameViewHistoria extends View {
         bitmapSetList.add(bitmapSet);
         bitmapSetList.add(pokemonBitmapSet);
         bitmapSetList.add(dragonBitmapSet);
+        bitmapSetList.add(terrenosBitmapSet);
         bonk = new Bonk(bitmapSetList.get(bitmapIndex));
         scene.load(nivel);
 //        character = new Character(pokemonBitmapSet);
@@ -316,5 +321,9 @@ public class GameViewHistoria extends View {
 
     public void setBitmapSet(BitmapSet bitmapSet) {
         this.bitmapSet = bitmapSet;
+    }
+
+    public TerrenosBitmapSet getTerrenosBitmapSet() {
+        return terrenosBitmapSet;
     }
 }

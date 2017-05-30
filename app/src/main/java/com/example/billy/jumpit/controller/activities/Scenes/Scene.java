@@ -25,7 +25,7 @@ public class Scene {
 
     private static final String sceneChars = "-.<>s";  // CANVIAR
     private static final int[] sceneIndexes =
-            new int[] { 36, 23 };  // CANVIAR
+            new int[] { 36, 23,36, 36 };  // CANVIAR
 
     public Scene(GameViewHistoria game) {
         this.game = game;

@@ -223,8 +223,8 @@ public void onClick(View v) {
         vistaTienda = (View)findViewById(R.id.shopView);
         menuniveles = (View)findViewById(R.id.vistaNiveles);
         //final GameView gameView = (GameView) findViewById(R.id.view4);
-        final GameView gameView = (GameView) findViewById(R.id.view4);
-        final GameViewHistoria gameViewHistoria = (GameViewHistoria) findViewById(R.id.viewGameHistoria);
+//        final GameView gameView = (GameView) findViewById(R.id.view4);
+        final GameViewHistoria gameView = (GameViewHistoria) findViewById(R.id.viewGameHistoria);
         final View mainMenuView = (View)findViewById(R.id.view);
         final ImageButton pause = (ImageButton)findViewById(R.id.pause);
         reloadEndless = (ImageButton)findViewById(R.id.reloadEndless);
@@ -252,7 +252,7 @@ public void onClick(View v) {
         gameView.setReload(reloadEndless);
 
         /*--------------------------*/
-        gameViewHistoria.setMainActivity(this);
+        gameView.setMainActivity(this);
         gameView.setPauseButton(pause);
         gameView.setGoHome(goHome);
 

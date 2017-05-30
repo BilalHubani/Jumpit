@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria;
 import com.example.billy.jumpit.model.BitmapSet;
+import com.example.billy.jumpit.model.TerrenosBitmapSet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,11 +32,11 @@ public class HistoryScene {
     private GameViewHistoria game;
     boolean creatingPlatform = false;
     private int platformsDistance = 0;
-    private BitmapSet bitmapSet;
+    private TerrenosBitmapSet bitmapSet;
     private String aux;
     public HistoryScene(GameViewHistoria game) {
         this.game = game;
-        this.bitmapSet = game.getBitmapSet();
+        this.bitmapSet = game.getTerrenosBitmapSet();
         paint = new Paint();
     }
     public void load(int resource) {
@@ -72,15 +73,15 @@ public class HistoryScene {
         char e = scene[r].charAt(c);
         int i = -1;
         switch (e) {
-            case '<': i = 35; break;
-            case '-': i = 36; break;
-            case '>': i = 37; break;
-            case '[': i = 44; break;
-            case '#': i = 45; break;
-            case ']': i = 46; break;
-            case '|': i = 40; break;
-            case '{': i = 21; break;
-            case '}': i = 22; break;
+            case '<': i = 2; break;
+            case '-': i = 1; break;
+            case '>': i = 0; break;
+            case '[': i = 5; break;
+            case '#': i = 15; break;
+            case ']': i = 5; break;
+            case '|': i = 5; break;
+            case '{': i = 5; break;
+            case '}': i = 5; break;
         }
         return i;
     }
@@ -95,13 +96,19 @@ public class HistoryScene {
                 Bitmap bitmap;
                 switch (scene[y].charAt(x)) {
                     case '.':
-                        bitmap = bitmapSet.getBitmap(23);
+                        bitmap = bitmapSet.getBitmap(15);
                         break;
                     case '-':
-                        bitmap = bitmapSet.getBitmap(45);
+                        bitmap = bitmapSet.getBitmap(1);
+                        break;
+                    case '>':
+                        bitmap = bitmapSet.getBitmap(0);
+                        break;
+                    case '<':
+                        bitmap = bitmapSet.getBitmap(2);
                         break;
                     case '#':
-                        bitmap = bitmapSet.getBitmap(45);
+                        bitmap = bitmapSet.getBitmap(15);
                         break;
                     default:
                         bitmap = bitmapSet.getBitmap(23);
