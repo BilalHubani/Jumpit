@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.Scenes.HistoryScene;
-import com.example.billy.jumpit.controller.activities.Scenes.Scene;
 import com.example.billy.jumpit.controller.activities.main.MainActivity;
 import com.example.billy.jumpit.model.BitmapSet;
 import com.example.billy.jumpit.model.Bonk;
@@ -57,7 +56,7 @@ public class GameViewHistoria extends View {
     private List<Character> characterList;
     private int characterIndex = 0;
     private int bitmapIndex = 0;
-    int nivel = R.raw.nivel4;
+    int nivel = R.raw.nivel3;
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
@@ -65,21 +64,22 @@ public class GameViewHistoria extends View {
 
     private TextView scoreTextView;
 
-    public GameViewHistoria(Context context) {
-        this(context, null, 0, "sheet");
+    public GameViewHistoria(Context context,int nivel) {
+        this(context, null, 0, nivel);
     }
 
     public GameViewHistoria(Context context, AttributeSet attrs) {
-        this(context, attrs, 0, "sheet");
+        this(context, attrs, 0, R.raw.nivel0);
     }
 
-    public GameViewHistoria(Context context, AttributeSet attrs, int defStyleAttr, String sheet) {
+    public GameViewHistoria(Context context, AttributeSet attrs, int defStyleAttr, int nivel) {
         super(context, attrs, defStyleAttr);
 // Arraylist de bitmaps
         bitmapSetList = new ArrayList<>();
 // Declaramos y añadimos bitmaps al array
         bitmapSet = new BitmapSet(this.getResources());
         scene = new HistoryScene(this);
+        this.nivel = nivel;
         pokemonBitmapSet = new PokemonBitmapSet(this.getResources());
         dragonBitmapSet = new DragonBitmapSet(this.getResources());
         bitmapSetList.add(bitmapSet);

@@ -56,12 +56,13 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/exitBtn"
         android:layout_marginBottom="23dp"
         android:layout_marginEnd="28dp"
         android:layout_marginStart="32dp"
         android:orientation="horizontal"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/exitBtn">
 
         <ImageButton
             android:id="@+id/skinBtnShop"

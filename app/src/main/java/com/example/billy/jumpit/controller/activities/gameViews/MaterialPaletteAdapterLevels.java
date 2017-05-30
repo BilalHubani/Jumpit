@@ -24,7 +24,6 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
     //private User player = new User();
     Context context;
     GameViewHistoria gameViewHistoria;
-    MainActivity mainActivity;
     ArrayList <Integer> imagenes = new ArrayList();
     int i = 0;
 
@@ -44,7 +43,7 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
         imagenes.add(R.drawable.audiooff);imagenes.add(R.drawable.audioon);imagenes.add(R.drawable.carro);
         imagenes.add(R.drawable.logros);imagenes.add(R.drawable.opciones);
         ClassLevel objecte = data.get(position);
-        holder.text.setText("nivell"+position);
+        holder.text.setText("nivel"+position);
         holder.getImageLevel();
         i = i+1;
     }
@@ -55,6 +54,7 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
     }
 
     class PaletteViewHolder extends RecyclerView.ViewHolder {
+
         ImageButton imageLevel;
         TextView text;
 
@@ -62,19 +62,23 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
             super(elementskin);
             imageLevel = (ImageButton) elementskin.findViewById(R.id.photolevel);
             text = (TextView) elementskin.findViewById(R.id.textlevelid);
-
             imageLevel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(text.getText().toString().equalsIgnoreCase("nivell0")){
+                    if(text.getText().toString().equalsIgnoreCase("nivel0")){
+                        new GameViewHistoria(context,R.raw.nivel0);
 
-                    }else if(text.getText().toString().equalsIgnoreCase("nivell1")){
+                    }else if(text.getText().toString().equalsIgnoreCase("nivel0")){
+                        gameViewHistoria.setNivel(R.raw.nivel1);
 
-                    }else if(text.getText().toString().equalsIgnoreCase("nivell2")){
+                    }else if(text.getText().toString().equalsIgnoreCase("nivel1")){
+                        gameViewHistoria.setNivel(R.raw.nivel2);
 
-                    }else if(text.getText().toString().equalsIgnoreCase("nivell3")){
+                    }else if(text.getText().toString().equalsIgnoreCase("nivel2")){
+                        gameViewHistoria.setNivel(R.raw.nivel3);
 
-                    }else if(text.getText().toString().equalsIgnoreCase("nivell4")){
+                    }else if(text.getText().toString().equalsIgnoreCase("nivel3")){
+                        gameViewHistoria.setNivel(R.raw.nivel0);
 
                     }
                 }
