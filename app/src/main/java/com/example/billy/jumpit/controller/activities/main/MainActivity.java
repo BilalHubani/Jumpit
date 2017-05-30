@@ -295,6 +295,31 @@ public void onClick(View v) {
                 menuniveles.setVisibility(View.VISIBLE);
             }
         });
+        exitMenuNivel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                play.startAnimation(fadeout);
+                play.setVisibility(View.VISIBLE);
+                title.startAnimation(fadeout);
+                title.setVisibility(View.VISIBLE);
+                coins.startAnimation(fadeout);
+                coins.setVisibility(View.VISIBLE);
+                coins_image.startAnimation(fadeout);
+                coins_image.setVisibility(View.VISIBLE);
+                diamonds.startAnimation(fadeout);
+                diamonds.setVisibility(View.VISIBLE);
+                diamonds_image.startAnimation(fadeout);
+                diamonds_image.setVisibility(View.VISIBLE);
+                volume.startAnimation(fadeout);
+                volume.setVisibility(View.VISIBLE);
+                options.startAnimation(fadeout);
+                options.setVisibility(View.VISIBLE);
+                shopButton.startAnimation(fadeout);
+                shopButton.setVisibility(View.VISIBLE);
+                menuniveles.setVisibility(View.INVISIBLE);
+            }
+        });
 
 
         endless.setOnClickListener(new View.OnClickListener() {

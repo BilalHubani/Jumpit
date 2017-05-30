@@ -48,6 +48,7 @@ public class Levels extends LinearLayout {
         super(context, attrs, defStyleAttr);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.levels, this);
+//        image1.setBackgroundResource(R.);
 
 
         datas = new ArrayList<>();
