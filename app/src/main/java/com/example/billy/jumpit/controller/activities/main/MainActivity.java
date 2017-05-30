@@ -325,6 +325,7 @@ public void onClick(View v) {
         endless.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                gameView.setBackgroundResource(R.drawable.fondocuevadef);
                 pause.setVisibility(View.VISIBLE);
                 gameView.setVisibility(View.VISIBLE);
                 mainMenuView.setVisibility(View.INVISIBLE);

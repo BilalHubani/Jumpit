@@ -30,7 +30,7 @@ public class TerrenosBitmapSet extends BitmapSet{
             { 0, 44, 16, 11, 0 }, //  12: terreno infierno plat derecha
             { 32, 44, 32, 11, 0 }, //  13: terreno infierno plat centro
             { 76, 44, 20, 11, 0 }, //  14: terreno infierno plat izquiero
-            { 0, 74, 32, 32, 0 }, //  15: cielo
+            { 0, 120, 5, 5, 0 }, //  15: cielo
     };
 
     public Bitmap getBitmap(int i) { return bitmaps[i]; }

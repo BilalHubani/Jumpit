@@ -73,9 +73,9 @@ public class HistoryScene {
         char e = scene[r].charAt(c);
         int i = -1;
         switch (e) {
-            case '<': i = 2; break;
-            case '-': i = 1; break;
-            case '>': i = 0; break;
+            case '<': i = 5; break;
+            case '-': i = 4; break;
+            case '>': i = 3; break;
             case '[': i = 5; break;
             case '#': i = 15; break;
             case ']': i = 5; break;
@@ -99,13 +99,13 @@ public class HistoryScene {
                         bitmap = bitmapSet.getBitmap(15);
                         break;
                     case '-':
-                        bitmap = bitmapSet.getBitmap(1);
+                        bitmap = bitmapSet.getBitmap(4);
                         break;
                     case '>':
-                        bitmap = bitmapSet.getBitmap(0);
+                        bitmap = bitmapSet.getBitmap(3);
                         break;
                     case '<':
-                        bitmap = bitmapSet.getBitmap(2);
+                        bitmap = bitmapSet.getBitmap(5);
                         break;
                     case '#':
                         bitmap = bitmapSet.getBitmap(15);
