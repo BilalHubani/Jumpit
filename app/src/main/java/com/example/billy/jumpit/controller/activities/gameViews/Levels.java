@@ -61,5 +61,7 @@ public class Levels extends LinearLayout {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleViewLevel);
         recyclerView.setAdapter(new MaterialPaletteAdapterLevels(datas));
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+
+
     }
 }

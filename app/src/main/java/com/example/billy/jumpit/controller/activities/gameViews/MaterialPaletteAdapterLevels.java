@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
+import com.example.billy.jumpit.controller.activities.main.MainActivity;
 import com.example.billy.jumpit.model.ClassLevel;
 import com.example.billy.jumpit.model.User;
 
@@ -20,8 +21,10 @@ import java.util.List;
 public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialPaletteAdapterLevels.PaletteViewHolder> {
     private List<ClassLevel> data;
     RecyclerView list;
-    private User player = new User();
+    //private User player = new User();
     Context context;
+    GameViewHistoria gameViewHistoria;
+    MainActivity mainActivity;
     ArrayList <Integer> imagenes = new ArrayList();
     int i = 0;
 
@@ -55,7 +58,7 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
         ImageButton imageLevel;
         TextView text;
 
-        public PaletteViewHolder(View elementskin) {
+        public PaletteViewHolder(final View elementskin) {
             super(elementskin);
             imageLevel = (ImageButton) elementskin.findViewById(R.id.photolevel);
             text = (TextView) elementskin.findViewById(R.id.textlevelid);
@@ -63,8 +66,17 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
             imageLevel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if(text.getText().toString().equalsIgnoreCase("nivell0")){
 
-                    Log.d("nivell:---->", text.getText().toString());
+                    }else if(text.getText().toString().equalsIgnoreCase("nivell1")){
+
+                    }else if(text.getText().toString().equalsIgnoreCase("nivell2")){
+
+                    }else if(text.getText().toString().equalsIgnoreCase("nivell3")){
+
+                    }else if(text.getText().toString().equalsIgnoreCase("nivell4")){
+
+                    }
                 }
             });
 
@@ -76,4 +88,5 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
         }
 
     }
+
 }

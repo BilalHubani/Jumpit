@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,9 @@ import com.example.billy.jumpit.controller.activities.gameViews.Audio;
 import com.example.billy.jumpit.controller.activities.gameViews.GameView;
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria;
+import com.example.billy.jumpit.controller.activities.gameViews.Levels;
+import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapter;
+import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapterLevels;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -36,7 +40,7 @@ public class MainActivity extends FragmentActivity implements SeekBar.OnSeekBarC
     private View vistaOpciones;
     private View vistaTienda, vistaskins,vistapowerups,vistagems, menuniveles;
     private SeekBar volumeControl;
-    private ImageButton volume;
+    private ImageButton volume, imageLevel;
     private Bundle bundle;
     private ImageButton reloadEndless, goHome;
     private LinearLayout GemsLinearLayout;
@@ -227,6 +231,9 @@ public void onClick(View v) {
         final ImageButton endless = (ImageButton) findViewById(R.id.btnendless);
         closeShop.setBackgroundResource(R.drawable.buttoncancel);
 
+
+
+
         /*---------------------*/
         vistaskins = findViewById(R.id.view5);
         vistapowerups = findViewById(R.id.view6);
@@ -234,6 +241,7 @@ public void onClick(View v) {
         skin = (ImageButton) findViewById(R.id.skinBtnShop);
         powerUp = (ImageButton) findViewById(R.id.powerupBtnShop);
         gemas = (ImageButton) findViewById(R.id.gemas);
+        imageLevel = (ImageButton) findViewById(R.id.photolevel);
         /*----------------------*/
         gameView.setMainActivity(this);
         gameView.setPauseButton(pause);
@@ -278,6 +286,7 @@ public void onClick(View v) {
                 menuniveles.setVisibility(View.VISIBLE);
             }
         });
+
 
         endless.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -362,6 +371,7 @@ public void onClick(View v) {
         });
 
     }
+
 
     public Bundle getBundle() {
         return bundle;

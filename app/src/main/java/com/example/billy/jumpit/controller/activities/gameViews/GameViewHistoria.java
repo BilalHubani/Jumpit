@@ -57,8 +57,11 @@ public class GameViewHistoria extends View {
     private List<Character> characterList;
     private int characterIndex = 0;
     private int bitmapIndex = 0;
-    int nivel = R.raw.nivel3;
+    int nivel = R.raw.nivel4;
 
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
 
     private TextView scoreTextView;
 
