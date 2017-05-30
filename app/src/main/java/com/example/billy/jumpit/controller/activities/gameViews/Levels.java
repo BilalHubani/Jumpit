@@ -48,11 +48,6 @@ public class Levels extends LinearLayout {
         super(context, attrs, defStyleAttr);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.levels, this);
-//        image1.setBackgroundResource(R.drawable.nivel1button);
-//        image2.setBackgroundResource(R.drawable.nivel2button);
-//        image3.setBackgroundResource(R.drawable.nivel3button);
-//        image4.setBackgroundResource(R.drawable.nivel4button);
-//        image5.setBackgroundResource(R.drawable.nivel5button);
 
 
         datas = new ArrayList<>();
@@ -66,6 +61,7 @@ public class Levels extends LinearLayout {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleViewLevel);
         recyclerView.setAdapter(new MaterialPaletteAdapterLevels(datas));
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setHorizontalScrollBarEnabled(false);
 
 
     }

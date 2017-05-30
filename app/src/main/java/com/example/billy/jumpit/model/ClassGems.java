@@ -8,6 +8,7 @@ public class ClassGems {
 
     private int foto;
 
+
     public ClassGems(int foto) {
         this.foto = foto;
     }

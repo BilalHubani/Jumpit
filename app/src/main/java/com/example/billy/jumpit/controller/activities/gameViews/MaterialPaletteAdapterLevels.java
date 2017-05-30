@@ -44,6 +44,7 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
         imagenes.add(R.drawable.nivel4button);imagenes.add(R.drawable.nivel5button);
         ClassLevel objecte = data.get(position);
         holder.text.setText("nivel"+position);
+        holder.getImageLevel().setBackgroundResource(imagenes.get(position));
         holder.getImageLevel();
         i = i+1;
     }

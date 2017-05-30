@@ -36,8 +36,12 @@
         class="com.example.billy.jumpit.controller.activities.gameViews.Gems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="90dp"
         android:alpha="1"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
     <ImageButton
         android:id="@+id/exitBtn"

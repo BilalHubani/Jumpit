@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.billy.jumpit.R;
@@ -39,11 +41,8 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
 
     @Override
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
-        imagenes.add(R.drawable.audiooff);imagenes.add(R.drawable.audioon);imagenes.add(R.drawable.carro);
-        imagenes.add(R.drawable.logros);
 
         ClassGems color = data.get(position);
-        holder.getFondo().setBackgroundResource(imagenes.get(position));
         holder.getImagebutton();
     }
 
@@ -58,8 +57,8 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
 
         public PaletteViewHolder(View elementskin) {
             super(elementskin);
-            fondo = (RelativeLayout) itemView.findViewById(R.id.fondo);
-            imagebutton = (Button) itemView.findViewById(R.id.buttongems);
+            ImageView imagen = (ImageView) itemView.findViewById(R.id.photoGemasBuy);
+            imagebutton = (Button) itemView.findViewById(R.id.buttonGems);
 
             imagebutton.setOnClickListener(new View.OnClickListener() {
                 @Override
