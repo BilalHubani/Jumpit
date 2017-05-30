@@ -38,12 +38,25 @@ public class VistaNiveles extends LinearLayout {
         fadeout = AnimationUtils.loadAnimation(context, android.R.anim.fade_out);
         fadeout.setDuration(200);
 
-        ImageButton historia = (ImageButton) findViewById(R.id.btnhistoria);
+        final ImageButton historia = (ImageButton) findViewById(R.id.btnhistoria);
+        final ImageButton endless = (ImageButton) findViewById(R.id.btnendless);
+        final ImageButton exit = (ImageButton) findViewById(R.id.levelExitBtn);
 
         historia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                historia.setVisibility(INVISIBLE);
+                endless.setVisibility(INVISIBLE);
                 vistaHistoria.setVisibility(VISIBLE);
+            }
+        });
+        exit.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                historia.setVisibility(VISIBLE);
+                endless.setVisibility(VISIBLE);
+                vistaHistoria.setVisibility(INVISIBLE);
             }
         });
 

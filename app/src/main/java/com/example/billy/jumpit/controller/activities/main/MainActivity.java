@@ -232,6 +232,8 @@ public void onClick(View v) {
         final ImageButton endless = (ImageButton) findViewById(R.id.btnendless);
         closeShop.setBackgroundResource(R.drawable.buttoncancel);
 
+        final ImageButton exitMenuNivel = (ImageButton)findViewById(R.id.levelMenuExitBtn);
+
 
 
 

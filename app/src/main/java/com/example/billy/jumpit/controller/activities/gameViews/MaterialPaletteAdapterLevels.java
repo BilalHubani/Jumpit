@@ -40,8 +40,8 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
     @Override
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
 
-        imagenes.add(R.drawable.audiooff);imagenes.add(R.drawable.audioon);imagenes.add(R.drawable.carro);
-        imagenes.add(R.drawable.logros);imagenes.add(R.drawable.opciones);
+        imagenes.add(R.drawable.nivel1button);imagenes.add(R.drawable.nivel2button);imagenes.add(R.drawable.nivel3button);
+        imagenes.add(R.drawable.nivel4button);imagenes.add(R.drawable.nivel5button);
         ClassLevel objecte = data.get(position);
         holder.text.setText("nivel"+position);
         holder.getImageLevel();
