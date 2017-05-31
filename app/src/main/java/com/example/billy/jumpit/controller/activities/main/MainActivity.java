@@ -293,6 +293,7 @@ public void onClick(View v) {
                 shopButton.startAnimation(fadeout);
                 shopButton.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.VISIBLE);
+
             }
         });
         exitMenuNivel.setOnClickListener(new View.OnClickListener() {

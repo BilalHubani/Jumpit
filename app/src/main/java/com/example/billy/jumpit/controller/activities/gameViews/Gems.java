@@ -39,7 +39,7 @@ public class Gems extends LinearLayout {
         datas = new ArrayList<>();
         datas.add(new ClassGems(R.drawable.audiooff));
         datas.add(new ClassGems(R.drawable.audioon));
-        datas.add(new ClassGems( R.drawable.audiooff));
+        datas.add(new ClassGems(R.drawable.audiooff));
         datas.add(new ClassGems(R.drawable.audiooff));
 
 
@@ -49,7 +49,7 @@ public class Gems extends LinearLayout {
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setHorizontalScrollBarEnabled(false);
         RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.RecycleViewGEMS2);
-        recyclerView2.setAdapter(new MaterialPaletteAdapterGems(datas, context));
+        recyclerView2.setAdapter(new MaterialPaletteAdapterGems4al8(datas, context));
         //recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView2.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView2.setHorizontalScrollBarEnabled(false);

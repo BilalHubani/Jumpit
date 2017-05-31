@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -20,7 +19,7 @@ import com.example.billy.jumpit.model.ClassGems;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPaletteAdapterGems.PaletteViewHolder> {
+public class MaterialPaletteAdapterGems4al8 extends RecyclerView.Adapter<MaterialPaletteAdapterGems4al8.PaletteViewHolder> {
     private List<ClassGems> data;
     RecyclerView list;
     Context context;
@@ -28,7 +27,7 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
     ArrayList <Integer> imagenes = new ArrayList();
     Button btnskin;
 
-    public MaterialPaletteAdapterGems(@NonNull List<ClassGems> data, Context context) {
+    public MaterialPaletteAdapterGems4al8(@NonNull List<ClassGems> data, Context context) {
         this.data = data;
         this.context = context;
     }
@@ -41,12 +40,12 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
 
     @Override
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
-        imagenes.add(R.drawable.monedabuy1);imagenes.add(R.drawable.monedabuy2);imagenes.add(R.drawable.monedabuy3);
-        imagenes.add(R.drawable.monedabuy4);
+        imagenes.add(R.drawable.monedabuy5);imagenes.add(R.drawable.monedabuy6);
+        imagenes.add(R.drawable.monedabuy7);imagenes.add(R.drawable.monedabuy8);
         ClassGems color = data.get(position);
-        holder.getImagebutton();
         holder.getImagen();
         holder.getImagen().setImageResource(imagenes.get(position));
+        holder.getImagebutton();
     }
 
     @Override
@@ -71,7 +70,7 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                     builder.setMessage("Quieres confirmar la compra?")
-                            .setTitle("Compra1:");
+                            .setTitle("Compra2:");
                     builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             // User clicked OK button
