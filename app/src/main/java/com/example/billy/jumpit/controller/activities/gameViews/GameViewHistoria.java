@@ -108,6 +108,7 @@ public class GameViewHistoria extends View {
             if (bitmapSet == null) return;
             if (pokemonBitmapSet == null) return;
             if (dragonBitmapSet == null) return;
+            scene.setPausa(false);
             float sc = getHeight() / (16 * 16f);
             canvas.scale(sc, sc);
             if (jump) {
@@ -130,6 +131,7 @@ public class GameViewHistoria extends View {
             float sc = getHeight() / (16 * 16f);
             canvas.scale(sc, sc);
             scene.draw(canvas);
+            scene.setPausa(true);
 //            bonk.draw(canvas);
 //            character.draw(canvas);
             dragonSkin.draw(canvas);
@@ -143,6 +145,7 @@ public class GameViewHistoria extends View {
             public void onClick(View v) {
 
                 if (paused){
+
                     vel = 4;
                     paused = false;
                     pauseButton.setBackgroundResource(ic_media_pause);
@@ -239,6 +242,10 @@ public class GameViewHistoria extends View {
                 stateJumping = false;
                 jumpCounter = 0;
             }
+        }
+
+        if(scene.isWall(r+2, c)){
+            end();
         }
         return true;
     }

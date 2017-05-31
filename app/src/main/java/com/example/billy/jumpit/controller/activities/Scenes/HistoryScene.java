@@ -26,6 +26,7 @@ import java.util.List;
 public class HistoryScene {
     public final static int SCENE_HEIGHT = 16;
     private char scene2[][] = new char[16][30];
+    ArrayList<Integer> bitmapplataformas = new ArrayList();
     private String[] scene;
     private Paint paint;
     private int cont = 0;
@@ -34,10 +35,15 @@ public class HistoryScene {
     private int platformsDistance = 0;
     private TerrenosBitmapSet bitmapSet;
     private String aux;
+    public Boolean pausa = false;
     public HistoryScene(GameViewHistoria game) {
         this.game = game;
         this.bitmapSet = game.getTerrenosBitmapSet();
         paint = new Paint();
+
+        bitmapplataformas.add(5);
+        bitmapplataformas.add(4);
+        bitmapplataformas.add(3);
     }
     public void load(int resource) {
         // load scene
@@ -68,14 +74,24 @@ public class HistoryScene {
         if (s == '>') return true;
         return false;
     }
+    public boolean isWall(int y, int x) {
+        if (y >= 16)
+            return false;
+        if (y<0){
+            return false;
+        }
+        char s = scene[y].charAt(x);
+        if (s == '#') return true;
+        return false;
+    }
 
     public int getBitmap(int r, int c) {
         char e = scene[r].charAt(c);
         int i = -1;
         switch (e) {
-            case '<': i = 5; break;
-            case '-': i = 4; break;
-            case '>': i = 3; break;
+            case '<': i = bitmapplataformas.get(0); break;
+            case '-': i = bitmapplataformas.get(1); break;
+            case '>': i = bitmapplataformas.get(2); break;
             case '[': i = 5; break;
             case '#': i = 15; break;
             case ']': i = 5; break;
@@ -99,13 +115,13 @@ public class HistoryScene {
                         bitmap = bitmapSet.getBitmap(15);
                         break;
                     case '-':
-                        bitmap = bitmapSet.getBitmap(4);
+                        bitmap = bitmapSet.getBitmap(bitmapplataformas.get(1));
                         break;
                     case '>':
-                        bitmap = bitmapSet.getBitmap(3);
+                        bitmap = bitmapSet.getBitmap(bitmapplataformas.get(2));
                         break;
                     case '<':
-                        bitmap = bitmapSet.getBitmap(5);
+                        bitmap = bitmapSet.getBitmap(bitmapplataformas.get(0));
                         break;
                     case '#':
                         bitmap = bitmapSet.getBitmap(15);
@@ -121,8 +137,18 @@ public class HistoryScene {
     }
 
     public void updateMap() {
-        for (int i = 0; i < 16; i++) {
-            scene[i] = scene[i].substring(1);
+        if(!pausa) {
+            for (int i = 0; i < 16; i++) {
+                scene[i] = scene[i].substring(1);
+            }
         }
+    }
+
+    public Boolean getPausa() {
+        return pausa;
+    }
+
+    public void setPausa(Boolean pausa) {
+        this.pausa = pausa;
     }
 }

@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapterLevels;
+import com.example.billy.jumpit.controller.activities.main.MainActivity;
 import com.example.billy.jumpit.model.ClassLevel;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class Levels extends LinearLayout {
     private ImageButton image3;
     private ImageButton image4;
     private ImageButton image5;
+
 
     private TextView text1;
     private TextView text2;
@@ -49,7 +51,6 @@ public class Levels extends LinearLayout {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.levels, this);
 
-
         datas = new ArrayList<>();
         datas.add(new ClassLevel("nivell1", image1, text1));
         datas.add(new ClassLevel("nivell2", image2, text2));
@@ -65,4 +66,5 @@ public class Levels extends LinearLayout {
 
 
     }
+
 }
