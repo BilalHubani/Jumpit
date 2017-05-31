@@ -38,9 +38,6 @@ public class PowerUp extends LinearLayout {
         datas = new ArrayList<>();
         datas.add(new ClassPowerUp("pepe", R.drawable.audiooff, "EL PUTO AMO"));
         datas.add(new ClassPowerUp("quim", R.drawable.audioon, " Te hace ser dios en el rocketleage"));
-        datas.add(new ClassPowerUp("adrian", R.drawable.audiooff, "ES GOROOOOOOOOO"));
-        datas.add(new ClassPowerUp("bily", R.drawable.audiooff, "GOD WITH XERATH"));
-        datas.add(new ClassPowerUp("sheila", R.drawable.audiooff, "YOLO POWER"));
 
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleViewPU);

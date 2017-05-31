@@ -28,6 +28,10 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
     RecyclerView list;
     Context context;
     ArrayList<Integer> imagenes = new ArrayList();
+    ArrayList<String> precioGold = new ArrayList();
+    ArrayList<String> precioDonator = new ArrayList();
+    ArrayList<String> descripcion = new ArrayList();
+    ArrayList<String> nombre = new ArrayList();
     Button btnskin;
     int i = 0;
 
@@ -44,15 +48,33 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
 
     @Override
     public void onBindViewHolder(MaterialPaletteAdapterPU.PaletteViewHolder holder, int position) {
-        imagenes.add(R.drawable.audiooff);imagenes.add(R.drawable.audioon);imagenes.add(R.drawable.carro);
-        imagenes.add(R.drawable.logros);imagenes.add(R.drawable.opciones);
+        nombre.add("Voladoras");
+        nombre.add("Rapidisimas");
+
+        imagenes.add(R.drawable.zapatasrojasvoladoras);
+        imagenes.add(R.drawable.zapatasrojasboost);
+
+        precioGold.add("300");
+        precioGold.add("350");
+
+        precioDonator.add("100");
+        precioDonator.add("125");
+
+
+        descripcion.add("Con estas zapatillas puedes saltar más alto");
+        descripcion.add("Con estas monstruosas zapas puedes correr más");
 
         ClassPowerUp color = data.get(position);
-        holder.getTitleTextView().setText(color.getNombre());
-        holder.getImageskin().setImageResource(imagenes.get(i));
-//        holder.getTextPowerUp().setText(color.getDescripcion());
-        holder.getBtnpowerup();
-        i = i+1;
+
+        holder.getTitleTextView().setText(nombre.get(position));
+
+        holder.getImageskin().setImageResource(imagenes.get(position));
+
+        holder.getTextPowerUp().setText(descripcion.get(position));
+
+        holder.getBtnGoldPowerUp().setText(precioGold.get(position));
+
+        holder.getBtnDonatorPowerUp().setText(precioDonator.get(position));
     }
 
     @Override
@@ -63,18 +85,22 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
     class PaletteViewHolder extends RecyclerView.ViewHolder {
         private TextView titleTextView;
         private ImageView imagePowerUp;
-        private TextView textPowerUp;
-        private Button btnpowerup;
+        private TextView textPowerUp, goldText, donatorText;
+        private Button btnGoldPowerUp;
+        private Button btnDonatorPowerUp;
 
 
         public PaletteViewHolder(View elementskin) {
             super(elementskin);
             titleTextView = (TextView) elementskin.findViewById(R.id.namepowerup);
             imagePowerUp = (ImageView) elementskin.findViewById(R.id.photopowerup);
-//            textPowerUp = (TextView) elementskin.findViewById(R.id.textpowerup);
-            btnpowerup = (Button) elementskin.findViewById(R.id.buttonGoldShop);
+            textPowerUp = (TextView) elementskin.findViewById(R.id.textDescripcio);
+            goldText = (TextView) elementskin.findViewById(R.id.dineroDonatorShop);
+            donatorText = (TextView) elementskin.findViewById(R.id.dineroGoldShop);
+            btnGoldPowerUp = (Button) elementskin.findViewById(R.id.buttonGoldShop);
+            btnDonatorPowerUp = (Button) elementskin.findViewById(R.id.buttonDonatorShop);
 
-            btnpowerup.setOnClickListener(new View.OnClickListener() {
+            btnGoldPowerUp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("pep", ".........................................");
@@ -82,7 +108,33 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                     builder.setMessage("Quieres confirmar la compra?")
-                            .setTitle("Compra:");
+                            .setTitle("Compra oro:");
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // User clicked OK button
+                        }
+                    });
+                    builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
+
+                }
+            });
+
+            btnDonatorPowerUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("pep", ".........................................");
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                    builder.setMessage("Quieres confirmar la compra?")
+                            .setTitle("Compra donator:");
                     builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             // User clicked OK button
@@ -113,10 +165,53 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
             return textPowerUp;
         }
 
-        public Button getBtnpowerup() {
-            return btnpowerup;
+        public Button getBtnGoldPowerUp() {
+            return btnGoldPowerUp;
         }
 
+        public void setBtnGoldPowerUp(Button btnGoldPowerUp) {
+            this.btnGoldPowerUp = btnGoldPowerUp;
+        }
+
+        public Button getBtnDonatorPowerUp() {
+            return btnDonatorPowerUp;
+        }
+
+        public void setBtnDonatorPowerUp(Button btnDonatorPowerUp) {
+            this.btnDonatorPowerUp = btnDonatorPowerUp;
+        }
+
+        public void setTitleTextView(TextView titleTextView) {
+            this.titleTextView = titleTextView;
+        }
+
+        public ImageView getImagePowerUp() {
+            return imagePowerUp;
+        }
+
+        public void setImagePowerUp(ImageView imagePowerUp) {
+            this.imagePowerUp = imagePowerUp;
+        }
+
+        public void setTextPowerUp(TextView textPowerUp) {
+            this.textPowerUp = textPowerUp;
+        }
+
+        public TextView getGoldText() {
+            return goldText;
+        }
+
+        public void setGoldText(TextView goldText) {
+            this.goldText = goldText;
+        }
+
+        public TextView getDonatorText() {
+            return donatorText;
+        }
+
+        public void setDonatorText(TextView donatorText) {
+            this.donatorText = donatorText;
+        }
     }
 
 

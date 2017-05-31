@@ -59,14 +59,42 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
     class PaletteViewHolder extends RecyclerView.ViewHolder {
         private TextView titleTextView;
         private ImageView imageskin;
+        private Button btnGoldPowerUp;
+        private Button btnDonatorPowerUp;
 
         public PaletteViewHolder(View elementskin) {
             super(elementskin);
             titleTextView = (TextView) elementskin.findViewById(R.id.nameskin);
             imageskin = (ImageView) elementskin.findViewById(R.id.photoskin);
-            btnskin = (Button) elementskin.findViewById(R.id.buttonGoldShop);
+            btnGoldPowerUp = (Button) elementskin.findViewById(R.id.buttonGoldShop);
+            btnDonatorPowerUp = (Button) elementskin.findViewById(R.id.buttonDonatorShop);
 
-            btnskin.setOnClickListener(new View.OnClickListener() {
+            btnGoldPowerUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                    builder.setMessage("Quieres confirmar la compra?")
+                            .setTitle("Compra gold:");
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // User clicked OK button
+                        }
+                    });
+                    builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
+
+                }
+            });
+            btnDonatorPowerUp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("pep", ".........................................");
@@ -74,7 +102,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                     builder.setMessage("Quieres confirmar la compra?")
-                            .setTitle("Compra:");
+                            .setTitle("Compra donator:");
                     builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             // User clicked OK button
