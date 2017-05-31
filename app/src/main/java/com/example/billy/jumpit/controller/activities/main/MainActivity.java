@@ -223,7 +223,6 @@ public void onClick(View v) {
         vistaTienda = (View)findViewById(R.id.shopView);
         menuniveles = (View)findViewById(R.id.vistaNiveles);
         //final GameView gameView = (GameView) findViewById(R.id.view4);
-//        final GameView gameView = (GameView) findViewById(R.id.view4);
         final GameViewHistoria gameView = (GameViewHistoria) findViewById(R.id.viewGameHistoria);
         final View mainMenuView = (View)findViewById(R.id.view);
         final ImageButton pause = (ImageButton)findViewById(R.id.pause);

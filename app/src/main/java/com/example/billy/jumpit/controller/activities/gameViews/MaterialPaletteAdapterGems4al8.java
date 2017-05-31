@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.model.ClassGems;
@@ -25,6 +26,7 @@ public class MaterialPaletteAdapterGems4al8 extends RecyclerView.Adapter<Materia
     Context context;
     RelativeLayout fondo;
     ArrayList <Integer> imagenes = new ArrayList();
+    ArrayList <String> euros = new ArrayList();
     Button btnskin;
 
     public MaterialPaletteAdapterGems4al8(@NonNull List<ClassGems> data, Context context) {
@@ -42,6 +44,8 @@ public class MaterialPaletteAdapterGems4al8 extends RecyclerView.Adapter<Materia
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
         imagenes.add(R.drawable.monedabuy5);imagenes.add(R.drawable.monedabuy6);
         imagenes.add(R.drawable.monedabuy7);imagenes.add(R.drawable.monedabuy8);
+        euros.add("2 €");euros.add("3 €");euros.add("4 €");euros.add("5 €");
+        holder.getTextView().setText(euros.get(position));
         ClassGems color = data.get(position);
         holder.getImagen();
         holder.getImagen().setImageResource(imagenes.get(position));
@@ -56,11 +60,22 @@ public class MaterialPaletteAdapterGems4al8 extends RecyclerView.Adapter<Materia
     class PaletteViewHolder extends RecyclerView.ViewHolder {
         private ImageView imagen;
         private Button imagebutton;
+        private TextView textView;
+
+        public TextView getTextView() {
+            return textView;
+        }
+
+        public void setTextView(TextView textView) {
+            this.textView = textView;
+        }
+
 
         public PaletteViewHolder(View elementskin) {
             super(elementskin);
             imagen = (ImageView) elementskin.findViewById(R.id.photoGemasBuy);
             imagebutton = (Button) elementskin.findViewById(R.id.buttonGems);
+            textView = (TextView) elementskin.findViewById(R.id.eurosBuy);
 
             imagebutton.setOnClickListener(new View.OnClickListener() {
                 @Override

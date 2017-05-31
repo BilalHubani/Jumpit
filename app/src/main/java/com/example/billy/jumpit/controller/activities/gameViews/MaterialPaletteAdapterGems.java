@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.model.ClassGems;
@@ -27,6 +28,7 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
     RelativeLayout fondo;
     ArrayList <Integer> imagenes = new ArrayList();
     Button btnskin;
+    ArrayList <String> euros = new ArrayList();
 
     public MaterialPaletteAdapterGems(@NonNull List<ClassGems> data, Context context) {
         this.data = data;
@@ -43,6 +45,8 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
         imagenes.add(R.drawable.monedabuy1);imagenes.add(R.drawable.monedabuy2);imagenes.add(R.drawable.monedabuy3);
         imagenes.add(R.drawable.monedabuy4);
+        euros.add("0,5 €");euros.add("0,75 €");euros.add("1 €");euros.add("1,5 €");
+        holder.getTextView().setText(euros.get(position));
         ClassGems color = data.get(position);
         holder.getImagebutton();
         holder.getImagen();
@@ -57,11 +61,13 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
     class PaletteViewHolder extends RecyclerView.ViewHolder {
         private ImageView imagen;
         private Button imagebutton;
+        private TextView textView;
 
         public PaletteViewHolder(View elementskin) {
             super(elementskin);
             imagen = (ImageView) elementskin.findViewById(R.id.photoGemasBuy);
             imagebutton = (Button) elementskin.findViewById(R.id.buttonGems);
+            textView = (TextView) elementskin.findViewById(R.id.eurosBuy);
 
             imagebutton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -90,6 +96,14 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
             });
         }
 
+
+        public TextView getTextView() {
+            return textView;
+        }
+
+        public void setTextView(TextView textView) {
+            this.textView = textView;
+        }
         public ImageView getImagen() {
             return imagen;
         }
