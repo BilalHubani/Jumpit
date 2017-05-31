@@ -22,8 +22,8 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
     private List<ClassLevel> data;
     RecyclerView list;
     //private User player = new User();
-    Context context;
     GameViewHistoria gameViewHistoria;
+    Context context;
     ArrayList <Integer> imagenes = new ArrayList();
     int i = 0;
 
@@ -63,11 +63,12 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
             super(elementskin);
             imageLevel = (ImageButton) elementskin.findViewById(R.id.photolevel);
             text = (TextView) elementskin.findViewById(R.id.textlevelid);
+            gameViewHistoria = new GameViewHistoria(context,R.raw.nivel0);
             imageLevel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(text.getText().toString().equalsIgnoreCase("nivel0")){
-                        new GameViewHistoria(context,R.raw.nivel0);
+
 
                     }else if(text.getText().toString().equalsIgnoreCase("nivel0")){
                         gameViewHistoria.setNivel(R.raw.nivel1);
@@ -82,6 +83,7 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
                         gameViewHistoria.setNivel(R.raw.nivel0);
 
                     }
+                    gameViewHistoria.setVisibility(View.VISIBLE);
                 }
             });
 
@@ -94,4 +96,11 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
 
     }
 
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
 }

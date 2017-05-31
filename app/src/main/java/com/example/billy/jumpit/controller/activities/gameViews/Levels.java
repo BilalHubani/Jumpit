@@ -35,7 +35,7 @@ public class Levels extends LinearLayout {
     private TextView text4;
     private TextView text5;
 
-
+    private MaterialPaletteAdapterLevels materialPaletteAdapterLevels;
     public Levels(Context context) {
         this(context, null, 0);
     }
@@ -57,9 +57,10 @@ public class Levels extends LinearLayout {
         datas.add(new ClassLevel("nivell4", image4, text4));
         datas.add(new ClassLevel("nivell5", image5, text5));
 
-
+        materialPaletteAdapterLevels = new MaterialPaletteAdapterLevels(datas);
+        materialPaletteAdapterLevels.setContext(getContext());
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleViewLevel);
-        recyclerView.setAdapter(new MaterialPaletteAdapterLevels(datas));
+        recyclerView.setAdapter(materialPaletteAdapterLevels);
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setHorizontalScrollBarEnabled(false);
 
