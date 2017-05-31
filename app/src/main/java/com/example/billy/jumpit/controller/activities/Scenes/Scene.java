@@ -23,9 +23,9 @@ public class Scene {
 
     private int sceneWidth, sceneHeight;
 
-    private static final String sceneChars = "-.<>s";  // CANVIAR
+    private static final String sceneChars = "-.<>#s";  // CANVIAR
     private static final int[] sceneIndexes =
-            new int[] { 36, 23,36, 36 };  // CANVIAR
+            new int[] { 36, 23,36, 36, 36 };  // CANVIAR
 
     public Scene(GameViewHistoria game) {
         this.game = game;
@@ -71,7 +71,7 @@ public class Scene {
         if (c < 0) return false;
         if (c >= sceneWidth) return false;
         char sc = scene[r].charAt(c);
-        return ("[#]".indexOf(sc) != -1);
+        return ("[#]#".indexOf(sc) != -1);
     }
 
     public int getSceneWidth() { return sceneWidth; }

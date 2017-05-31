@@ -81,6 +81,7 @@ public class HistoryScene {
             return false;
         }
         char s = scene[y].charAt(x);
+        Log.e("-------->>>", "s: " + s+" y:"+y+" x:"+x);
         if (s == '#') return true;
         return false;
     }
@@ -93,7 +94,7 @@ public class HistoryScene {
             case '-': i = bitmapplataformas.get(1); break;
             case '>': i = bitmapplataformas.get(2); break;
             case '[': i = 5; break;
-            case '#': i = 15; break;
+            case '#': i = bitmapplataformas.get(1); break;
             case ']': i = 5; break;
             case '|': i = 5; break;
             case '{': i = 5; break;
@@ -124,7 +125,7 @@ public class HistoryScene {
                         bitmap = bitmapSet.getBitmap(bitmapplataformas.get(0));
                         break;
                     case '#':
-                        bitmap = bitmapSet.getBitmap(15);
+                        bitmap = bitmapSet.getBitmap(bitmapplataformas.get(1));
                         break;
                     default:
                         bitmap = bitmapSet.getBitmap(23);

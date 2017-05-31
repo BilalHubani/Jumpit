@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -59,7 +60,7 @@ public class GameViewHistoria extends View {
     private List<Character> characterList;
     private int characterIndex = 0;
     private int bitmapIndex = 3;
-    int nivel = R.raw.nivel3;
+    int nivel = R.raw.nivel0;
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
@@ -72,7 +73,7 @@ public class GameViewHistoria extends View {
     }
 
     public GameViewHistoria(Context context, AttributeSet attrs) {
-        this(context, attrs, 0, R.raw.nivel3);
+        this(context, attrs, 0, R.raw.nivel0);
     }
 
     public GameViewHistoria(Context context, AttributeSet attrs, int defStyleAttr, int nivel) {
@@ -245,6 +246,8 @@ public class GameViewHistoria extends View {
         }
 
         if(scene.isWall(r+2, c)){
+            Log.e("-------->>>", "hola");
+            paused = true;
             end();
         }
         return true;
