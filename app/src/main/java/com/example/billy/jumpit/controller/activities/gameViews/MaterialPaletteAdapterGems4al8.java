@@ -76,6 +76,7 @@ public class MaterialPaletteAdapterGems4al8 extends RecyclerView.Adapter<Materia
             imagen = (ImageView) elementskin.findViewById(R.id.photoGemasBuy);
             imagebutton = (Button) elementskin.findViewById(R.id.buttonGems);
             textView = (TextView) elementskin.findViewById(R.id.eurosBuy);
+            //probando
 
             imagebutton.setOnClickListener(new View.OnClickListener() {
                 @Override
