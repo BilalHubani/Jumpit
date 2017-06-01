@@ -23,7 +23,6 @@ import com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria
 import com.example.billy.jumpit.controller.activities.gameViews.Levels;
 import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapter;
 import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapterLevels;
-import com.example.billy.jumpit.model.UserCustomAtributs;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -229,9 +228,10 @@ public void onClick(View v) {
         final ImageButton pause = (ImageButton)findViewById(R.id.pause);
         reloadEndless = (ImageButton)findViewById(R.id.reloadEndless);
         goHome = (ImageButton)findViewById(R.id.goHome);
-        //pushing
         final ImageButton endless = (ImageButton) findViewById(R.id.btnendless);
         closeShop.setBackgroundResource(R.drawable.buttoncancel);
+        //final ImageView titulo = (ImageView)findViewById(R.id.tituloimagen);
+
         final ImageButton exitMenuNivel = (ImageButton)findViewById(R.id.levelMenuExitBtn);
 
 
@@ -293,6 +293,7 @@ public void onClick(View v) {
                 shopButton.startAnimation(fadeout);
                 shopButton.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.VISIBLE);
+//                titulo.setVisibility(View.INVISIBLE);
 
             }
         });
@@ -319,6 +320,7 @@ public void onClick(View v) {
                 shopButton.startAnimation(fadeout);
                 shopButton.setVisibility(View.VISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
+//                titulo.setVisibility(View.VISIBLE);
             }
         });
 
@@ -369,6 +371,7 @@ public void onClick(View v) {
                 title.setVisibility(View.INVISIBLE);
                 signInButton.setVisibility(View.INVISIBLE);
                 GemsLinearLayout.setVisibility(View.INVISIBLE);
+//                titulo.setVisibility(View.INVISIBLE);
 
 
 
@@ -386,6 +389,7 @@ public void onClick(View v) {
                 title.setVisibility(View.VISIBLE);
                 signInButton.setVisibility(View.VISIBLE);
                 GemsLinearLayout.setVisibility(View.VISIBLE);
+//                titulo.setVisibility(View.VISIBLE);
             }
         });
 //crear listener de las opciones
