@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 import com.example.billy.jumpit.model.BitmapSet;
+import com.example.billy.jumpit.model.TerrenosBitmapSet;
 
 /**
  * Created by dam on 20/3/17.
@@ -13,10 +14,10 @@ import com.example.billy.jumpit.model.BitmapSet;
 public class MainMenuBackgroundScene {
     private char scene[][] = new char[16][30];
     private Paint paint;
-    private BitmapSet bitmapSet;
+    private TerrenosBitmapSet bitmapSet;
     private int cont = 0;
 
-    public MainMenuBackgroundScene(BitmapSet bitmapSet) {
+    public MainMenuBackgroundScene(TerrenosBitmapSet bitmapSet) {
         this.bitmapSet = bitmapSet;
         this.scene = initiateMap(scene);
         paint = new Paint();
@@ -39,9 +40,9 @@ public class MainMenuBackgroundScene {
             for(int x = 0; x < 30; x++) {
                 Bitmap bitmap;
                 switch(scene[y][x]) {
-                    case '.': bitmap = bitmapSet.getBitmap(23); break;
-                    case '-': bitmap = bitmapSet.getBitmap(45); break;
-                    default: bitmap = bitmapSet.getBitmap(23); break;
+                    case '.': bitmap = bitmapSet.getBitmap(15); break;
+                    case '-': bitmap = bitmapSet.getBitmap(4); break;
+                    default: bitmap = bitmapSet.getBitmap(15); break;
                 }
                 canvas.drawBitmap(bitmap, x*16-cont, y*16, paint);
             }

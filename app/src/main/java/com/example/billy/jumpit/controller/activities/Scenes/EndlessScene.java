@@ -48,13 +48,13 @@ public class EndlessScene {
                 Bitmap bitmap;
                 switch (scene[y][x]) {
                     case '.':
-                        bitmap = bitmapSet.getBitmap(23);
+                        bitmap = bitmapSet.getBitmap(15);
                         break;
                     case '-':
-                        bitmap = bitmapSet.getBitmap(45);
+                        bitmap = bitmapSet.getBitmap(4);
                         break;
                     default:
-                        bitmap = bitmapSet.getBitmap(23);
+                        bitmap = bitmapSet.getBitmap(15);
                         break;
                 }
                 canvas.drawBitmap(bitmap, x * 16 - cont, y * 16, paint);

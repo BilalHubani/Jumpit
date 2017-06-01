@@ -17,6 +17,7 @@ import com.example.billy.jumpit.model.Character;
 import com.example.billy.jumpit.model.DragonBitmapSet;
 import com.example.billy.jumpit.model.DragonSkin;
 import com.example.billy.jumpit.model.PokemonBitmapSet;
+import com.example.billy.jumpit.model.TerrenosBitmapSet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,7 @@ public class GameView extends View {
     private BitmapSet bitmapSet;
     private PokemonBitmapSet pokemonBitmapSet;
     private DragonBitmapSet dragonBitmapSet;
+    private TerrenosBitmapSet terrenosBitmapSet;
     private EndlessScene endlessScene;
     private Bonk bonk;
     private DragonSkin dragonSkin;
@@ -54,7 +56,7 @@ public class GameView extends View {
     private List<BitmapSet> bitmapSetList;
     private List<Character> characterList;
     private int characterIndex = 0;
-    private int bitmapIndex = 0;
+    private int bitmapIndex = 3;
 
 
     private TextView scoreTextView;
@@ -75,9 +77,11 @@ public class GameView extends View {
         bitmapSet = new BitmapSet(this.getResources());
         pokemonBitmapSet = new PokemonBitmapSet(this.getResources());
         dragonBitmapSet = new DragonBitmapSet(this.getResources());
+        terrenosBitmapSet = new TerrenosBitmapSet(this.getResources());
         bitmapSetList.add(bitmapSet);
         bitmapSetList.add(pokemonBitmapSet);
         bitmapSetList.add(dragonBitmapSet);
+        bitmapSetList.add(terrenosBitmapSet);
         endlessScene = new EndlessScene(bitmapSetList.get(bitmapIndex));
         bonk = new Bonk(bitmapSetList.get(bitmapIndex));
 //        character = new Character(pokemonBitmapSet);

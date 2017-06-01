@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.billy.jumpit.controller.activities.Scenes.MainMenuBackgroundScene;
 import com.example.billy.jumpit.model.BitmapSet;
 import com.example.billy.jumpit.model.Bonk;
+import com.example.billy.jumpit.model.TerrenosBitmapSet;
 
 /**
  * Created by dam on 20/3/17.
@@ -16,6 +17,7 @@ import com.example.billy.jumpit.model.Bonk;
 
 public class  MainMenuView extends View {
     private BitmapSet bitmapSet;
+    private TerrenosBitmapSet terrenosBitmapSet;
     private MainMenuBackgroundScene mainMenuBackgroundScene;
     private Bonk bonk;
     private boolean jump = false;
@@ -31,7 +33,8 @@ public class  MainMenuView extends View {
     public MainMenuView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         bitmapSet = new BitmapSet(this.getResources());
-        mainMenuBackgroundScene = new MainMenuBackgroundScene(bitmapSet);
+        terrenosBitmapSet = new TerrenosBitmapSet(this.getResources());
+        mainMenuBackgroundScene = new MainMenuBackgroundScene(terrenosBitmapSet);
         bonk = new Bonk(bitmapSet);
     }
 
