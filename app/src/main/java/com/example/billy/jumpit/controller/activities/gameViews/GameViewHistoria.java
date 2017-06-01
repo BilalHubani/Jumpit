@@ -244,8 +244,9 @@ public class GameViewHistoria extends View {
                 jumpCounter = 0;
             }
         }
-
-        if(scene.isWall(r+2, c)){
+            Log.e("R: ", ""+r );
+            Log.e("C: ", ""+c);
+        if(scene.isWall(r, c+20)){
             Log.e("-------->>>", "hola");
             paused = true;
             end();
