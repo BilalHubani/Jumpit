@@ -1,6 +1,7 @@
 package com.example.billy.jumpit.controller.activities.gameViews;
 
 import android.content.Context;
+import android.content.*;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
@@ -71,6 +72,7 @@ public class GameView extends View {
 
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
 // Arraylist de bitmaps
         bitmapSetList = new ArrayList<>();
 // Declaramos y añadimos bitmaps al array
@@ -265,6 +267,7 @@ public class GameView extends View {
                 reload.setVisibility(INVISIBLE);
             }
         });
+
     }
 
     public TextView getScoreTextView() {
