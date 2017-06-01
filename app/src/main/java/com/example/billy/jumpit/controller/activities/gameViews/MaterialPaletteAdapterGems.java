@@ -29,7 +29,6 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
     ArrayList <Integer> imagenes = new ArrayList();
     Button btnskin;
     ArrayList <String> euros = new ArrayList();
-
     public MaterialPaletteAdapterGems(@NonNull List<ClassGems> data, Context context) {
         this.data = data;
         this.context = context;
@@ -43,7 +42,7 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
 
     @Override
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
-        imagenes.add(R.drawable.monedabuy1);imagenes.add(R.drawable.monedabuy2);imagenes.add(R.drawable.monedabuy3);
+        imagenes.add(R.drawable.monedabuy1);imagenes.add(R.drawable.monedabuy1);imagenes.add(R.drawable.monedabuy3);
         imagenes.add(R.drawable.monedabuy4);
         euros.add("0,5 €");euros.add("0,75 €");euros.add("1 €");euros.add("1,5 €");
         holder.getTextView().setText(euros.get(position));
@@ -72,17 +71,27 @@ public class MaterialPaletteAdapterGems extends RecyclerView.Adapter<MaterialPal
             imagebutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("pep", ".........................................");
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                    builder.setMessage("Quieres confirmar la compra?")
-                            .setTitle("Compra1:");
-                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User clicked OK button
-                        }
-                    });
+
+                    if(getTextView().equals("0,5 €")){
+                        builder.setMessage("Quieres confirmar la compra de 100 gemas?")
+                                .setTitle("Compra1:");
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                            }
+                        });
+                    }else{
+                        builder.setMessage("Quieres confirmar la compra de 150 gemas?")
+                                .setTitle("Compra1:");
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                            }
+                        });
+                    }
                     builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();

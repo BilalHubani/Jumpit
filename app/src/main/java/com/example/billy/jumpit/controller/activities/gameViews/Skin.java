@@ -50,7 +50,7 @@ public class Skin extends LinearLayout {
         datas.add(new ClassSkin("sheila", R.drawable.audiooff));
         //vistaShowSkin = (View) findViewById(R.id.showskin);
         //vistaShowSkin = (View) findViewById(R.id.showskin);
-//trec el comentari
+//el quim ha posat un comentari
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
         recyclerView.setAdapter(new MaterialPaletteAdapter(datas, context));
