@@ -106,14 +106,24 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
                     Log.d("pep", ".........................................");
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-                    builder.setMessage("Quieres confirmar la compra?")
-                            .setTitle("Compra oro:");
-                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User clicked OK button
-                        }
-                    });
+                    if(titleTextView.getText().equals("Voladoras")){
+                        builder.setMessage("Quieres confirmar la compra con monedas de oro?")
+                                .setTitle("Comprar PowerUp de volar:");
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                            }
+                        });
+                    }
+                    if(titleTextView.getText().equals("Rapidisimas")){
+                        builder.setMessage("Quieres confirmar la compra con monedas de oro?")
+                                .setTitle("Comprar PowerUp de ir rapidisimo:");
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                            }
+                        });
+                    }
                     builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
@@ -133,13 +143,24 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                    builder.setMessage("Quieres confirmar la compra?")
-                            .setTitle("Compra donator:");
-                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User clicked OK button
-                        }
-                    });
+                    if(titleTextView.getText().equals("Voladoras")){
+                        builder.setMessage("Quieres confirmar la compra con monedas Donator?")
+                                .setTitle("Comprar PowerUp de volar:");
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                            }
+                        });
+                    }
+                    if(titleTextView.getText().equals("Rapidisimas")){
+                        builder.setMessage("Quieres confirmar la compra con monedas Donator?")
+                                .setTitle("Comprar PowerUp de ir rapidisimo:");
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                            }
+                        });
+                    }
                     builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();

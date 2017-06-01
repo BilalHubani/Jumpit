@@ -84,13 +84,39 @@ public class MaterialPaletteAdapterGems4al8 extends RecyclerView.Adapter<Materia
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                    builder.setMessage("Quieres confirmar la compra?")
-                            .setTitle("Compra2:");
-                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User clicked OK button
-                        }
-                    });
+                    if(textView.getText().equals("2 €")){
+                        builder.setMessage("Quieres confirmar la compra de 400 gemas?")
+                                .setTitle("Compra1:");
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                            }
+                        });
+                    }if(textView.getText().equals("3 €")){
+                        builder.setMessage("Quieres confirmar la compra de 600 gemas?")
+                                .setTitle("Compra1:");
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                            }
+                        });
+                    }if(textView.getText().equals("4 €")){
+                        builder.setMessage("Quieres confirmar la compra de 800 gemas?")
+                                .setTitle("Compra1:");
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                            }
+                        });
+                    }if(textView.getText().equals("5 €")){
+                        builder.setMessage("Quieres confirmar la compra de 1000 gemas?")
+                                .setTitle("Compra1:");
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                            }
+                        });
+                    }
                     builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
