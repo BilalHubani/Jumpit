@@ -72,20 +72,32 @@
         android:textColor="@android:color/white"
         android:textSize="14sp" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_alignBottom="@+id/view2"
+        android:layout_alignEnd="@+id/optionsButton"
+        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginStart="21dp"
+        android:background="@drawable/tituloletitjump"
+        android:visibility="visible"
+        app:srcCompat="@drawable/tituloletitjump" />
+
     <TextView
-        android:text="Let it Jump!"
+        android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Title"
-        android:textStyle="normal|bold"
-        android:textSize="36sp"
-        android:fontFamily="casual"
-        android:layout_marginBottom="14dp"
-        android:layout_marginRight="14dp"
-        android:layout_marginEnd="14dp"
         android:layout_above="@+id/play"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
         android:layout_toLeftOf="@+id/play"
-        android:layout_toStartOf="@+id/play" />
+        android:layout_toStartOf="@+id/play"
+        android:fontFamily="casual"
+        android:textSize="36sp"
+        android:textStyle="normal|bold" />
 
     <ImageButton
         android:layout_width="50dp"
