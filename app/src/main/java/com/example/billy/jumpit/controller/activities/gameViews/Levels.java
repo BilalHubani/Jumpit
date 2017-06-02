@@ -8,6 +8,7 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
@@ -23,21 +24,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Levels extends LinearLayout {
-    private List<ClassLevel> datas;
-    private ImageButton image1;
-    private ImageButton image2;
-    private ImageButton image3;
-    private ImageButton image4;
-    private ImageButton image5;
+    private ImageButton primerNivel;
+    private ImageButton segundoNivel;
+    private ImageButton tercerNivel;
+    private ImageButton cuartoNivel;
+    private ImageButton quintoNivel;
 
-
-    private TextView text1;
-    private TextView text2;
-    private TextView text3;
-    private TextView text4;
-    private TextView text5;
-
-    private MaterialPaletteAdapterLevels materialPaletteAdapterLevels;
     public Levels(Context context) {
         this(context, null, 0);
     }
@@ -50,22 +42,43 @@ public class Levels extends LinearLayout {
         super(context, attrs, defStyleAttr);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.levels, this);
-
-        datas = new ArrayList<>();
-        datas.add(new ClassLevel("nivell1", image1, text1));
-        datas.add(new ClassLevel("nivell2", image2, text2));
-        datas.add(new ClassLevel("nivell3", image3, text3));
-        datas.add(new ClassLevel("nivell4", image4, text4));
-        datas.add(new ClassLevel("nivell5", image5, text5));
-
-        materialPaletteAdapterLevels = new MaterialPaletteAdapterLevels(datas);
-        materialPaletteAdapterLevels.setContext(getContext());
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleViewLevel);
-        recyclerView.setAdapter(materialPaletteAdapterLevels);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-        recyclerView.setHorizontalScrollBarEnabled(false);
-
-
+        primerNivel = (ImageButton) findViewById(R.id.primerNivel);
+        segundoNivel  = (ImageButton)findViewById(R.id.segundoNivel);
+        tercerNivel  = (ImageButton)findViewById(R.id.tercerNivel);
+        cuartoNivel  = (ImageButton)findViewById(R.id.cuartoNivel);
+        quintoNivel  = (ImageButton)findViewById(R.id.quintoNivel);
+        levels();
     }
-
+    public void levels(){
+        primerNivel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("entra","1");
+            }
+        });
+        segundoNivel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("entra","2");
+            }
+        });
+        tercerNivel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("entra","3");
+            }
+        });
+        cuartoNivel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("entra","4");
+            }
+        });
+        quintoNivel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("entra","5");
+            }
+        });
+    }
 }

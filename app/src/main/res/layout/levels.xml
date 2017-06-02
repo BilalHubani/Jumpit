@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/vistaLevel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,27 +22,56 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/buttoncancel" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/RecycleViewLevel"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="52dp"
-            android:scrollbarStyle="outsideInset"
-            android:scrollbars="horizontal">
+        <ImageButton
+            android:id="@+id/primerNivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nivel1button"
+            app:srcCompat="@drawable/nivel1button"
+            android:layout_alignTop="@+id/segundoNivel"
+            android:layout_toStartOf="@+id/segundoNivel"
+            android:layout_marginEnd="17dp" />
 
-        </android.support.v7.widget.RecyclerView>
+        <ImageButton
+            android:id="@+id/segundoNivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nivel2button"
+            app:srcCompat="@drawable/nivel2button"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/tercerNivel"
+            android:layout_marginEnd="13dp" />
+
+        <ImageButton
+            android:id="@+id/tercerNivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/segundoNivel"
+            android:layout_marginEnd="13dp"
+            android:layout_toStartOf="@+id/cuartoNivel"
+            android:background="@drawable/nivel3button"
+            app:srcCompat="@drawable/nivel3button" />
+
+        <ImageButton
+            android:id="@+id/cuartoNivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tercerNivel"
+            android:layout_marginEnd="11dp"
+            android:layout_toStartOf="@+id/quintoNivel"
+            android:background="@drawable/nivel4button"
+            app:srcCompat="@drawable/nivel4button" />
+
+        <ImageButton
+            android:id="@+id/quintoNivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/levelExitBtn"
+            android:layout_alignTop="@+id/cuartoNivel"
+            android:layout_marginEnd="17dp"
+            android:background="@drawable/nivel5button"
+            app:srcCompat="@drawable/nivel5button" />
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="1">
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

@@ -37,13 +37,9 @@
         android:id="@+id/listamenulevels"
         class="com.example.billy.jumpit.controller.activities.gameViews.Levels"
         id="@+id/view8"
-        layout_width="match_parent"
-        android:layout_width="500dp"
-        android:layout_height="250dp"
-        android:visibility="invisible"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true" />
+        layout_below="@+id/btnhistoria"
+        layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

@@ -64,28 +64,7 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
             imageLevel = (ImageButton) elementskin.findViewById(R.id.photolevel);
             text = (TextView) elementskin.findViewById(R.id.textlevelid);
             gameViewHistoria = new GameViewHistoria(context,R.raw.nivel0);
-            imageLevel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(text.getText().toString().equalsIgnoreCase("nivel0")){
 
-
-                    }else if(text.getText().toString().equalsIgnoreCase("nivel0")){
-                        gameViewHistoria.setNivel(R.raw.nivel1);
-
-                    }else if(text.getText().toString().equalsIgnoreCase("nivel1")){
-                        gameViewHistoria.setNivel(R.raw.nivel2);
-
-                    }else if(text.getText().toString().equalsIgnoreCase("nivel2")){
-                        gameViewHistoria.setNivel(R.raw.nivel3);
-
-                    }else if(text.getText().toString().equalsIgnoreCase("nivel3")){
-                        gameViewHistoria.setNivel(R.raw.nivel0);
-
-                    }
-                    gameViewHistoria.setVisibility(View.VISIBLE);
-                }
-            });
 
         }
 
