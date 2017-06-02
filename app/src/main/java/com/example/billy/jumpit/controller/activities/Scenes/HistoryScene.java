@@ -125,7 +125,7 @@ public class HistoryScene {
                         bitmap = bitmapSet.getBitmap(bitmapplataformas.get(0));
                         break;
                     case '#':
-                        bitmap = bitmapSet.getBitmap(bitmapplataformas.get(1));
+                        bitmap = bitmapSet.getBitmap(15);
                         break;
                     default:
                         bitmap = bitmapSet.getBitmap(23);
