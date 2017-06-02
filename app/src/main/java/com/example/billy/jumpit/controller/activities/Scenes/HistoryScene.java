@@ -102,7 +102,7 @@ public class HistoryScene {
         }
         return i;
     }
-    public void draw(Canvas canvas) {
+    public void draw(Canvas canvas, int vel) {
         if (cont > 15) {
             updateMap();
             cont = 0;
@@ -134,7 +134,7 @@ public class HistoryScene {
                 canvas.drawBitmap(bitmap, x * 16 - cont, y * 16, paint);
             }
         }
-        cont = cont + 4;
+        cont = cont + vel;
     }
 
     public void updateMap() {

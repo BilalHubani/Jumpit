@@ -117,21 +117,17 @@ public class GameViewHistoria extends View {
             } else if (!checkGround()) {
                 doGoingDown();
             }
-            scene.draw(canvas);
+            scene.draw(canvas, vel);
 //            bonk.draw(canvas);
 //            character.draw(canvas);
             dragonSkin.draw(canvas);
             canvas.drawText("SCORE: "+score, 35,20, paint);
-            if (score / 2000 == velCounter) {
-                vel++;
-                velCounter++;
-            }
             score++;
         }else {
             if (bitmapSet == null) return;
             float sc = getHeight() / (16 * 16f);
             canvas.scale(sc, sc);
-            scene.draw(canvas);
+            scene.draw(canvas, 0);
             scene.setPausa(true);
 //            bonk.draw(canvas);
 //            character.draw(canvas);
@@ -146,7 +142,6 @@ public class GameViewHistoria extends View {
             public void onClick(View v) {
 
                 if (paused){
-
                     vel = 4;
                     paused = false;
                     pauseButton.setBackgroundResource(ic_media_pause);
