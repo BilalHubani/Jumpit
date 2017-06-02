@@ -60,7 +60,7 @@ public class GameViewHistoria extends View {
     private List<Character> characterList;
     private int characterIndex = 0;
     private int bitmapIndex = 3;
-    int nivel = R.raw.nivel0;
+    int nivel = R.raw.nivel4;
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
@@ -73,7 +73,7 @@ public class GameViewHistoria extends View {
     }
 
     public GameViewHistoria(Context context, AttributeSet attrs) {
-        this(context, attrs, 0, R.raw.nivel0);
+        this(context, attrs, 0, R.raw.nivel4);
     }
 
     public GameViewHistoria(Context context, AttributeSet attrs, int defStyleAttr, int nivel) {
@@ -239,10 +239,7 @@ public class GameViewHistoria extends View {
                 jumpCounter = 0;
             }
         }
-            Log.e("R: ", ""+r );
-            Log.e("C: ", ""+c);
         if(scene.isWall(r, c+20)){
-            Log.e("-------->>>", "hola");
             paused = true;
             end();
         }

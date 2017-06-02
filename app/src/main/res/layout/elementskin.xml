@@ -14,7 +14,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
         android:text="TextView"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light" />
 
     <ImageView
         android:id="@+id/photoskin"

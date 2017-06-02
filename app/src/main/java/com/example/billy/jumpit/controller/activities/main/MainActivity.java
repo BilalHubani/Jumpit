@@ -231,6 +231,8 @@ public void onClick(View v) {
         final ImageButton endless = (ImageButton) findViewById(R.id.btnendless);
         closeShop.setBackgroundResource(R.drawable.buttoncancel);
         final ImageView titulo = (ImageView)findViewById(R.id.tituloimagen);
+        final TextView status = (TextView)findViewById(R.id.status);
+        status.setVisibility(View.INVISIBLE);
 
         final ImageButton exitMenuNivel = (ImageButton)findViewById(R.id.levelMenuExitBtn);
 
@@ -333,6 +335,7 @@ public void onClick(View v) {
                 gameView.setVisibility(View.VISIBLE);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
+                signInButton.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -371,7 +374,7 @@ public void onClick(View v) {
                 title.setVisibility(View.INVISIBLE);
                 signInButton.setVisibility(View.INVISIBLE);
                 GemsLinearLayout.setVisibility(View.INVISIBLE);
-               titulo.setVisibility(View.INVISIBLE);
+                titulo.setVisibility(View.INVISIBLE);
 
 
 
@@ -389,7 +392,7 @@ public void onClick(View v) {
                 title.setVisibility(View.VISIBLE);
                 signInButton.setVisibility(View.VISIBLE);
                 GemsLinearLayout.setVisibility(View.VISIBLE);
-//                titulo.setVisibility(View.VISIBLE);
+                titulo.setVisibility(View.VISIBLE);
             }
         });
 //crear listener de las opciones
