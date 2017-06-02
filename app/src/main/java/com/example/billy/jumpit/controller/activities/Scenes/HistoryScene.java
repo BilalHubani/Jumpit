@@ -81,7 +81,6 @@ public class HistoryScene {
             return false;
         }
         char s = scene[y].charAt(x);
-        Log.e("-------->>>", "s: " + s+" y:"+y+" x:"+x);
         if (s == '#') return true;
         return false;
     }
