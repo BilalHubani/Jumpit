@@ -60,7 +60,7 @@ public class GameViewHistoria extends View {
     private List<Character> characterList;
     private int characterIndex = 0;
     private int bitmapIndex = 3;
-    int nivel = R.raw.nivel0;
+    int nivel = R.raw.nivel4;
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
@@ -73,7 +73,7 @@ public class GameViewHistoria extends View {
     }
 
     public GameViewHistoria(Context context, AttributeSet attrs) {
-        this(context, attrs, 0, R.raw.nivel0);
+        this(context, attrs, 0, R.raw.nivel4);
     }
 
     public GameViewHistoria(Context context, AttributeSet attrs, int defStyleAttr, int nivel) {
@@ -117,21 +117,17 @@ public class GameViewHistoria extends View {
             } else if (!checkGround()) {
                 doGoingDown();
             }
-            scene.draw(canvas);
+            scene.draw(canvas, vel);
 //            bonk.draw(canvas);
 //            character.draw(canvas);
             dragonSkin.draw(canvas);
             canvas.drawText("SCORE: "+score, 35,20, paint);
-            if (score / 2000 == velCounter) {
-                vel++;
-                velCounter++;
-            }
             score++;
         }else {
             if (bitmapSet == null) return;
             float sc = getHeight() / (16 * 16f);
             canvas.scale(sc, sc);
-            scene.draw(canvas);
+            scene.draw(canvas, 0);
             scene.setPausa(true);
 //            bonk.draw(canvas);
 //            character.draw(canvas);
@@ -146,7 +142,6 @@ public class GameViewHistoria extends View {
             public void onClick(View v) {
 
                 if (paused){
-
                     vel = 4;
                     paused = false;
                     pauseButton.setBackgroundResource(ic_media_pause);
@@ -244,10 +239,7 @@ public class GameViewHistoria extends View {
                 jumpCounter = 0;
             }
         }
-            Log.e("R: ", ""+r );
-            Log.e("C: ", ""+c);
         if(scene.isWall(r, c+20)){
-            Log.e("-------->>>", "hola");
             paused = true;
             end();
         }
