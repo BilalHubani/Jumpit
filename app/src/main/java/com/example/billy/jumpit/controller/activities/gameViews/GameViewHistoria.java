@@ -59,11 +59,12 @@ public class GameViewHistoria extends View {
     private int characterIndex = 0;
     private int bitmapIndex = 3;
 
+
     public int getNivel() {
         return nivel;
     }
 
-    int nivel = R.raw.nivel4;
+    int nivel = R.raw.nivel2;
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
@@ -72,11 +73,20 @@ public class GameViewHistoria extends View {
     private TextView scoreTextView;
 
 
-    public GameViewHistoria(Context context, AttributeSet attrs) {
-        this(context, attrs, 0, R.raw.nivel4);
+    public GameViewHistoria(Context context) {
+        this(context, null, 0);
+    }
+    public GameViewHistoria(Context context,int nivel) {
+        this(context, null, 0);
+        this.nivel = nivel;
     }
 
-    public GameViewHistoria(Context context, AttributeSet attrs, int defStyleAttr, int nivel) {
+    public GameViewHistoria(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+
+    public GameViewHistoria(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 // Arraylist de bitmaps
         bitmapSetList = new ArrayList<>();
