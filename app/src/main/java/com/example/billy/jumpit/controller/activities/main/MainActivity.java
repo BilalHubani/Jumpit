@@ -241,7 +241,17 @@ public void onClick(View v) {
 
         final ImageButton exitMenuNivel = (ImageButton)findViewById(R.id.levelMenuExitBtn);
 
+        /*----------------------*/
+        gameViewEndless.setMainActivity(this);
+        gameViewEndless.setPauseButton(pause);
+        gameViewEndless.setGoHome(goHome);
+        gameViewEndless.setReload(reloadEndless);
 
+        /*--------------------------*/
+        gameViewHistoria.setMainActivity(this);
+        gameViewHistoria.setPauseButton(pause);
+        gameViewHistoria.setGoHome(goHome);
+        gameViewHistoria.setReload(reloadEndless);
 
 
         /***************************/
@@ -311,16 +321,7 @@ public void onClick(View v) {
         powerUp = (ImageButton) findViewById(R.id.powerupBtnShop);
         gemas = (ImageButton) findViewById(R.id.gemas);
         imageLevel = (ImageButton) findViewById(R.id.photolevel);
-        /*----------------------*/
-        gameViewEndless.setMainActivity(this);
-        gameViewEndless.setPauseButton(pause);
-        gameViewEndless.setGoHome(goHome);
-        gameViewEndless.setReload(reloadEndless);
 
-        /*--------------------------*/
-        gameViewEndless.setMainActivity(this);
-        gameViewEndless.setPauseButton(pause);
-        gameViewEndless.setGoHome(goHome);
 
 
 //Visibilities
