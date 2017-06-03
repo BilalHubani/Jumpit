@@ -16,6 +16,15 @@
         android:visibility="invisible" />
 
     <view
+        android:id="@+id/gameviewhistoria"
+        class="com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible" />
+
+    <view
         android:id="@+id/view"
         class="com.example.billy.jumpit.controller.activities.main.MainMenuView"
         android:layout_width="wrap_content"
@@ -196,15 +205,6 @@
         android:layout_toStartOf="@+id/Title"
         android:background="@drawable/botonesrepetir"
         app:srcCompat="@android:drawable/ic_popup_sync" />
-
-    <view
-        android:id="@+id/gameviewhistoria"
-        class="com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
