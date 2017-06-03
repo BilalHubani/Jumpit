@@ -235,11 +235,11 @@ public void onClick(View v) {
         final ImageView titulo = (ImageView)findViewById(R.id.tituloimagen);
         final TextView status = (TextView)findViewById(R.id.status);
         status.setVisibility(View.INVISIBLE);
-        final ImageButton primerNivel = (ImageButton) findViewById(R.id.primerNivel);;
-        final ImageButton segundoNivel = (ImageButton)findViewById(R.id.segundoNivel);;
-        final ImageButton tercerNivel = (ImageButton)findViewById(R.id.tercerNivel);;
-        final ImageButton cuartoNivel = (ImageButton)findViewById(R.id.cuartoNivel);;
-        final ImageButton quintoNivel = (ImageButton)findViewById(R.id.quintoNivel);;
+        final ImageButton primerNivel = (ImageButton) findViewById(R.id.primerNivel);
+        final ImageButton segundoNivel = (ImageButton)findViewById(R.id.segundoNivel);
+        final ImageButton tercerNivel = (ImageButton)findViewById(R.id.tercerNivel);
+        final ImageButton cuartoNivel = (ImageButton)findViewById(R.id.cuartoNivel);
+        final ImageButton quintoNivel = (ImageButton)findViewById(R.id.quintoNivel);
 
         final ImageButton exitMenuNivel = (ImageButton)findViewById(R.id.levelMenuExitBtn);
 
