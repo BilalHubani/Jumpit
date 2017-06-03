@@ -223,7 +223,7 @@ public void onClick(View v) {
         vistaTienda = (View)findViewById(R.id.shopView);
         menuniveles = (View)findViewById(R.id.vistaNiveles);
         final GameView gameViewEndless = (GameView) findViewById(R.id.view4);
-        final GameViewHistoria gameView = (GameViewHistoria) findViewById(R.id.gameviewhistoria);
+        final GameViewHistoria gameViewHistoria = (GameViewHistoria) findViewById(R.id.gameviewhistoria);
         final View mainMenuView = (View)findViewById(R.id.view);
         final ImageButton pause = (ImageButton)findViewById(R.id.pause);
         reloadEndless = (ImageButton)findViewById(R.id.reloadEndless);
@@ -249,56 +249,57 @@ public void onClick(View v) {
         primerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameView.setNivel(R.raw.nivel0);
-                gameView.setBackgroundResource(R.drawable.fondopradodef);
+                Log.e("","level");
+                gameViewHistoria.setNivel(R.raw.nivel0);
+                gameViewHistoria.setBackgroundResource(R.drawable.fondopradodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
                 signInButton.setVisibility(View.INVISIBLE);
-                gameView.setVisibility(View.VISIBLE);
+                gameViewHistoria.setVisibility(View.VISIBLE);
             }
         });
         segundoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameView.setNivel(R.raw.nivel1);
-                gameView.setBackgroundResource(R.drawable.fondobosquedef);
+                gameViewHistoria.setNivel(R.raw.nivel1);
+                gameViewHistoria.setBackgroundResource(R.drawable.fondobosquedef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
                 signInButton.setVisibility(View.INVISIBLE);
-                gameView.setVisibility(View.VISIBLE);
+                gameViewHistoria.setVisibility(View.VISIBLE);
             }
         });
         tercerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameView.setNivel(R.raw.nivel2);
-                gameView.setBackgroundResource(R.drawable.fondocuevadef);
+                gameViewHistoria.setNivel(R.raw.nivel2);
+                gameViewHistoria.setBackgroundResource(R.drawable.fondocuevadef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
                 signInButton.setVisibility(View.INVISIBLE);
-                gameView.setVisibility(View.VISIBLE);
+                gameViewHistoria.setVisibility(View.VISIBLE);
             }
         });
         cuartoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameView.setNivel(R.raw.nivel3);
-                gameView.setBackgroundResource(R.drawable.fondohielodef);
+                gameViewHistoria.setNivel(R.raw.nivel3);
+                gameViewHistoria.setBackgroundResource(R.drawable.fondohielodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
                 signInButton.setVisibility(View.INVISIBLE);
-                gameView.setVisibility(View.VISIBLE);
+                gameViewHistoria.setVisibility(View.VISIBLE);
             }
         });
         quintoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameView.setNivel(R.raw.nivel4);
-                gameView.setBackgroundResource(R.drawable.fondoinfiernodef);
+                gameViewHistoria.setNivel(R.raw.nivel4);
+                gameViewHistoria.setBackgroundResource(R.drawable.fondoinfiernodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
                 signInButton.setVisibility(View.INVISIBLE);
-                gameView.setVisibility(View.VISIBLE);
+                gameViewHistoria.setVisibility(View.VISIBLE);
             }
         });
 
@@ -311,15 +312,15 @@ public void onClick(View v) {
         gemas = (ImageButton) findViewById(R.id.gemas);
         imageLevel = (ImageButton) findViewById(R.id.photolevel);
         /*----------------------*/
-        gameView.setMainActivity(this);
-        gameView.setPauseButton(pause);
-        gameView.setGoHome(goHome);
-        gameView.setReload(reloadEndless);
+        gameViewEndless.setMainActivity(this);
+        gameViewEndless.setPauseButton(pause);
+        gameViewEndless.setGoHome(goHome);
+        gameViewEndless.setReload(reloadEndless);
 
         /*--------------------------*/
-        gameView.setMainActivity(this);
-        gameView.setPauseButton(pause);
-        gameView.setGoHome(goHome);
+        gameViewEndless.setMainActivity(this);
+        gameViewEndless.setPauseButton(pause);
+        gameViewEndless.setGoHome(goHome);
 
 
 //Visibilities
@@ -393,7 +394,7 @@ public void onClick(View v) {
         endless.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                gameView.setBackgroundResource(R.drawable.fondocuevadef);
+                gameViewEndless.setBackgroundResource(R.drawable.fondocuevadef);
                 pause.setVisibility(View.VISIBLE);
                 gameViewEndless.setVisibility(View.VISIBLE);
                 mainMenuView.setVisibility(View.INVISIBLE);
