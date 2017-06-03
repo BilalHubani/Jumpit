@@ -1,29 +1,58 @@
 package com.example.billy.jumpit.model;
 
-/**
- * Created by dam on 29/5/17.
- */
+
+import java.util.List;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Skin {
-    private int id;
-    private String name;
-    private long priceGame;
-    private long pricePremium;
-    private String splashArt;
 
-    public Skin(int id, String name, long priceGame, long pricePremium, String splashArt) {
-        this.id = id;
-        this.name = name;
-        this.priceGame = priceGame;
-        this.pricePremium = pricePremium;
-        this.splashArt = splashArt;
+    @SerializedName("attr")
+    @Expose
+    private String attr;
+    @SerializedName("attrValue")
+    @Expose
+    private Integer attrValue;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("priceGame")
+    @Expose
+    private Integer priceGame;
+    @SerializedName("pricePremium")
+    @Expose
+    private Integer pricePremium;
+    @SerializedName("splashArt")
+    @Expose
+    private String splashArt;
+    @SerializedName("users")
+    @Expose
+    private List<UserDTO> users = null;
+
+    public String getAttr() {
+        return attr;
     }
 
-    public int getId() {
+    public void setAttr(String attr) {
+        this.attr = attr;
+    }
+
+    public Integer getAttrValue() {
+        return attrValue;
+    }
+
+    public void setAttrValue(Integer attrValue) {
+        this.attrValue = attrValue;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -35,19 +64,19 @@ public class Skin {
         this.name = name;
     }
 
-    public long getPriceGame() {
+    public Integer getPriceGame() {
         return priceGame;
     }
 
-    public void setPriceGame(long priceGame) {
+    public void setPriceGame(Integer priceGame) {
         this.priceGame = priceGame;
     }
 
-    public long getPricePremium() {
+    public Integer getPricePremium() {
         return pricePremium;
     }
 
-    public void setPricePremium(long pricePremium) {
+    public void setPricePremium(Integer pricePremium) {
         this.pricePremium = pricePremium;
     }
 
@@ -58,4 +87,13 @@ public class Skin {
     public void setSplashArt(String splashArt) {
         this.splashArt = splashArt;
     }
+
+    public List<UserDTO> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<UserDTO> users) {
+        this.users = users;
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.billy.jumpit.controller.services;
 
+import com.example.billy.jumpit.model.PowerUp;
 import com.example.billy.jumpit.model.User;
 
 import java.util.List;
@@ -13,27 +14,25 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface UserService {
-    @GET("/api/user-custom-atributes")
-    Call<List<User>> getAllUsers(
+/**
+ * Created by Yuna114 on 03/06/2017.
+ */
+
+public interface PowerUpService {
+    @GET("/api/power-ups")
+    Call<List<PowerUp>> getAllPowerUp(
             @Header("Authorization") String Authorization
     );
-
-    @POST("api/user-custom-atributes") // Se tiene que cambiar en un interfaz propia
-    Call<User> createUser(
+    @POST("api/power-ups") // Se tiene que cambiar en un interfaz propia
+    Call<PowerUp> createPowerUp(
             @Header("Authorization") String Authorization,
-            @Body User user);
-
-
-    @PUT("api/user-custom-atributes")
-    Call<User> updateUser(
+            @Body PowerUp powerUp);
+    @PUT("api/power-ups")
+    Call<PowerUp> updatePowerUp(
             @Header("Authorization") String Authorization,
-            @Body User user);
-
-    @DELETE("api/user-custom-atributes/{id}")
-    Call<Void> deleteUser(
+            @Body PowerUp powerUp);
+    @DELETE("api/power-ups/{id}")
+    Call<Void> deletePowerUp(
             @Header("Authorization") String Authorization,
             @Path("id") Long id);
-
-
 }

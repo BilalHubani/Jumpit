@@ -44,7 +44,7 @@ public class UserManager {
     }
 
 
-    public synchronized void getAllAthletes(final UserCallback userCallback) {
+    public synchronized void getAllUser(final UserCallback userCallback) {
         Call<List<User>> call = userService.getAllUsers(UserLoginManager.getInstance().getBearerToken());
 
         call.enqueue(new Callback<List<User>>() {
@@ -63,7 +63,7 @@ public class UserManager {
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-                Log.e("AthleteManager->", "getAllAthletes()->ERROR: " + t);
+                Log.e("UserManager->", "getAllUser()->ERROR: " + t);
 
                 userCallback.onFailure(t);
             }
@@ -91,7 +91,7 @@ public class UserManager {
 
                 if (code == 200 || code == 201) {
                     //playerCallback.onSuccess1(apuestas1x2);
-                    Log.e("Atleta->", "createAthlete: OK" + 100);
+                    Log.e("User->", "createUser: OK" + 100);
 
                 } else {
                     userCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
@@ -115,7 +115,7 @@ public class UserManager {
                 int code = response.code();
 
                 if (code == 200 || code == 201) {
-                    Log.e("Atleta->", "updateAthlete: OOK" + 100);
+                    Log.e("User->", "updateAthlete: OOK" + 100);
 
                 } else {
                     userCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
