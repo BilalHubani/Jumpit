@@ -37,11 +37,13 @@ import com.google.android.gms.common.api.Status;
 public class MainActivity extends FragmentActivity implements SeekBar.OnSeekBarChangeListener, GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener{
     boolean musicaOn = true;
+    private GameViewHistoria gameViewHistoria;
     private View vistaOpciones;
     private View vistaTienda, vistaskins,vistapowerups,vistagems, menuniveles;
     private SeekBar volumeControl;
     private ImageButton volume, imageLevel;
     private Bundle bundle;
+    private MainActivity mainActivity = this;
     private ImageButton reloadEndless, goHome;
     private LinearLayout GemsLinearLayout;
     private ImageButton skin, powerUp, gemas, exit;
@@ -241,14 +243,40 @@ public void onClick(View v) {
 
         final ImageButton exitMenuNivel = (ImageButton)findViewById(R.id.levelMenuExitBtn);
 
+        /*----------------------*/
+        gameViewEndless.setMainActivity(this);
+        gameViewEndless.setPauseButton(pause);
+        gameViewEndless.setGoHome(goHome);
+        gameViewEndless.setReload(reloadEndless);
 
+        /*--------------------------*/
+        gameViewHistoria.setMainActivity(this);
+        gameViewHistoria.setPauseButton(pause);
+        gameViewHistoria.setGoHome(goHome);
+        gameViewHistoria.setReload(reloadEndless);
 
+        /*--------------------------*/
+        gameViewHistoria.setMainActivity(this);
+        gameViewHistoria.setPauseButton(pause);
+        gameViewHistoria.setGoHome(goHome);
+        /*********************************************/
+        gameViewEndless.setMainActivity(this);
+        gameViewEndless.setPauseButton(pause);
+        gameViewEndless.setGoHome(goHome);
+        gameViewEndless.setReload(reloadEndless);
+
+        /*--------------------------*/
+        gameViewEndless.setMainActivity(this);
+        gameViewEndless.setPauseButton(pause);
+        gameViewEndless.setGoHome(goHome);
 
         /***************************/
 
         primerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                new GameViewHistoria(mainActivity,R.raw.nivel0);
+
                 Log.e("","level");
                 gameViewHistoria.setNivel(R.raw.nivel0);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondopradodef);

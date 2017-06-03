@@ -250,10 +250,10 @@ public class GameView extends View {
         reload.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                endlessScene = new EndlessScene(bitmapSet);
-                bonk = new Bonk(bitmapSet);
-//                character = new Character(pokemonBitmapSet);
-                dragonSkin = new DragonSkin(dragonBitmapSet);
+                endlessScene = new EndlessScene(bitmapSetList.get(bitmapIndex));
+                bonk = new Bonk(bitmapSetList.get(bitmapIndex));
+//        character = new Character(pokemonBitmapSet);
+                dragonSkin = new DragonSkin(bitmapSetList.get(2));
                 vel = 4;
                 velCounter = 1;
                 paused = false;
