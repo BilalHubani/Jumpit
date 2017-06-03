@@ -233,11 +233,11 @@ public void onClick(View v) {
         final ImageView titulo = (ImageView)findViewById(R.id.tituloimagen);
         final TextView status = (TextView)findViewById(R.id.status);
         status.setVisibility(View.INVISIBLE);
-        final ImageButton primerNivel = (ImageButton) findViewById(R.id.primerNivel);;
-        final ImageButton segundoNivel = (ImageButton)findViewById(R.id.segundoNivel);;
-        final ImageButton tercerNivel = (ImageButton)findViewById(R.id.tercerNivel);;
-        final ImageButton cuartoNivel = (ImageButton)findViewById(R.id.cuartoNivel);;
-        final ImageButton quintoNivel = (ImageButton)findViewById(R.id.quintoNivel);;
+        final ImageButton primerNivel = (ImageButton) findViewById(R.id.primerNivel);
+        final ImageButton segundoNivel = (ImageButton)findViewById(R.id.segundoNivel);
+        final ImageButton tercerNivel = (ImageButton)findViewById(R.id.tercerNivel);
+        final ImageButton cuartoNivel = (ImageButton)findViewById(R.id.cuartoNivel);
+        final ImageButton quintoNivel = (ImageButton)findViewById(R.id.quintoNivel);
 
         final ImageButton exitMenuNivel = (ImageButton)findViewById(R.id.levelMenuExitBtn);
 
@@ -245,7 +245,6 @@ public void onClick(View v) {
 
 
         /***************************/
-
         primerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -311,13 +310,14 @@ public void onClick(View v) {
         gemas = (ImageButton) findViewById(R.id.gemas);
         imageLevel = (ImageButton) findViewById(R.id.photolevel);
         /*----------------------*/
-        gameView.setMainActivity(this);
-        gameView.setPauseButton(pause);
-        gameView.setGoHome(goHome);
-        gameView.setReload(reloadEndless);
+        gameViewEndless.setMainActivity(this);
+        gameViewEndless.setPauseButton(pause);
+        gameViewEndless.setGoHome(goHome);
+        gameViewEndless.setReload(reloadEndless);
 
         /*--------------------------*/
         gameView.setMainActivity(this);
+        gameView.setReload(reloadEndless);
         gameView.setPauseButton(pause);
         gameView.setGoHome(goHome);
 

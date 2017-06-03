@@ -248,7 +248,7 @@ public class GameViewHistoria extends View {
         goHome.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainActivity.onCreate(mainActivity.getBundle());
+//                mainActivity.onCreate(mainActivity.getBundle());
             }
         });
         reload.setOnClickListener(new OnClickListener() {
