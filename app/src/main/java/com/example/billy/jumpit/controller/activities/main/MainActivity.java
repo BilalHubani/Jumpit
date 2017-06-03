@@ -275,10 +275,7 @@ public void onClick(View v) {
         primerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new GameViewHistoria(mainActivity,R.raw.nivel0);
-
-                Log.e("","level");
-                gameViewHistoria.setNivel(R.raw.nivel0);
+                gameViewHistoria.getScene().load(R.raw.nivel0);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondopradodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
@@ -289,7 +286,7 @@ public void onClick(View v) {
         segundoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameViewHistoria.setNivel(R.raw.nivel1);
+                gameViewHistoria.getScene().load(R.raw.nivel1);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondobosquedef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
@@ -300,7 +297,7 @@ public void onClick(View v) {
         tercerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameViewHistoria.setNivel(R.raw.nivel2);
+                gameViewHistoria.getScene().load(R.raw.nivel2);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondocuevadef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
@@ -311,7 +308,7 @@ public void onClick(View v) {
         cuartoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameViewHistoria.setNivel(R.raw.nivel3);
+                gameViewHistoria.getScene().load(R.raw.nivel3);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondohielodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
@@ -322,7 +319,7 @@ public void onClick(View v) {
         quintoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameViewHistoria.setNivel(R.raw.nivel4);
+                gameViewHistoria.getScene().load(R.raw.nivel4);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondoinfiernodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
