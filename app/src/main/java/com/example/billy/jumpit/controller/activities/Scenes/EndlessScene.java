@@ -106,7 +106,7 @@ public class EndlessScene {
         // pintamos la ultima linea
         for (int i = 0; i < 16; i++) {
             //pintar plataforma nueva
-            if (platforms <= 3 && i == 15 && platformsDistance>8 && !creatingPlatform && lastPlatformX<25 && !done) {
+            if (platforms <= 3 && i == 15 && platformsDistance>7 && !creatingPlatform && lastPlatformX<27 && !done) {
                 do {
                     rng = (int) (Math.random() * 16 );
                     checkRng = rng-lastPlatformAltitude;

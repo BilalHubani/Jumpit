@@ -292,6 +292,7 @@ public class GameViewHistoria extends View {
                 score = 0;
                 goHome.setVisibility(INVISIBLE);
                 reload.setVisibility(INVISIBLE);
+                nivel = getScene().getNivel();
                 scene.load(nivel);
             }
         });

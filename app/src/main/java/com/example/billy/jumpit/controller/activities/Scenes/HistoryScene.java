@@ -36,6 +36,7 @@ public class HistoryScene {
     private TerrenosBitmapSet bitmapSet;
     private String aux;
     public Boolean pausa = false;
+    private int nivel = 0;
     public HistoryScene(GameViewHistoria game) {
         this.game = game;
         this.bitmapSet = game.getTerrenosBitmapSet();
@@ -46,6 +47,7 @@ public class HistoryScene {
         bitmapplataformas.add(3);
     }
     public void load(int resource) {
+        this.nivel = resource;
         // load scene
         scene = new String[SCENE_HEIGHT];
         try {
@@ -150,5 +152,13 @@ public class HistoryScene {
 
     public void setPausa(Boolean pausa) {
         this.pausa = pausa;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
     }
 }
