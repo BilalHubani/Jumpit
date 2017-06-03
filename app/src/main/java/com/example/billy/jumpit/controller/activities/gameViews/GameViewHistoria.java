@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.Scenes.HistoryScene;
-import com.example.billy.jumpit.controller.activities.Scenes.Scene;
 import com.example.billy.jumpit.controller.activities.main.MainActivity;
 import com.example.billy.jumpit.model.BitmapSet;
 import com.example.billy.jumpit.model.Bonk;
@@ -68,9 +66,6 @@ public class GameViewHistoria extends View {
 
     private TextView scoreTextView;
 
-    public GameViewHistoria(Context context,int nivel) {
-        this(context, null, 0, nivel);
-    }
 
     public GameViewHistoria(Context context, AttributeSet attrs) {
         this(context, attrs, 0, R.raw.nivel4);

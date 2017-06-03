@@ -53,7 +53,7 @@ public class VistaNiveles extends LinearLayout {
         exit.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            //commit
                 historia.setVisibility(VISIBLE);
                 endless.setVisibility(VISIBLE);
                 vistaHistoria.setVisibility(INVISIBLE);

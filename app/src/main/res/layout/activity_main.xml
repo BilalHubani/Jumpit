@@ -9,15 +9,6 @@
     tools:context="com.example.billy.jumpit.controller.activities.main.MainActivity">
 
     <view
-        android:id="@+id/viewGameHistoria"
-        class="com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:visibility="invisible" />
-
-    <view
         android:id="@+id/view4"
         class="com.example.billy.jumpit.controller.activities.gameViews.GameView"
         android:layout_width="wrap_content"

@@ -24,11 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Levels extends LinearLayout {
-    private ImageButton primerNivel;
-    private ImageButton segundoNivel;
-    private ImageButton tercerNivel;
-    private ImageButton cuartoNivel;
-    private ImageButton quintoNivel;
 
     public Levels(Context context) {
         this(context, null, 0);
@@ -42,43 +37,5 @@ public class Levels extends LinearLayout {
         super(context, attrs, defStyleAttr);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.levels, this);
-        primerNivel = (ImageButton) findViewById(R.id.primerNivel);
-        segundoNivel  = (ImageButton)findViewById(R.id.segundoNivel);
-        tercerNivel  = (ImageButton)findViewById(R.id.tercerNivel);
-        cuartoNivel  = (ImageButton)findViewById(R.id.cuartoNivel);
-        quintoNivel  = (ImageButton)findViewById(R.id.quintoNivel);
-        levels();
-    }
-    public void levels(){
-        primerNivel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("entra","1");
-            }
-        });
-        segundoNivel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("entra","2");
-            }
-        });
-        tercerNivel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("entra","3");
-            }
-        });
-        cuartoNivel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("entra","4");
-            }
-        });
-        quintoNivel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("entra","5");
-            }
-        });
     }
 }

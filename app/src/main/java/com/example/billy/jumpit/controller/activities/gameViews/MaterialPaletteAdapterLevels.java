@@ -63,7 +63,6 @@ public class MaterialPaletteAdapterLevels extends RecyclerView.Adapter<MaterialP
             super(elementskin);
             imageLevel = (ImageButton) elementskin.findViewById(R.id.photolevel);
             text = (TextView) elementskin.findViewById(R.id.textlevelid);
-            gameViewHistoria = new GameViewHistoria(context,R.raw.nivel0);
 
 
         }
