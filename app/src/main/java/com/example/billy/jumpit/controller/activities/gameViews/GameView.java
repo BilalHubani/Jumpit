@@ -97,7 +97,7 @@ public class GameView extends View {
     // dibujar la pantalla
     @Override
     public void onDraw(Canvas canvas) {
-        this.postInvalidateDelayed(100);
+        this.postInvalidateDelayed(10);
         if (!paused) {
             if (bitmapSet == null) return;
             if (pokemonBitmapSet == null) return;

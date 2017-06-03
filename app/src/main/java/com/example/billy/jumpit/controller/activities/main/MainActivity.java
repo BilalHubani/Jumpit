@@ -255,21 +255,6 @@ public void onClick(View v) {
         gameViewHistoria.setGoHome(goHome);
         gameViewHistoria.setReload(reloadEndless);
 
-        /*--------------------------*/
-        gameViewHistoria.setMainActivity(this);
-        gameViewHistoria.setPauseButton(pause);
-        gameViewHistoria.setGoHome(goHome);
-        /*********************************************/
-        gameViewEndless.setMainActivity(this);
-        gameViewEndless.setPauseButton(pause);
-        gameViewEndless.setGoHome(goHome);
-        gameViewEndless.setReload(reloadEndless);
-
-        /*--------------------------*/
-        gameViewEndless.setMainActivity(this);
-        gameViewEndless.setPauseButton(pause);
-        gameViewEndless.setGoHome(goHome);
-
         /***************************/
 
         primerNivel.setOnClickListener(new View.OnClickListener() {
