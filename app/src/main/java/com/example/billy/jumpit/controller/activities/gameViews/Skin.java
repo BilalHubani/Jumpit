@@ -43,7 +43,7 @@ public class Skin extends LinearLayout {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.skins, this);
         datas = new ArrayList<>();
-        datas.add(new ClassSkin("rosinsio", R.drawable.skinrosita));
+        datas.add(new ClassSkin("Chico Rosa", R.drawable.skinrosita));
         datas.add(new ClassSkin("dragonsio", R.drawable.blackdragon));
         datas.add(new ClassSkin("moconsio", R.drawable.moco));
 

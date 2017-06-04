@@ -44,12 +44,52 @@
 
     <ImageButton
         android:id="@+id/exitBtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
         android:visibility="visible"
+        app:srcCompat="@drawable/buttoncancel" />
+
+    <ImageButton
+        android:id="@+id/exitBtnSkin"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/buttoncancel"
+        android:visibility="invisible" />
+
+    <ImageButton
+        android:id="@+id/exitBtnPowerUp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/buttoncancel"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/buttoncancel" />
+
+    <ImageButton
+        android:id="@+id/exitBtnGems"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/buttoncancel"
+        android:visibility="invisible"
         app:srcCompat="@drawable/buttoncancel" />
 
     <LinearLayout
@@ -64,7 +104,7 @@
         android:layout_marginStart="32dp"
         android:orientation="horizontal"
         android:visibility="visible"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="17dp"
         android:layout_below="@+id/exitBtn">
 
         <ImageButton

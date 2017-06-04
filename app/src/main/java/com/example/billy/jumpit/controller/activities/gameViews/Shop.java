@@ -24,7 +24,7 @@ import com.example.billy.jumpit.R;
 public class Shop extends LinearLayout {
     private ImageButton skin, powerUp, gemas, exit;
     private View vistaSkin, vistaPowerUp, vistaShop, vistaGems;
-    private Button btnExitSkin, btnExitPowerUp, btnExitGems;
+    private ImageButton btnExitSkin, btnExitPowerUp, btnExitGems;
     final Animation fadeout;
 
     public Shop(Context context) {
@@ -43,9 +43,9 @@ public class Shop extends LinearLayout {
         powerUp = (ImageButton) view.findViewById(R.id.powerupBtnShop);
         gemas = (ImageButton) view.findViewById(R.id.gemas);
         exit = (ImageButton) view.findViewById(R.id.exitBtn);
-        //btnExitSkin = (Button) view.findViewById(R.id.btnExitSkins);
-        btnExitPowerUp = (Button) view.findViewById(R.id.btnExitPowerUp);
-        btnExitGems = (Button) view.findViewById(R.id.btnExitPowerUp);
+        btnExitSkin = (ImageButton) view.findViewById(R.id.exitBtnSkin);
+        btnExitPowerUp = (ImageButton) view.findViewById(R.id.exitBtnPowerUp);
+        btnExitGems = (ImageButton) view.findViewById(R.id.exitBtnGems);
 
         vistaSkin = (View) findViewById(R.id.view5);
         vistaPowerUp = (View) findViewById(R.id.view6);
@@ -68,6 +68,7 @@ public class Shop extends LinearLayout {
         gemas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnExitGems.setVisibility(VISIBLE);
                 vistaGems.setVisibility(View.VISIBLE);
                 invisibleBtn();
             }
@@ -77,9 +78,11 @@ public class Shop extends LinearLayout {
             public void onClick(View view) {
                 vistaGems.startAnimation(fadeout);
                 vistaGems.setVisibility(View.INVISIBLE);
+                btnExitGems.setVisibility(View.INVISIBLE);
                 visibleBtn();
             }
         });
+
     }
 
     public void vistaSkin() {
@@ -88,7 +91,17 @@ public class Shop extends LinearLayout {
             @Override
             public void onClick(View view) {
                 vistaSkin.setVisibility(View.VISIBLE);
+                btnExitSkin.setVisibility(View.VISIBLE);
                 invisibleBtn();
+            }
+        });
+        btnExitSkin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vistaSkin.startAnimation(fadeout);
+                vistaSkin.setVisibility(View.INVISIBLE);
+                btnExitSkin.setVisibility(View.INVISIBLE);
+                visibleBtn();
             }
         });
     }
@@ -117,6 +130,7 @@ public class Shop extends LinearLayout {
             @Override
             public void onClick(View view) {
                 vistaPowerUp.setVisibility(View.VISIBLE);
+                btnExitPowerUp.setVisibility(View.VISIBLE);
                 invisibleBtn();
             }
         });
@@ -125,6 +139,7 @@ public class Shop extends LinearLayout {
             public void onClick(View view) {
                 vistaPowerUp.startAnimation(fadeout);
                 vistaPowerUp.setVisibility(View.INVISIBLE);
+                btnExitPowerUp.setVisibility(View.INVISIBLE);
                 visibleBtn();
             }
         });

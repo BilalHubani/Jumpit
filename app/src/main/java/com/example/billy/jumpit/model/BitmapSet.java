@@ -99,6 +99,7 @@ public class BitmapSet {
 		imgRaw.add(R.raw.blackdragonpeke);
 		imgRaw.add(R.raw.dppokemonsprites);
 		imgRaw.add(R.raw.terrenos);
+		imgRaw.add(R.raw.rosito);
 
 		BitmapFactory.Options opts = new BitmapFactory.Options();
 		opts.inScaled = false;
