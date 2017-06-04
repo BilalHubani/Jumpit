@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.billy.jumpit.controller.activities.Scenes.HistoryScene;
 import com.example.billy.jumpit.controller.activities.gameViews.Audio;
 import com.example.billy.jumpit.controller.activities.gameViews.GameView;
 import com.example.billy.jumpit.R;
@@ -29,18 +30,24 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends FragmentActivity implements SeekBar.OnSeekBarChangeListener, GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener{
     boolean musicaOn = true;
+    private GameViewHistoria gameViewHistoria;
+    private HistoryScene historyScene;
     private View vistaOpciones;
     private View vistaTienda, vistaskins,vistapowerups,vistagems, menuniveles;
     private SeekBar volumeControl;
     private ImageButton volume, imageLevel;
     private Bundle bundle;
+    private MainActivity mainActivity = this;
     private ImageButton reloadEndless, goHome;
     private LinearLayout GemsLinearLayout;
     private ImageButton skin, powerUp, gemas, exit;
+    private ArrayList<Integer> bitmapplataformashistory;
 
 
     // barra de control del volumen
@@ -249,11 +256,14 @@ public void onClick(View v) {
         gameViewHistoria.setGoHome(goHome);
         gameViewHistoria.setReload(reloadEndless);
 
+        gameViewHistoria.getScene().getBitmapplataformas().clear();
         /***************************/
-
         primerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameViewHistoria.getScene().getBitmapplataformas().add(11);
+                gameViewHistoria.getScene().getBitmapplataformas().add(10);
+                gameViewHistoria.getScene().getBitmapplataformas().add(9);
                 gameViewHistoria.getScene().load(R.raw.nivel0);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondopradodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
@@ -265,6 +275,9 @@ public void onClick(View v) {
         segundoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameViewHistoria.getScene().getBitmapplataformas().add(2);
+                gameViewHistoria.getScene().getBitmapplataformas().add(1);
+                gameViewHistoria.getScene().getBitmapplataformas().add(0);
                 gameViewHistoria.getScene().load(R.raw.nivel1);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondobosquedef);
                 mainMenuView.setVisibility(View.INVISIBLE);
@@ -276,6 +289,9 @@ public void onClick(View v) {
         tercerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameViewHistoria.getScene().getBitmapplataformas().add(5);
+                gameViewHistoria.getScene().getBitmapplataformas().add(4);
+                gameViewHistoria.getScene().getBitmapplataformas().add(3);
                 gameViewHistoria.getScene().load(R.raw.nivel2);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondocuevadef);
                 mainMenuView.setVisibility(View.INVISIBLE);
@@ -287,6 +303,9 @@ public void onClick(View v) {
         cuartoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameViewHistoria.getScene().getBitmapplataformas().add(8);
+                gameViewHistoria.getScene().getBitmapplataformas().add(7);
+                gameViewHistoria.getScene().getBitmapplataformas().add(6);
                 gameViewHistoria.getScene().load(R.raw.nivel3);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondohielodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
@@ -298,6 +317,9 @@ public void onClick(View v) {
         quintoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameViewHistoria.getScene().getBitmapplataformas().add(14);
+                gameViewHistoria.getScene().getBitmapplataformas().add(13);
+                gameViewHistoria.getScene().getBitmapplataformas().add(12);
                 gameViewHistoria.getScene().load(R.raw.nivel4);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondoinfiernodef);
                 mainMenuView.setVisibility(View.INVISIBLE);

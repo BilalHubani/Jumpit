@@ -26,7 +26,7 @@ import java.util.List;
 public class HistoryScene {
     public final static int SCENE_HEIGHT = 16;
     private char scene2[][] = new char[16][30];
-    ArrayList<Integer> bitmapplataformas = new ArrayList();
+    private ArrayList<Integer> bitmapplataformas;
     private String[] scene;
     private Paint paint;
     private int cont = 0;
@@ -41,10 +41,7 @@ public class HistoryScene {
         this.game = game;
         this.bitmapSet = game.getTerrenosBitmapSet();
         paint = new Paint();
-
-        bitmapplataformas.add(5);
-        bitmapplataformas.add(4);
-        bitmapplataformas.add(3);
+        bitmapplataformas = new ArrayList();
     }
     public void load(int resource) {
         this.nivel = resource;
@@ -160,5 +157,17 @@ public class HistoryScene {
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
+    }
+
+    public ArrayList<Integer> getBitmapplataformas() {
+        return bitmapplataformas;
+    }
+
+    public void setBitmapplataformas(ArrayList<Integer> bitmapplataformas) {
+        this.bitmapplataformas = bitmapplataformas;
+    }
+
+    public void limpiarbitmapplataformas(){
+        bitmapplataformas.clear();
     }
 }
