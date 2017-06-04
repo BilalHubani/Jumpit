@@ -1,11 +1,12 @@
 package com.example.billy.jumpit.controller.activities.main;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -16,13 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.billy.jumpit.controller.activities.Scenes.HistoryScene;
 import com.example.billy.jumpit.controller.activities.gameViews.Audio;
 import com.example.billy.jumpit.controller.activities.gameViews.GameView;
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria;
-import com.example.billy.jumpit.controller.activities.gameViews.Levels;
-import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapter;
-import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapterLevels;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -33,11 +32,13 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import java.util.ArrayList;
 
-public class MainActivity extends FragmentActivity implements SeekBar.OnSeekBarChangeListener, GoogleApiClient.OnConnectionFailedListener,
-        View.OnClickListener{
+
+public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener{
     boolean musicaOn = true;
     private GameViewHistoria gameViewHistoria;
+    private HistoryScene historyScene;
     private View vistaOpciones;
     private View vistaTienda, vistaskins,vistapowerups,vistagems, menuniveles;
     private SeekBar volumeControl;
@@ -47,6 +48,7 @@ public class MainActivity extends FragmentActivity implements SeekBar.OnSeekBarC
     private ImageButton reloadEndless, goHome;
     private LinearLayout GemsLinearLayout;
     private ImageButton skin, powerUp, gemas, exit;
+    private ArrayList<Integer> bitmapplataformashistory;
 
 
     // barra de control del volumen
@@ -96,98 +98,11 @@ public class MainActivity extends FragmentActivity implements SeekBar.OnSeekBarC
                             | View.SYSTEM_UI_FLAG_FULLSCREEN
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);}
     }
-//---------- VARIABLES GOOGLE
-    private GoogleApiClient mGoogleApiClient;
-    private ProgressDialog mProgressDialog;
-    private static final String TAG = "SignInActivity";
-    private static final int RC_SIGN_IN = 9001;
-//---------------------------
-@Override
-public void onClick(View v) {
-    switch (v.getId()) {
-        case R.id.sign_in_button:
-            signIn();
-            break;
-        // ...
-    }
-}
-    private void signIn() {
-        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSignInResult(result);
-        }
-    }
-    private void handleSignInResult(GoogleSignInResult result) {
-        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
-        Log.e("prueba", "" + result.isSuccess());
-        if (result.isSuccess()) {
-            // Signed in successfully, show authenticated UI.
-            GoogleSignInAccount acct = result.getSignInAccount();
-            String personName = acct.getDisplayName();
-            String personGivenName = acct.getGivenName();
-            String personFamilyName = acct.getFamilyName();
-            String personEmail = acct.getEmail();
-            String personId = acct.getId();
-            Uri personPhoto = acct.getPhotoUrl();
-            Log.e("nombre", personEmail);
-            updateUI(true);
-        } else {
-            // Signed out, show unauthenticated UI.
-            updateUI(false);
-        }
-    }
-    private void updateUI(boolean signedIn) {
-        if (signedIn) {
-            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-        } else {
-            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-        }
-    }
-    private void revokeAccess() {
-        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        // [START_EXCLUDE]
-                        updateUI(false);
-                        // [END_EXCLUDE]
-                    }
-                });
-    }
-    // [END revokeAccess]
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
-        // be available.
-        Log.d(TAG, "onConnectionFailed:" + connectionResult);
-    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//------------PRUEBA SIGN IN GOOGLE
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        final SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
-
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
 //------------------------------------
 
         bundle = savedInstanceState;
@@ -233,13 +148,11 @@ public void onClick(View v) {
         final ImageButton endless = (ImageButton) findViewById(R.id.btnendless);
         closeShop.setBackgroundResource(R.drawable.buttoncancel);
         final ImageView titulo = (ImageView)findViewById(R.id.tituloimagen);
-        final TextView status = (TextView)findViewById(R.id.status);
-        status.setVisibility(View.INVISIBLE);
-        final ImageButton primerNivel = (ImageButton) findViewById(R.id.primerNivel);;
-        final ImageButton segundoNivel = (ImageButton)findViewById(R.id.segundoNivel);;
-        final ImageButton tercerNivel = (ImageButton)findViewById(R.id.tercerNivel);;
-        final ImageButton cuartoNivel = (ImageButton)findViewById(R.id.cuartoNivel);;
-        final ImageButton quintoNivel = (ImageButton)findViewById(R.id.quintoNivel);;
+        final ImageButton primerNivel = (ImageButton) findViewById(R.id.primerNivel);
+        final ImageButton segundoNivel = (ImageButton)findViewById(R.id.segundoNivel);
+        final ImageButton tercerNivel = (ImageButton)findViewById(R.id.tercerNivel);
+        final ImageButton cuartoNivel = (ImageButton)findViewById(R.id.cuartoNivel);
+        final ImageButton quintoNivel = (ImageButton)findViewById(R.id.quintoNivel);
 
         final ImageButton exitMenuNivel = (ImageButton)findViewById(R.id.levelMenuExitBtn);
 
@@ -255,78 +168,75 @@ public void onClick(View v) {
         gameViewHistoria.setGoHome(goHome);
         gameViewHistoria.setReload(reloadEndless);
 
-        /*--------------------------*/
-        gameViewHistoria.setMainActivity(this);
-        gameViewHistoria.setPauseButton(pause);
-        gameViewHistoria.setGoHome(goHome);
-        /*********************************************/
-        gameViewEndless.setMainActivity(this);
-        gameViewEndless.setPauseButton(pause);
-        gameViewEndless.setGoHome(goHome);
-        gameViewEndless.setReload(reloadEndless);
-
-        /*--------------------------*/
-        gameViewEndless.setMainActivity(this);
-        gameViewEndless.setPauseButton(pause);
-        gameViewEndless.setGoHome(goHome);
-
+        gameViewHistoria.getScene().getBitmapplataformas().clear();
         /***************************/
-
         primerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new GameViewHistoria(mainActivity,R.raw.nivel0);
-
-                Log.e("","level");
-                gameViewHistoria.setNivel(R.raw.nivel0);
+                gameViewHistoria.getScene().getBitmapplataformas().add(11);
+                gameViewHistoria.getScene().getBitmapplataformas().add(10);
+                gameViewHistoria.getScene().getBitmapplataformas().add(9);
+                gameViewHistoria.getScene().load(R.raw.nivel0);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondopradodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
-                signInButton.setVisibility(View.INVISIBLE);
+//                signInButton.setVisibility(View.INVISIBLE);
                 gameViewHistoria.setVisibility(View.VISIBLE);
             }
         });
         segundoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameViewHistoria.setNivel(R.raw.nivel1);
+                gameViewHistoria.getScene().getBitmapplataformas().add(2);
+                gameViewHistoria.getScene().getBitmapplataformas().add(1);
+                gameViewHistoria.getScene().getBitmapplataformas().add(0);
+                gameViewHistoria.getScene().load(R.raw.nivel1);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondobosquedef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
-                signInButton.setVisibility(View.INVISIBLE);
+//                signInButton.setVisibility(View.INVISIBLE);
                 gameViewHistoria.setVisibility(View.VISIBLE);
             }
         });
         tercerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameViewHistoria.setNivel(R.raw.nivel2);
+                gameViewHistoria.getScene().getBitmapplataformas().add(5);
+                gameViewHistoria.getScene().getBitmapplataformas().add(4);
+                gameViewHistoria.getScene().getBitmapplataformas().add(3);
+                gameViewHistoria.getScene().load(R.raw.nivel2);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondocuevadef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
-                signInButton.setVisibility(View.INVISIBLE);
+//                signInButton.setVisibility(View.INVISIBLE);
                 gameViewHistoria.setVisibility(View.VISIBLE);
             }
         });
         cuartoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameViewHistoria.setNivel(R.raw.nivel3);
+                gameViewHistoria.getScene().getBitmapplataformas().add(8);
+                gameViewHistoria.getScene().getBitmapplataformas().add(7);
+                gameViewHistoria.getScene().getBitmapplataformas().add(6);
+                gameViewHistoria.getScene().load(R.raw.nivel3);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondohielodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
-                signInButton.setVisibility(View.INVISIBLE);
+//                signInButton.setVisibility(View.INVISIBLE);
                 gameViewHistoria.setVisibility(View.VISIBLE);
             }
         });
         quintoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameViewHistoria.setNivel(R.raw.nivel4);
+                gameViewHistoria.getScene().getBitmapplataformas().add(14);
+                gameViewHistoria.getScene().getBitmapplataformas().add(13);
+                gameViewHistoria.getScene().getBitmapplataformas().add(12);
+                gameViewHistoria.getScene().load(R.raw.nivel4);
                 gameViewHistoria.setBackgroundResource(R.drawable.fondoinfiernodef);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
-                signInButton.setVisibility(View.INVISIBLE);
+//                signInButton.setVisibility(View.INVISIBLE);
                 gameViewHistoria.setVisibility(View.VISIBLE);
             }
         });
@@ -427,7 +337,7 @@ public void onClick(View v) {
                 gameViewEndless.setVisibility(View.VISIBLE);
                 mainMenuView.setVisibility(View.INVISIBLE);
                 menuniveles.setVisibility(View.INVISIBLE);
-                signInButton.setVisibility(View.INVISIBLE);
+//                signInButton.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -464,7 +374,7 @@ public void onClick(View v) {
                 options.setVisibility(View.INVISIBLE);
                 play.setVisibility(View.INVISIBLE);
                 title.setVisibility(View.INVISIBLE);
-                signInButton.setVisibility(View.INVISIBLE);
+//                signInButton.setVisibility(View.INVISIBLE);
                 GemsLinearLayout.setVisibility(View.INVISIBLE);
                 titulo.setVisibility(View.INVISIBLE);
 
@@ -482,7 +392,7 @@ public void onClick(View v) {
                 options.setVisibility(View.VISIBLE);
                 play.setVisibility(View.VISIBLE);
                 title.setVisibility(View.VISIBLE);
-                signInButton.setVisibility(View.VISIBLE);
+//                signInButton.setVisibility(View.VISIBLE);
                 GemsLinearLayout.setVisibility(View.VISIBLE);
                 titulo.setVisibility(View.VISIBLE);
             }

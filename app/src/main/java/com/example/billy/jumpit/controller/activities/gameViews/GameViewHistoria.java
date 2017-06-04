@@ -36,6 +36,15 @@ public class GameViewHistoria extends View {
     private PokemonBitmapSet pokemonBitmapSet;
     private DragonBitmapSet dragonBitmapSet;
     private TerrenosBitmapSet terrenosBitmapSet;
+
+    public HistoryScene getScene() {
+        return scene;
+    }
+
+    public void setScene(HistoryScene scene) {
+        this.scene = scene;
+    }
+
     private HistoryScene scene;
     private Bonk bonk;
     private DragonSkin dragonSkin;
@@ -283,6 +292,7 @@ public class GameViewHistoria extends View {
                 score = 0;
                 goHome.setVisibility(INVISIBLE);
                 reload.setVisibility(INVISIBLE);
+                nivel = getScene().getNivel();
                 scene.load(nivel);
             }
         });

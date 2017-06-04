@@ -29,6 +29,12 @@ public class SkinManager {
     private SkinService skinService;
 
     private SkinManager() {
+        retrofit = new Retrofit.Builder()
+                .baseUrl(CustomProperties.baseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+
+                .build();
+
         skinService = retrofit.create(SkinService.class);
     }
 

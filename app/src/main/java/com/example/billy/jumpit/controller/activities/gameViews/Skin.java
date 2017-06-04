@@ -43,14 +43,9 @@ public class Skin extends LinearLayout {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.skins, this);
         datas = new ArrayList<>();
-        datas.add(new ClassSkin("pepe", R.drawable.audiooff));
-        datas.add(new ClassSkin("quim", R.drawable.audioon));
-        datas.add(new ClassSkin("adrian", R.drawable.audiooff));
-        datas.add(new ClassSkin("bily", R.drawable.audiooff));
-        datas.add(new ClassSkin("sheila", R.drawable.audiooff));
-        //vistaShowSkin = (View) findViewById(R.id.showskin);
-        //vistaShowSkin = (View) findViewById(R.id.showskin);
-//el quim ha posat un comentari
+        datas.add(new ClassSkin("rosinsio", R.drawable.skinrosita));
+        datas.add(new ClassSkin("dragonsio", R.drawable.blackdragon));
+        datas.add(new ClassSkin("moconsio", R.drawable.moco));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
         recyclerView.setAdapter(new MaterialPaletteAdapter(datas, context));
@@ -58,22 +53,5 @@ public class Skin extends LinearLayout {
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setHorizontalScrollBarEnabled(false);
 
-        //vistaViewSkin();
-
     }
-
-
-
-    /*public void vistaViewSkin(){
-        vistaShowSkin.setVisibility(View.INVISIBLE);
-        btnShowSkin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vistaShowSkin.setVisibility(View.VISIBLE);
-                //invisibleBtn();
-            }
-        });
-    }*/
-
-
 }

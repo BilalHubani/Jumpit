@@ -14,16 +14,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
-import com.example.billy.jumpit.model.ClassSkin;
+import com.example.billy.jumpit.controller.managers.SkinCallback;
+import com.example.billy.jumpit.controller.managers.SkinManager;
+import com.example.billy.jumpit.controller.services.SkinService;
+import com.example.billy.jumpit.model.*;
+import com.example.billy.jumpit.model.Skin;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPaletteAdapter.PaletteViewHolder> {
     private List<ClassSkin> data;
+    public List<Skin> skins;
     RecyclerView list;
+    SkinManager skinManager;
+    SkinCallback skinCallback;
     Context context;
     ArrayList <Integer> imagenes = new ArrayList();
+    ArrayList <String> ids = new ArrayList();
     Button btnskin;
     int i = 0;
 
@@ -40,15 +48,19 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
 
     @Override
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
-        imagenes.add(R.drawable.audiooff);imagenes.add(R.drawable.audioon);imagenes.add(R.drawable.carro);
-        imagenes.add(R.drawable.logros);imagenes.add(R.drawable.opciones);
+        imagenes.add(R.drawable.skinrosita);imagenes.add(R.drawable.blackdragon);imagenes.add(R.drawable.moco);
+
+        skins = new ArrayList<>();
+
+        //SkinManager.getInstance().getAllSkins(skinCallback);
+
+
+        Log.e("------->>>>>", "");
 
         ClassSkin color = data.get(position);
-        Log.e("Mostrar mierda: ", color.getNombre());
         holder.getTitleTextView().setText(color.getNombre());
-        holder.getImageskin().setImageResource(imagenes.get(i));
+        holder.getImageskin().setImageResource(imagenes.get(position));
         holder.getBtnskin();
-        i = i+1;
     }
 
     @Override
@@ -143,4 +155,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
             }
         });
     }
+
+
+
 }

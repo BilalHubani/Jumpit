@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.Scenes.EndlessScene;
 import com.example.billy.jumpit.controller.activities.main.MainActivity;
 import com.example.billy.jumpit.model.BitmapSet;
@@ -139,7 +140,7 @@ public class GameView extends View {
                 if (paused){
                     vel = 4;
                     paused = false;
-                    pauseButton.setBackgroundResource(ic_media_pause);
+                    pauseButton.setBackgroundResource(R.drawable.botonespausa);
                 }else{
                     vel = 0;
                     paused = true;
@@ -261,7 +262,7 @@ public class GameView extends View {
                 stateJumping = false;
                 jumpCounter = 0;
                 jumpIncrement = 2;
-                jumpMaxHeigh = 70;
+                jumpMaxHeigh = 120;
                 score = 0;
                 goHome.setVisibility(INVISIBLE);
                 reload.setVisibility(INVISIBLE);
