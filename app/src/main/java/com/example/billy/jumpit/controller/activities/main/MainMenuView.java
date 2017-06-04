@@ -9,6 +9,8 @@ import android.view.View;
 import com.example.billy.jumpit.controller.activities.Scenes.MainMenuBackgroundScene;
 import com.example.billy.jumpit.model.BitmapSet;
 import com.example.billy.jumpit.model.Bonk;
+import com.example.billy.jumpit.model.MoconsioBitmapSet;
+import com.example.billy.jumpit.model.MoconsioSkin;
 import com.example.billy.jumpit.model.RositoBitmapSet;
 import com.example.billy.jumpit.model.RositoSkin;
 import com.example.billy.jumpit.model.TerrenosBitmapSet;
@@ -22,6 +24,8 @@ public class  MainMenuView extends View {
     private TerrenosBitmapSet terrenosBitmapSet;
     private MainMenuBackgroundScene mainMenuBackgroundScene;
     private Bonk bonk;
+    private MoconsioSkin moconsioSkin;
+    private MoconsioBitmapSet moconsioBitmapSet;
     private RositoSkin rositoSkin;
     private RositoBitmapSet rositoBitmapSet;
     private boolean jump = false;
@@ -36,11 +40,13 @@ public class  MainMenuView extends View {
     public MainMenuView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         bitmapSet = new BitmapSet(this.getResources());
-        rositoBitmapSet = new RositoBitmapSet(this.getResources());
+//        rositoBitmapSet = new RositoBitmapSet(this.getResources());
+        moconsioBitmapSet = new MoconsioBitmapSet(this.getResources());
         terrenosBitmapSet = new TerrenosBitmapSet(this.getResources());
         mainMenuBackgroundScene = new MainMenuBackgroundScene(terrenosBitmapSet);
 //        bonk = new Bonk(bitmapSet);
-        rositoSkin = new RositoSkin(rositoBitmapSet);
+//        rositoSkin = new RositoSkin(rositoBitmapSet);
+        moconsioSkin = new MoconsioSkin(moconsioBitmapSet);
     }
 
     @Override
@@ -53,7 +59,8 @@ public class  MainMenuView extends View {
             doJump();
         mainMenuBackgroundScene.draw(canvas);
 //        bonk.draw(canvas);
-        rositoSkin.draw(canvas);
+//        rositoSkin.draw(canvas);
+        moconsioSkin.draw(canvas);
     }
     public void doJump(){
         if (checkGround() && !goingUp) {
@@ -67,21 +74,31 @@ public class  MainMenuView extends View {
                     count++;
                     if (count > 2) {
 //                        bonk.setY(bonk.getY() - 2);
-                        rositoSkin.setY(rositoSkin.getY() - 2);
-                        if (rositoSkin.getFrame() <= 5 ){
-                            rositoSkin.setFrameCounter(0);
-                            rositoSkin.setFrame(6);
+//                        rositoSkin.setY(rositoSkin.getY() - 2);
+                        moconsioSkin.setY(moconsioSkin.getY() - 2);
+//                        if (rositoSkin.getFrame() <= 5 ){
+//                            rositoSkin.setFrameCounter(0);
+//                            rositoSkin.setFrame(6);
+//                        }
+                        if (moconsioSkin.getFrame() <= 1 ){
+                            moconsioSkin.setFrameCounter(0);
+                            moconsioSkin.setFrame(2);
                         }
                         jumpLength++;
                         count = 0;
                     }
                 } else {
 //                    bonk.setY(bonk.getY() - 2);
-                    rositoSkin.setY(rositoSkin.getY() - 2);
+//                    rositoSkin.setY(rositoSkin.getY() - 2);
+                    moconsioSkin.setY(moconsioSkin.getY() - 2);
                     jumpLength++;
-                    if (rositoSkin.getFrame() <= 5 ){
-                        rositoSkin.setFrameCounter(0);
-                        rositoSkin.setFrame(6);
+//                    if (rositoSkin.getFrame() <= 5 ){
+//                        rositoSkin.setFrameCounter(0);
+//                        rositoSkin.setFrame(6);
+//                    }
+                    if (moconsioSkin.getFrame() <= 1 ){
+                        moconsioSkin.setFrameCounter(0);
+                        moconsioSkin.setFrame(2);
                     }
                 }
             }
@@ -95,13 +112,15 @@ public class  MainMenuView extends View {
                     count++;
                     if (count > 2) {
 //                        bonk.setY(bonk.getY() + 2);
-                        rositoSkin.setY(rositoSkin.getY() + 2);
+//                        rositoSkin.setY(rositoSkin.getY() + 2);
+                        moconsioSkin.setY(moconsioSkin.getY() + 2);
                         jumpLength--;
                         count = 0;
                     }
                 } else {
 //                    bonk.setY(bonk.getY() + 2);
-                    rositoSkin.setY(rositoSkin.getY() + 2);
+//                    rositoSkin.setY(rositoSkin.getY() + 2);
+                    moconsioSkin.setY(moconsioSkin.getY() + 2);
                     jumpLength--;
                 }
             }
@@ -122,17 +141,24 @@ public class  MainMenuView extends View {
     public boolean checkGround() {
 //        int r = bonk.getY() >> 4;
 //        int c = bonk.getX() >> 4;
-        int r = rositoSkin.getY() >> 4;
-        int c = rositoSkin.getX() >> 4;
+//        int r = rositoSkin.getY() >> 4;
+//        int c = rositoSkin.getX() >> 4;
+        int r = moconsioSkin.getY() >> 4;
+        int c = moconsioSkin.getX() >> 4;
         if (!mainMenuBackgroundScene.isGround(r+2, c))
             return false;
         else if (!goingUp) {
 //            bonk.setY(r << 4);
-            rositoSkin.setY(r << 4);
+//            rositoSkin.setY(r << 4);
+            moconsioSkin.setY(r << 4);
             jumpLength=0;
-            if (rositoSkin.getFrame() >= 6 ){
-                rositoSkin.setFrameCounter(0);
-                rositoSkin.setFrame(0);
+//            if (rositoSkin.getFrame() >= 6 ){
+//                rositoSkin.setFrameCounter(0);
+//                rositoSkin.setFrame(0);
+//            }
+            if (moconsioSkin.getFrame() >= 2 ){
+                moconsioSkin.setFrameCounter(0);
+                moconsioSkin.setFrame(0);
             }
         }
         return true;

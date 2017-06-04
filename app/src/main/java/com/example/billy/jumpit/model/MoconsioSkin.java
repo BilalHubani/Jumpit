@@ -76,13 +76,13 @@ public class MoconsioSkin extends Character{
             counter = 0;
         }
         counter++;
-        if (frame > 2){
+        if (frame > 1){
             if (frameCounter == 1){
                 frame = frame - frameCounter;
                 frameCounter = 0;
             }
         }else {
-            if (frameCounter == 4){
+            if (frameCounter == 1){
                 frame = frame - frameCounter;
                 frameCounter = 0;
             }
