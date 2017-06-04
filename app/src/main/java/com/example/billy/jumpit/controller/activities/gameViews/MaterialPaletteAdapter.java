@@ -40,15 +40,12 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
 
     @Override
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
-        imagenes.add(R.drawable.audiooff);imagenes.add(R.drawable.audioon);imagenes.add(R.drawable.carro);
-        imagenes.add(R.drawable.logros);imagenes.add(R.drawable.opciones);
+        imagenes.add(R.drawable.skinrosita);imagenes.add(R.drawable.blackdragon);imagenes.add(R.drawable.moco);
 
         ClassSkin color = data.get(position);
-        Log.e("Mostrar mierda: ", color.getNombre());
         holder.getTitleTextView().setText(color.getNombre());
-        holder.getImageskin().setImageResource(imagenes.get(i));
+        holder.getImageskin().setImageResource(imagenes.get(position));
         holder.getBtnskin();
-        i = i+1;
     }
 
     @Override
