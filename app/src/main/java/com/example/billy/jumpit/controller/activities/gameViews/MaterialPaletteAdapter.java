@@ -52,7 +52,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
 
         skins = new ArrayList<>();
 
-        //SkinManager.getInstance().getAllSkins(skinCallback);
+        SkinManager.getInstance().getAllSkins(skinCallback);
 
 
         Log.e("------->>>>>", "");
