@@ -13,7 +13,7 @@ public class RositoSkin extends Character{
     private Paint paint;
     private int x, y;
     private int jumpVel;
-    private BitmapSet dragonBitmapSet;
+    private BitmapSet rositoBitmapSet;
     private int frameCounter;
     private int counter;
 
@@ -57,9 +57,9 @@ public class RositoSkin extends Character{
         this.frameCounter = frameCounter;
     }
 
-    public RositoSkin(BitmapSet dragonBitmapSet) {
-        super(dragonBitmapSet);
-        this.dragonBitmapSet = dragonBitmapSet;
+    public RositoSkin(BitmapSet rositoBitmapSet) {
+        super(rositoBitmapSet);
+        this.rositoBitmapSet = rositoBitmapSet;
         frame = 0;
         frameCounter = 0;
         paint = new Paint();
@@ -69,15 +69,15 @@ public class RositoSkin extends Character{
     }
 
     public void draw(Canvas canvas) {
-        Bitmap sprite = dragonBitmapSet.getBitmap(frame);
+        Bitmap sprite = rositoBitmapSet.getBitmap(frame);
         if (counter > 5) {
             frame++;
             frameCounter++;
             counter = 0;
         }
         counter++;
-        if (frame > 4){
-            if (frameCounter == 3){
+        if (frame > 6){
+            if (frameCounter == 5){
                 frame = frame - frameCounter;
                 frameCounter = 0;
             }
@@ -88,6 +88,6 @@ public class RositoSkin extends Character{
             }
         }
 
-        canvas.drawBitmap(sprite, x, y, paint);
+        canvas.drawBitmap(sprite, x, y+2, paint);
     }
 }
