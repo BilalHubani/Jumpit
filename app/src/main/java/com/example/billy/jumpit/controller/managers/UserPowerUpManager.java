@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.billy.jumpit.controller.services.UserPowerUpService;
 import com.example.billy.jumpit.controller.services.UserService;
+import com.example.billy.jumpit.model.PowerUp;
 import com.example.billy.jumpit.model.User;
 import com.example.billy.jumpit.model.UserPowerUp;
 import com.example.billy.jumpit.util.CustomProperties;
@@ -67,6 +68,32 @@ public class UserPowerUpManager {
         });
     }
 
+    public synchronized void getAllUserPowerUpByUser(final UserPowerUpCallback userPowerUpCallback) {
+        Call<List<UserPowerUp>> call = userPowerUpService.getAllUserPowerUpByUser(UserLoginManager.getInstance().getBearerToken());
+
+        call.enqueue(new Callback<List<UserPowerUp>>() {
+            @Override
+            public void onResponse(Call<List<UserPowerUp>> call, Response<List<UserPowerUp>> response) {
+                userPowerUp = response.body();
+
+                int code = response.code();
+
+                if (response.isSuccess()) {
+                    userPowerUpCallback.onSuccess(userPowerUp);
+                } else {
+                    userPowerUpCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<UserPowerUp>> call, Throwable t) {
+                Log.e("UserPowerUpManager->", "getAllUserPowerUpByUser()->ERROR: " + t);
+
+                userPowerUpCallback.onFailure(t);
+            }
+        });
+    }
+
     public UserPowerUp getUserPowerUp(String id) {
         for (UserPowerUp userPowerUp1 : userPowerUp) {
             if (id.equals(userPowerUp1.getId())) {
@@ -87,7 +114,7 @@ public class UserPowerUpManager {
                 int code = response.code();
 
                 if (code == 200 || code == 201) {
-                    //playerCallback.onSuccess1(apuestas1x2);
+
                     Log.e("UserPowerUp->", "createUserPowerUp: OK" + 100);
 
                 } else {
@@ -195,6 +222,30 @@ public class UserPowerUpManager {
             @Override
             public void onFailure(Call<UserPowerUp> call, Throwable t) {
                 Log.e("BuyPowerUpManager->", "buyPowerUp: " + t);
+
+                userPowerUpCallback.onFailure(t);
+            }
+        });
+    }
+    //Utilizar una powerUp (elimina 1 a la relación userPowerUp)
+    public synchronized void updatePowerUp(final UserPowerUpCallback userPowerUpCallback, UserPowerUp userPowerUp) {
+        Call <UserPowerUp> call = userPowerUpService.updatePowerUpByUser(UserLoginManager.getInstance().getBearerToken() , userPowerUp.getPowerUp().getId().longValue());
+        call.enqueue(new Callback<UserPowerUp>() {
+            @Override
+            public void onResponse(Call<UserPowerUp> call, Response<UserPowerUp> response) {
+                int code = response.code();
+
+                if (code == 200 || code == 201) {
+                    Log.e("UsePowerUpa->", "usePowerUp: OOK" + 100);
+
+                } else {
+                    userPowerUpCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserPowerUp> call, Throwable t) {
+                Log.e("UsePowerUpManager->", "usePowerUp: " + t);
 
                 userPowerUpCallback.onFailure(t);
             }

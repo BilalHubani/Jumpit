@@ -44,6 +44,14 @@ public interface UserPowerUpService {
     @PUT("api/user-power-ups/{idPowerUp}/{quantity}/byPricePremium")
     Call<UserPowerUp> buyUserPowerUpByPricePremium(
             @Header("Authorization") String Authorization,
-            @Path("idPowerUp") Long idPowerUp, @Path("quantity") int quantity);
-
+            @Path("idPowerUp") Long idPowerUp,
+            @Path("quantity") int quantity);
+    @PUT("/user-power-ups/byUser/{idPowerUp}/")
+    Call<UserPowerUp> updatePowerUpByUser(
+            @Header("Authorization") String Authorization,
+            @Path("idPowerUp") Long idPowerUp);
+    @GET("/api/user-power-ups/byUser/")
+    Call<List<UserPowerUp>> getAllUserPowerUpByUser(
+            @Header("Authorization") String Authorization
+    );
 }
