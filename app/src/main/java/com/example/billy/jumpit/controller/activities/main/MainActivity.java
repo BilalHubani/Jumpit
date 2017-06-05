@@ -173,6 +173,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         primerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pause.setVisibility(View.VISIBLE);
                 gameViewHistoria.getScene().getBitmapplataformas().add(11);
                 gameViewHistoria.getScene().getBitmapplataformas().add(10);
                 gameViewHistoria.getScene().getBitmapplataformas().add(9);
@@ -187,6 +188,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         segundoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pause.setVisibility(View.VISIBLE);
                 gameViewHistoria.getScene().getBitmapplataformas().add(2);
                 gameViewHistoria.getScene().getBitmapplataformas().add(1);
                 gameViewHistoria.getScene().getBitmapplataformas().add(0);
@@ -201,6 +203,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         tercerNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pause.setVisibility(View.VISIBLE);
                 gameViewHistoria.getScene().getBitmapplataformas().add(5);
                 gameViewHistoria.getScene().getBitmapplataformas().add(4);
                 gameViewHistoria.getScene().getBitmapplataformas().add(3);
@@ -215,6 +218,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         cuartoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pause.setVisibility(View.VISIBLE);
                 gameViewHistoria.getScene().getBitmapplataformas().add(8);
                 gameViewHistoria.getScene().getBitmapplataformas().add(7);
                 gameViewHistoria.getScene().getBitmapplataformas().add(6);
@@ -229,6 +233,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         quintoNivel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pause.setVisibility(View.VISIBLE);
                 gameViewHistoria.getScene().getBitmapplataformas().add(14);
                 gameViewHistoria.getScene().getBitmapplataformas().add(13);
                 gameViewHistoria.getScene().getBitmapplataformas().add(12);
@@ -250,15 +255,6 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         gemas = (ImageButton) findViewById(R.id.gemas);
         imageLevel = (ImageButton) findViewById(R.id.photolevel);
         /*----------------------*/
-        gameViewEndless.setMainActivity(this);
-        gameViewEndless.setPauseButton(pause);
-        gameViewEndless.setGoHome(goHome);
-        gameViewEndless.setReload(reloadEndless);
-
-        /*--------------------------*/
-        gameViewEndless.setMainActivity(this);
-        gameViewEndless.setPauseButton(pause);
-        gameViewEndless.setGoHome(goHome);
 
 
 //Visibilities

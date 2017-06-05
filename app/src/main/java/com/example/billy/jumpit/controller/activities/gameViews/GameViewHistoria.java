@@ -163,7 +163,7 @@ public class GameViewHistoria extends View {
                 if (paused){
                     vel = 4;
                     paused = false;
-                    pauseButton.setBackgroundResource(ic_media_pause);
+                    pauseButton.setBackgroundResource(R.drawable.botonespausa);
                 }else{
                     vel = 0;
                     paused = true;
