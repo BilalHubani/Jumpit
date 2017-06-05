@@ -3,13 +3,7 @@ package com.example.billy.jumpit.controller.managers;
 import android.util.Log;
 
 import com.example.billy.jumpit.controller.services.UserPowerUpService;
-import com.example.billy.jumpit.controller.services.UserService;
-import com.example.billy.jumpit.model.PowerUp;
-import com.example.billy.jumpit.model.User;
 import com.example.billy.jumpit.model.UserPowerUp;
-import com.example.billy.jumpit.util.CustomProperties;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
@@ -17,7 +11,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Yuna114 on 03/06/2017.

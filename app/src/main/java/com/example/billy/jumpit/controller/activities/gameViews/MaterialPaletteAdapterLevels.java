@@ -3,7 +3,6 @@ package com.example.billy.jumpit.controller.activities.gameViews;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
-import com.example.billy.jumpit.controller.activities.main.MainActivity;
 import com.example.billy.jumpit.model.ClassLevel;
-import com.example.billy.jumpit.model.User;
 
 import java.util.ArrayList;
 import java.util.List;

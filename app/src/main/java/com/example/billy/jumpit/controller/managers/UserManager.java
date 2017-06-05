@@ -4,7 +4,7 @@ import android.util.Log;
 
 
 import com.example.billy.jumpit.controller.services.UserService;
-import com.example.billy.jumpit.model.User;
+import com.example.billy.jumpit.model.UserCustomAtributes;
 import com.example.billy.jumpit.util.CustomProperties;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -20,7 +20,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UserManager {
     private static UserManager ourInstance;
-    private List<User> users;
+    private List<UserCustomAtributes> users;
+    private UserCustomAtributes user;
     private Retrofit retrofit;
     private UserService userService;
 
@@ -45,11 +46,11 @@ public class UserManager {
 
 
     public synchronized void getAllUser(final UserCallback userCallback) {
-        Call<List<User>> call = userService.getAllUsers(UserLoginManager.getInstance().getBearerToken());
+        Call<List<UserCustomAtributes>> call = userService.getAllUsers(UserLoginManager.getInstance().getBearerToken());
 
-        call.enqueue(new Callback<List<User>>() {
+        call.enqueue(new Callback<List<UserCustomAtributes>>() {
             @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+            public void onResponse(Call<List<UserCustomAtributes>> call, Response<List<UserCustomAtributes>> response) {
                 users = response.body();
 
                 int code = response.code();
@@ -62,7 +63,7 @@ public class UserManager {
             }
 
             @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
+            public void onFailure(Call<List<UserCustomAtributes>> call, Throwable t) {
                 Log.e("UserManager->", "getAllUser()->ERROR: " + t);
 
                 userCallback.onFailure(t);
@@ -70,8 +71,34 @@ public class UserManager {
         });
     }
 
-    public User getUser(String id) {
-        for (User user : users) {
+    public synchronized void getUserCustomAtributes(final UserCallback userCallback) {
+        Call <UserCustomAtributes> call =  userService.userCustomAtributes(UserLoginManager.getInstance().getBearerToken());
+
+        call.enqueue(new Callback<UserCustomAtributes>() {
+            @Override
+            public void onResponse(Call<UserCustomAtributes> call, Response<UserCustomAtributes> response) {
+                user = response.body();
+
+                int code = response.code();
+
+                if (response.isSuccess()) {
+                    userCallback.onSuccess( user);
+                } else {
+                    userCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserCustomAtributes> call, Throwable t) {
+                Log.e("UserManager->", "getAllUser()->ERROR: " + t);
+
+                userCallback.onFailure(t);
+            }
+        });
+    }
+
+    public UserCustomAtributes getUser(String id) {
+        for (UserCustomAtributes user : users) {
             if (id.equals(user.getId())) {
                 return user;
             }
@@ -82,11 +109,11 @@ public class UserManager {
 
     /* POST - CREATE PLAYER */
 
-    public synchronized void createUser(final UserCallback userCallback, User user) {
-        Call<User> call = userService.createUser(UserLoginManager.getInstance().getBearerToken(), user);
-        call.enqueue(new Callback<User>() {
+    public synchronized void createUser(final UserCallback userCallback, UserCustomAtributes user) {
+        Call<UserCustomAtributes> call = userService.createUser(UserLoginManager.getInstance().getBearerToken(), user);
+        call.enqueue(new Callback<UserCustomAtributes>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<UserCustomAtributes> call, Response<UserCustomAtributes> response) {
                 int code = response.code();
 
                 if (code == 200 || code == 201) {
@@ -99,7 +126,7 @@ public class UserManager {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<UserCustomAtributes> call, Throwable t) {
                 Log.e("UserManager->", "createUser: " + t);
                 userCallback.onFailure(t);
             }
@@ -107,11 +134,11 @@ public class UserManager {
     }
 
     /* PUT - UPDATE Athlete */
-    public synchronized void updateUser(final UserCallback userCallback, User user) {
-        Call <User> call = userService.updateUser(UserLoginManager.getInstance().getBearerToken() ,user);
-        call.enqueue(new Callback<User>() {
+    public synchronized void updateUser(final UserCallback userCallback, UserCustomAtributes user) {
+        Call <UserCustomAtributes> call = userService.updateUser(UserLoginManager.getInstance().getBearerToken() ,user);
+        call.enqueue(new Callback<UserCustomAtributes>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<UserCustomAtributes> call, Response<UserCustomAtributes> response) {
                 int code = response.code();
 
                 if (code == 200 || code == 201) {
@@ -123,7 +150,7 @@ public class UserManager {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<UserCustomAtributes> call, Throwable t) {
                 Log.e("UserManager->", "updateUser: " + t);
 
                 userCallback.onFailure(t);
@@ -131,11 +158,11 @@ public class UserManager {
         });
     }
 
-    public synchronized void updateUserScore(final UserCallback userCallback, User user, Integer score) {
-        Call <User> call = userService.updateUserScore(UserLoginManager.getInstance().getBearerToken() ,user, score);
-        call.enqueue(new Callback<User>() {
+    public synchronized void updateUserScore(final UserCallback userCallback, UserCustomAtributes user, Integer score) {
+        Call <UserCustomAtributes> call = userService.updateUserScore(UserLoginManager.getInstance().getBearerToken() ,user, score);
+        call.enqueue(new Callback<UserCustomAtributes>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<UserCustomAtributes> call, Response<UserCustomAtributes> response) {
                 int code = response.code();
 
                 if (code == 200 || code == 201) {
@@ -147,7 +174,7 @@ public class UserManager {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<UserCustomAtributes> call, Throwable t) {
                 Log.e("UserManager->", "updateScore: " + t);
 
                 userCallback.onFailure(t);

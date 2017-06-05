@@ -3,12 +3,8 @@ package com.example.billy.jumpit.controller.managers;
 import android.util.Log;
 
 import com.example.billy.jumpit.controller.services.SkinService;
-import com.example.billy.jumpit.controller.services.UserService;
 import com.example.billy.jumpit.model.Skin;
-import com.example.billy.jumpit.model.User;
 import com.example.billy.jumpit.util.CustomProperties;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
 package com.example.billy.jumpit.controller.services;
 
 import com.example.billy.jumpit.model.Skin;
-import com.example.billy.jumpit.model.User;
 
 import java.util.List;
 
