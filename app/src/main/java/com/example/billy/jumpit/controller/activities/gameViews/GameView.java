@@ -96,6 +96,7 @@ public class GameView extends View implements UserCallback {
 //        character = new Character(pokemonBitmapSet);
 //        dragonSkin = new DragonSkin(bitmapSetList.get(2));
         character = getCharacter();
+
         paint = new Paint();
         paint.setTextSize(10);
         // vel = bonk.getVel();
@@ -140,6 +141,7 @@ public class GameView extends View implements UserCallback {
     }
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        this.jumpMaxHeigh = character.getJumpMaxHeight();
         pauseButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

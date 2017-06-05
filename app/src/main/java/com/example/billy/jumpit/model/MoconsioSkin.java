@@ -66,6 +66,7 @@ public class MoconsioSkin extends Character{
         x = 80;
         y = 208;
         jumpVel = 11;
+        super.setJumpMaxHeight(150);
     }
 
     public void draw(Canvas canvas) {

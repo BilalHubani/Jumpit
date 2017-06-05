@@ -65,7 +65,7 @@ public class DragonSkin extends Character{
         paint = new Paint();
         x = 80;
         y = 208;
-        jumpVel = 11;
+        super.setJumpMaxHeight(135);
     }
 
     public void draw(Canvas canvas) {

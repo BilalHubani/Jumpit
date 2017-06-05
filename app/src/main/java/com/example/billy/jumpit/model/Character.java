@@ -15,6 +15,7 @@ public class Character {
     private int jumpVel;
     private BitmapSet bitmapSet;
     private int frameCounter;
+    private int jumpMaxHeight;
 
     public int getFrame() {
         return frame;
@@ -56,6 +57,14 @@ public class Character {
         this.frameCounter = frameCounter;
     }
 
+    public int getJumpMaxHeight() {
+        return jumpMaxHeight;
+    }
+
+    public void setJumpMaxHeight(int jumpMaxHeight) {
+        this.jumpMaxHeight = jumpMaxHeight;
+    }
+
     public Character(BitmapSet bitmapSet) {
         this.bitmapSet = bitmapSet;
         frame = 0;
@@ -63,7 +72,8 @@ public class Character {
         paint = new Paint();
         x = 80;
         y = 208;
-        jumpVel = 11;
+        jumpVel = 2;
+        jumpMaxHeight = 120;
     }
 
     public void draw(Canvas canvas) {

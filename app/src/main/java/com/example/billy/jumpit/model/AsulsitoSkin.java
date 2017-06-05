@@ -16,6 +16,7 @@ public class AsulsitoSkin extends Character{
     private BitmapSet asulsitoBitmapSet;
     private int frameCounter;
     private int counter;
+    private int frameSeparator;
 
     public int getFrame() {
         return frame;
@@ -65,7 +66,8 @@ public class AsulsitoSkin extends Character{
         paint = new Paint();
         x = 80;
         y = 208;
-        jumpVel = 11;
+        jumpVel = 2;
+        frameSeparator = 5;
     }
 
     public void draw(Canvas canvas) {
