@@ -61,7 +61,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
         //Drawable image = context.getResources().getDrawable(imageResource);
 
         Skin skin = data.get(position);
-        //int foto = Integer.parseInt(skin.getSplashArt());
+        //int foto = Integer.parseInt(skinselector.getSplashArt());
 
         switch (skin.getSplashArt()) {
             case "skinrosita":

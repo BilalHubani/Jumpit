@@ -22,6 +22,9 @@ import com.example.billy.jumpit.controller.activities.gameViews.Audio;
 import com.example.billy.jumpit.controller.activities.gameViews.GameView;
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria;
+import com.example.billy.jumpit.controller.managers.UserCallback;
+import com.example.billy.jumpit.controller.managers.UserManager;
+import com.example.billy.jumpit.model.UserCustomAtributes;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -33,9 +36,10 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
-public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener{
+public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener, UserCallback{
     boolean musicaOn = true;
     private GameViewHistoria gameViewHistoria;
     private HistoryScene historyScene;
@@ -44,9 +48,13 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     private SeekBar volumeControl;
     private ImageButton volume, imageLevel;
     private Bundle bundle;
+    private TextView diamonds, coins;
+
     private MainActivity mainActivity = this;
     private ImageButton reloadEndless, goHome;
     private LinearLayout GemsLinearLayout;
+    private UserCustomAtributes user;
+
     private ImageButton skin, powerUp, gemas, exit;
     private ArrayList<Integer> bitmapplataformashistory;
 
@@ -103,6 +111,9 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//------------------------------------
+        UserManager.getInstance().getUserCustomAtributes(this);
 //------------------------------------
 
         bundle = savedInstanceState;
@@ -131,8 +142,8 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         ImageButton closeOption = (ImageButton)findViewById(R.id.closeButton);
         ImageButton closeShop = (ImageButton)findViewById(R.id.exitBtn);
         final TextView title = (TextView)findViewById(R.id.Title);
-        final TextView coins = (TextView)findViewById(R.id.coins);
-        final TextView diamonds = (TextView)findViewById(R.id.diamonds);
+        coins = (TextView)findViewById(R.id.coins);
+        diamonds = (TextView)findViewById(R.id.diamonds);
         final ImageView coins_image = (ImageView)findViewById(R.id.coin_image);
         final ImageView diamonds_image = (ImageView)findViewById(R.id.diamonds_image);
         vistaOpciones = (View)findViewById(R.id.options);
@@ -155,6 +166,65 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         final ImageButton quintoNivel = (ImageButton)findViewById(R.id.quintoNivel);
 
         final ImageButton exitMenuNivel = (ImageButton)findViewById(R.id.levelMenuExitBtn);
+
+
+
+
+
+        /***********************************************/
+        final View selectorSkin = (View) findViewById(R.id.skinSelector);
+        selectorSkin.setVisibility(View.INVISIBLE);
+        final ImageButton azuleteSelect = (ImageButton)findViewById(R.id.azuleteSelect);
+        final ImageButton magoSelect = (ImageButton)findViewById(R.id.magoSelect);
+        final ImageButton mocoSelect = (ImageButton)findViewById(R.id.mocoSelect);
+        final ImageButton caballeroSelect = (ImageButton)findViewById(R.id.caballeroSelect);
+        final ImageButton rositoSelect = (ImageButton)findViewById(R.id.rositoSelect);
+        final ImageButton vikingoSelect = (ImageButton)findViewById(R.id.vikingoSelect);
+        final ImageButton dragonSelect = (ImageButton)findViewById(R.id.dragonSelect);
+
+
+        azuleteSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        magoSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        mocoSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        caballeroSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        rositoSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        vikingoSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        dragonSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         /*----------------------*/
         gameViewEndless.setMainActivity(this);
@@ -416,6 +486,35 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
     public Bundle getBundle() {
         return bundle;
+    }
+
+    @Override
+    public void onSuccess(List<UserCustomAtributes> userList) {
+
+    }
+
+    @Override
+    public void onSuccess(UserCustomAtributes user) {
+        this.user = user;
+        coins.setText(user.getMoneyGame());
+        diamonds.setText(user.getMoneyPremium());
+    }
+
+    @Override
+    public void onSucces() {
+
+    }
+
+    @Override
+    public void onSucces(UserCustomAtributes user) {
+        this.user = user;
+        coins.setText(user.getMoneyGame());
+        diamonds.setText(user.getMoneyPremium());
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+
     }
 }
 

@@ -53,10 +53,11 @@
         android:id="@+id/play"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_centerVertical="true"
-        android:layout_toStartOf="@+id/shopButton"
         android:background="@drawable/botonplay"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/reloadEndless"
+        android:layout_marginStart="25dp" />
 
     <ImageView
         android:id="@+id/tituloimagen"
@@ -94,10 +95,10 @@
         android:id="@+id/shopButton"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_alignStart="@+id/LinearLayoutMenu"
+        android:background="@drawable/botontienda"
         android:layout_below="@+id/optionsButton"
-        android:layout_marginStart="13dp"
-        android:background="@drawable/botontienda" />
+        android:layout_alignEnd="@+id/view3"
+        android:layout_marginEnd="13dp" />
 
     <view
         android:id="@+id/view2"
@@ -111,7 +112,7 @@
 
     <LinearLayout
         android:id="@+id/LinearLayoutMenu"
-        android:layout_width="150dp"
+        android:layout_width="400dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -122,36 +123,38 @@
             android:id="@+id/coins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:text="0"
+            android:textAlignment="textEnd"
             android:textColor="@android:color/background_light"
             android:textSize="24sp" />
 
         <ImageView
             android:id="@+id/coin_image"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginEnd="5dp"
             android:layout_marginTop="5dp"
-            android:layout_weight="1"
             android:background="@drawable/monedagold" />
 
         <TextView
             android:id="@+id/diamonds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="0.58"
             android:text="0"
+            android:textAlignment="textEnd"
             android:textColor="@android:color/background_light"
             android:textSize="24sp" />
 
         <ImageView
             android:id="@+id/diamonds_image"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
             android:layout_marginEnd="5dp"
             android:layout_marginTop="5dp"
-            android:layout_weight="1"
             android:background="@drawable/monedadonator" />
 
     </LinearLayout>
@@ -178,19 +181,33 @@
         android:id="@+id/goHome"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/shopButton"
-        android:layout_toStartOf="@+id/reloadEndless"
         android:background="@drawable/botonhome"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        android:layout_above="@+id/shopButton"
+        android:layout_alignStart="@+id/LinearLayoutMenu"
+        android:layout_marginStart="48dp" />
 
     <ImageButton
         android:id="@+id/reloadEndless"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignTop="@+id/goHome"
-        android:layout_toStartOf="@+id/Title"
         android:background="@drawable/botonesrepetir"
-        app:srcCompat="@android:drawable/ic_popup_sync" />
+        app:srcCompat="@android:drawable/ic_popup_sync"
+        android:layout_marginStart="18dp"
+        android:layout_alignTop="@+id/goHome"
+        android:layout_toEndOf="@+id/goHome" />
+
+    <view
+        android:id="@+id/skinSelector"
+        class="com.example.billy.jumpit.controller.activities.gameViews.SelectorSkins"
+        id="@+id/view8"
+        layout_alignTop="@+id/goHome"
+        layout_toEndOf="@+id/goHome"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:layout_alignTop="@+id/view2"
+        android:layout_toEndOf="@+id/pause"
+        android:layout_alignBottom="@+id/view3" />
 
 
 </RelativeLayout>
