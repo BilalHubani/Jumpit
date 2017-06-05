@@ -15,7 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
+import com.example.billy.jumpit.controller.managers.PowerUpManager;
 import com.example.billy.jumpit.model.ClassPowerUp;
+import com.example.billy.jumpit.model.PowerUp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,18 +27,15 @@ import java.util.List;
  */
 
 public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPaletteAdapterPU.PaletteViewHolder> {
-    private List<ClassPowerUp> data;
+    private List<PowerUp> data;
+    public List<PowerUp> powerUps = new ArrayList<>();
     RecyclerView list;
+    PowerUpManager powerUpManager;
     Context context;
-    ArrayList<Integer> imagenes = new ArrayList();
-    ArrayList<String> precioGold = new ArrayList();
-    ArrayList<String> precioDonator = new ArrayList();
     ArrayList<String> descripcion = new ArrayList();
-    ArrayList<String> nombre = new ArrayList();
     Button btnskin;
-    int i = 0;
 
-    public MaterialPaletteAdapterPU(@NonNull List<ClassPowerUp> data, Context context) {
+    public MaterialPaletteAdapterPU(@NonNull List<PowerUp> data, Context context) {
         this.data = data;
         this.context = context;
     }
@@ -49,38 +48,22 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
 
     @Override
     public void onBindViewHolder(MaterialPaletteAdapterPU.PaletteViewHolder holder, int position) {
-        nombre.add("Voladoras");
-        nombre.add("Rapidisimas");
-        nombre.add("Doble Puntuacion");
-
-        imagenes.add(R.drawable.zapatasrojasvoladoras);
-        imagenes.add(R.drawable.zapatasrojasboost);
-        imagenes.add(R.drawable.doublescoregold);
-
-        precioGold.add("300");
-        precioGold.add("350");
-        precioGold.add("300");
-
-        precioDonator.add("100");
-        precioDonator.add("125");
-        precioDonator.add("100");
-
 
         descripcion.add("Con estas zapatillas puedes saltar más alto");
         descripcion.add("Con estas monstruosas zapas puedes correr más");
         descripcion.add("Conseguir x2 la puntuación ahora es más fácil");
 
-        ClassPowerUp color = data.get(position);
+        PowerUp powerup = data.get(position);
 
-        holder.getTitleTextView().setText(nombre.get(position));
+        holder.getTitleTextView().setText(powerup.getName());
 
-        holder.getImageskin().setImageResource(imagenes.get(position));
+//        holder.getImageskin().setImageResource(imagenes.get(position));
 
         holder.getTextPowerUp().setText(descripcion.get(position));
 
-        holder.getBtnGoldPowerUp().setText(precioGold.get(position));
+        holder.getBtnGoldPowerUp().setText(powerup.getPriceGame());
 
-        holder.getBtnDonatorPowerUp().setText(precioDonator.get(position));
+        holder.getBtnDonatorPowerUp().setText(powerup.getPricePremium());
     }
 
     @Override

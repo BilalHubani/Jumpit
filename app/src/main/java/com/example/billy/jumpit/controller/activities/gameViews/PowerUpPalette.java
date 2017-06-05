@@ -13,40 +13,57 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.billy.jumpit.R;
-import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapterPU;
+import com.example.billy.jumpit.controller.managers.PowerUpCallback;
+import com.example.billy.jumpit.controller.managers.PowerUpManager;
 import com.example.billy.jumpit.model.ClassPowerUp;
+import com.example.billy.jumpit.model.PowerUp;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PowerUp extends LinearLayout {
-    private List<ClassPowerUp> datas;
+public class PowerUpPalette extends LinearLayout implements PowerUpCallback{
+    private List<PowerUp> datas;
+    private Context context;
 
-    public PowerUp(Context context) {
+    public PowerUpPalette(Context context) {
         this(context, null, 0);
     }
 
-    public PowerUp(Context context, AttributeSet attrs) {
+    public PowerUpPalette(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public PowerUp(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PowerUpPalette(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        context = context;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.powerup, this);
 
-        datas = new ArrayList<>();
-        datas.add(new ClassPowerUp("pepe", R.drawable.audiooff, "EL PUTO AMO"));
-        datas.add(new ClassPowerUp("quim", R.drawable.audioon, " Te hace ser dios en el rocketleage"));
-        datas.add(new ClassPowerUp("aaa", R.drawable.audioon, " Te hace ser dios en el rocketleage"));
-
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleViewPU);
-        recyclerView.setAdapter(new MaterialPaletteAdapterPU(datas, context));
-        //recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-        recyclerView.setHorizontalScrollBarEnabled(false);
+        PowerUpManager.getInstance().getAllPowerUp(this);
 
     }
 
+    @Override
+    public void onSuccess(List<PowerUp> powerUpsList) {
+        datas = powerUpsList;
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
+        recyclerView.setAdapter(new MaterialPaletteAdapterPU(datas, context));
+        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setHorizontalScrollBarEnabled(false);
+    }
+
+    @Override
+    public void onSucces() {
+
+    }
+
+    @Override
+    public void onSucces(PowerUp powerUp) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+
+    }
 }

@@ -9,7 +9,7 @@
 
     <view
         android:id="@+id/view6"
-        class="com.example.billy.jumpit.controller.activities.gameViews.PowerUp"
+        class="com.example.billy.jumpit.controller.activities.gameViews.PowerUpPalette"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginEnd="70dp"
