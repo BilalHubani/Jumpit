@@ -46,6 +46,10 @@ public class Skin extends LinearLayout {
         datas.add(new ClassSkin("Chico Rosa", R.drawable.skinrosita));
         datas.add(new ClassSkin("dragonsio", R.drawable.blackdragon));
         datas.add(new ClassSkin("moconsio", R.drawable.moco));
+        datas.add(new ClassSkin("Vikingo", R.drawable.vikingsshop));
+        datas.add(new ClassSkin("mago", R.drawable.magoshop));
+        datas.add(new ClassSkin("azulete", R.drawable.azuleteshop));
+        datas.add(new ClassSkin("caballero", R.drawable.caballeroshop));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
         recyclerView.setAdapter(new MaterialPaletteAdapter(datas, context));
