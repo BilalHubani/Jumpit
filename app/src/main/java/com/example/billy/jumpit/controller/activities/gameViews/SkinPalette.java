@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.managers.SkinCallback;
 import com.example.billy.jumpit.controller.managers.SkinManager;
+import com.example.billy.jumpit.controller.managers.UserCallback;
 import com.example.billy.jumpit.model.ClassSkin;
 import com.example.billy.jumpit.model.Skin;
 
@@ -30,9 +31,11 @@ public class SkinPalette extends LinearLayout implements SkinCallback{
     private ImageView imgskin;
     private TextView nameskin;
     private List<Skin> datas;
+    private List<Skin> datasAdquerido;
     private Context context;
     private Button button, btnShowSkin;
     private View vistaShowSkin;
+    private int contador = 0;
 
 
     public SkinPalette(Context context) {
@@ -49,6 +52,8 @@ public class SkinPalette extends LinearLayout implements SkinCallback{
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.skins, this);
         SkinManager.getInstance().getAllSkins(this);
+
+        SkinManager.getInstance().getAllSkinsByUser(this);
         //Log.e("-------->>>>", "" + datas.size());
 
         //RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
@@ -62,7 +67,17 @@ public class SkinPalette extends LinearLayout implements SkinCallback{
 
     @Override
     public void onSuccess(List<Skin> skinsList) {
-        datas = skinsList;
+
+//        for(Skin skin: getAllSkins){
+//            boolean bool = false;
+//            for(Skin skin2 : getAllSkinsByUser){
+//                if(skin2.equals(skin)){ bool = true; }
+//            }
+//            if(!bool){
+//                datas.add(skin);
+//            }
+//        }
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
         recyclerView.setAdapter(new MaterialPaletteAdapter(datas, context));
         //recyclerView.setLayoutManager(new LinearLayoutManager(context));

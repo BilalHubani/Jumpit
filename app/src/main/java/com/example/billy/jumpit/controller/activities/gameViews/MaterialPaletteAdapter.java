@@ -58,6 +58,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
 
         final Skin skin = data.get(position);
 
+
         switch (skin.getSplashArt()) {
             case "skinrosita":
                 holder.getImageskin().setImageResource(R.drawable.skinrosita);
