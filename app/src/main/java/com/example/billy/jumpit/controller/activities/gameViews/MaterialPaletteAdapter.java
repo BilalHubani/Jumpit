@@ -23,6 +23,8 @@ import com.example.billy.jumpit.controller.services.SkinService;
 import com.example.billy.jumpit.model.*;
 import com.example.billy.jumpit.model.Skin;
 
+import org.w3c.dom.Text;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,6 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
     ArrayList <Integer> imagenes = new ArrayList();
     ArrayList <String> ids = new ArrayList();
     Button btnskin;
-    int i = 0;
 
     public MaterialPaletteAdapter(@NonNull List<Skin> data, Context context) {
         this.data = data;
@@ -64,6 +65,8 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
 
         holder.getTitleTextView().setText(skin.getName());
         holder.getImageskin().setImageResource(R.drawable.skinrosita);
+        holder.textGoldSkin.setText(skin.getPriceGame().toString());
+        holder.textDonatorSkin.setText(skin.getPricePremium().toString());
         holder.getBtnskin();
     }
 
@@ -71,17 +74,21 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
     class PaletteViewHolder extends RecyclerView.ViewHolder {
         private TextView titleTextView;
         private ImageView imageskin;
-        private Button btnGoldPowerUp;
-        private Button btnDonatorPowerUp;
+        private Button btnGoldSkin;
+        private Button btnDonatorSkin;
+        private TextView textGoldSkin;
+        private TextView textDonatorSkin;
 
         public PaletteViewHolder(View elementskin) {
             super(elementskin);
             titleTextView = (TextView) elementskin.findViewById(R.id.nameskin);
             imageskin = (ImageView) elementskin.findViewById(R.id.photoskin);
-            btnGoldPowerUp = (Button) elementskin.findViewById(R.id.buttonGoldShop);
-            btnDonatorPowerUp = (Button) elementskin.findViewById(R.id.buttonDonatorShop);
+            btnGoldSkin = (Button) elementskin.findViewById(R.id.buttonGoldShop);
+            btnDonatorSkin = (Button) elementskin.findViewById(R.id.buttonDonatorShop);
+            textGoldSkin = (TextView) elementskin.findViewById(R.id.dineroGoldShop);
+            textDonatorSkin = (TextView) elementskin.findViewById(R.id.dineroDonatorShop);
 
-            btnGoldPowerUp.setOnClickListener(new View.OnClickListener() {
+            btnGoldSkin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
@@ -106,7 +113,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
 
                 }
             });
-            btnDonatorPowerUp.setOnClickListener(new View.OnClickListener() {
+            btnDonatorSkin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("pep", ".........................................");
@@ -145,15 +152,45 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
             return btnskin;
         }
 
-    }
+        public Button getBtnGoldSkin() {
+            return btnGoldSkin;
+        }
 
-    public void pepe(){
-        btnskin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        public Button getBtnDonatorSkin() {
+            return btnDonatorSkin;
+        }
 
-            }
-        });
+        public TextView getTextGoldSkin() {
+            return textGoldSkin;
+        }
+
+        public TextView getTextDonatorSkin() {
+            return textDonatorSkin;
+        }
+
+        public void setTitleTextView(TextView titleTextView) {
+            this.titleTextView = titleTextView;
+        }
+
+        public void setImageskin(ImageView imageskin) {
+            this.imageskin = imageskin;
+        }
+
+        public void setBtnGoldSkin(Button btnGoldSkin) {
+            this.btnGoldSkin = btnGoldSkin;
+        }
+
+        public void setBtnDonatorSkin(Button btnDonatorSkin) {
+            this.btnDonatorSkin = btnDonatorSkin;
+        }
+
+        public void setTextGoldSkin(TextView textGoldSkin) {
+            this.textGoldSkin = textGoldSkin;
+        }
+
+        public void setTextDonatorSkin(TextView textDonatorSkin) {
+            this.textDonatorSkin = textDonatorSkin;
+        }
     }
 
     @Override
