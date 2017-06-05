@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".controller.activities.main.LoginActivity">
+    tools:context=".controller.activities.main.LoginActivity2">
 
     <!-- Login progress -->
 
@@ -17,8 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <ProgressBar
         android:id="@+id/login_progress"

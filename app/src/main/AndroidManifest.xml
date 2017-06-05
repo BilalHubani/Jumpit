@@ -9,13 +9,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".controller.activities.main.MainActivity"
+            android:name=".controller.activities.main.LoginActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".controller.activities.main.MainActivity" android:screenOrientation="landscape" />
+        <activity
+            android:name=".controller.activities.main.RegisterActivity"
+            android:label="Registrar usuario"
+            android:parentActivityName=".controller.activities.main.LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controller.activities.main.LoginActivity" />
         </activity>
     </application>
 
