@@ -39,7 +39,7 @@ public interface UserService {
             @Header("Authorization") String Authorization,
             @Body UserCustomAtributes user,
             @Path("score") Integer score);
-    @GET("/user-custom-atributes/byUser")
+    @GET("api/user-custom-atributes/byUser")
     Call <UserCustomAtributes> userCustomAtributes(
             @Header("Authorization") String Authorization);
 }

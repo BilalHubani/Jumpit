@@ -15,8 +15,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.billy.jumpit.R;
+import com.example.billy.jumpit.controller.activities.main.MainActivity;
 import com.example.billy.jumpit.controller.managers.SkinCallback;
 import com.example.billy.jumpit.controller.managers.SkinManager;
 import com.example.billy.jumpit.controller.services.SkinService;
@@ -54,14 +56,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
     @Override
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
 
-        //String uri = "drawable/skinrosita";
-
-        //int imageResource = context.getResources().getIdentifier(uri, null, context.getPackageName());
-
-        //Drawable image = context.getResources().getDrawable(imageResource);
-
-        Skin skin = data.get(position);
-        //int foto = Integer.parseInt(skinselector.getSplashArt());
+        final Skin skin = data.get(position);
 
         switch (skin.getSplashArt()) {
             case "skinrosita":
@@ -92,6 +87,52 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
         holder.textGoldSkin.setText(skin.getPriceGame().toString());
         holder.textDonatorSkin.setText(skin.getPricePremium().toString());
         holder.getBtnskin();
+
+        holder.btnGoldSkin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setMessage("Quieres confirmar la compra?")
+                        .setTitle("Compra gold:");
+                builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        SkinManager.getInstance().buySkinByPriceGame(MaterialPaletteAdapter.this,skin);
+                    }
+                });
+                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
+        holder.btnDonatorSkin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("pep", ".........................................");
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setMessage("Quieres confirmar la compra?")
+                        .setTitle("Compra donator:");
+                builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        SkinManager.getInstance().buySkinByPricePremium(MaterialPaletteAdapter.this,skin);
+                    }
+                });
+                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
     }
 
     @Override
@@ -101,7 +142,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
 
     @Override
     public void onSucces() {
-
+        Toast.makeText(context,"ARTICULO ADQUIRIDO", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -111,8 +152,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
 
     @Override
     public void onFailure(Throwable t) {
-
-
+        Toast.makeText(context,"NO TIENES SUFICIENTES CREDITOS", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -133,7 +173,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
             textGoldSkin = (TextView) elementskin.findViewById(R.id.dineroGoldShop);
             textDonatorSkin = (TextView) elementskin.findViewById(R.id.dineroDonatorShop);
 
-            btnGoldSkin.setOnClickListener(new View.OnClickListener() {
+            /*btnGoldSkin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
@@ -177,7 +217,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
-            });
+            });*/
         }
 
         public TextView getTitleTextView() {

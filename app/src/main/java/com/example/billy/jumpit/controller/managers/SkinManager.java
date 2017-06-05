@@ -1,7 +1,11 @@
 package com.example.billy.jumpit.controller.managers;
 
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapter;
+import com.example.billy.jumpit.controller.activities.main.MainActivity;
 import com.example.billy.jumpit.controller.services.SkinService;
 import com.example.billy.jumpit.model.Skin;
 import com.example.billy.jumpit.util.CustomProperties;
@@ -164,7 +168,7 @@ public class SkinManager {
 
                 if (code == 200 || code == 201) {
                     Log.e("Skin->", "buySkin: OOK" + 100);
-
+                    skinCallback.onSucces();
                 } else {
                     skinCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
                 }
@@ -187,7 +191,7 @@ public class SkinManager {
 
                 if (code == 200 || code == 201) {
                     Log.e("Skin->", "buySkin: OOK" + 100);
-
+                    skinCallback.onSucces();
                 } else {
                     skinCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
                 }

@@ -13,11 +13,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.billy.jumpit.R;
+import com.example.billy.jumpit.controller.managers.PowerUpCallback;
 import com.example.billy.jumpit.controller.managers.PowerUpManager;
+import com.example.billy.jumpit.controller.managers.UserPowerUpCallback;
+import com.example.billy.jumpit.controller.managers.UserPowerUpManager;
 import com.example.billy.jumpit.model.ClassPowerUp;
 import com.example.billy.jumpit.model.PowerUp;
+import com.example.billy.jumpit.model.UserPowerUp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +31,7 @@ import java.util.List;
  * Created by lolrol1 on 14/5/17.
  */
 
-public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPaletteAdapterPU.PaletteViewHolder> {
+public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPaletteAdapterPU.PaletteViewHolder> implements UserPowerUpCallback{
     private List<PowerUp> data;
     public List<PowerUp> powerUps = new ArrayList<>();
     RecyclerView list;
@@ -47,13 +52,13 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
     }
 
     @Override
-    public void onBindViewHolder(MaterialPaletteAdapterPU.PaletteViewHolder holder, int position) {
+    public void onBindViewHolder(final MaterialPaletteAdapterPU.PaletteViewHolder holder, int position) {
 
         descripcion.add("Con estas zapatillas puedes saltar más alto");
         descripcion.add("Con estas monstruosas zapas puedes correr más");
         descripcion.add("Conseguir x2 la puntuación ahora es más fácil");
 
-        PowerUp powerup = data.get(position);
+        final PowerUp powerup = data.get(position);
 
         holder.getTitleTextView().setText(powerup.getName());
 
@@ -73,12 +78,125 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
         holder.getTextPowerUp().setText(descripcion.get(position));
         holder.getGoldText().setText(powerup.getPriceGame().toString());
         holder.getDonatorText().setText(powerup.getPricePremium().toString());
+
+        holder.btnGoldPowerUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("pep", ".........................................");
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                if(holder.titleTextView.getText().equals("Voladoras")){
+                    builder.setMessage("Quieres confirmar la compra con monedas de oro?")
+                            .setTitle("Comprar PowerUp de volar:");
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            UserPowerUpManager.getInstance().buyPowerUpByPriceGame(MaterialPaletteAdapterPU.this, powerup, 1);
+                        }
+                    });
+                }
+                if(holder.titleTextView.getText().equals("Rapidisimas")){
+                    builder.setMessage("Quieres confirmar la compra con monedas de oro?")
+                            .setTitle("Comprar PowerUp de ir rapidisimo:");
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            UserPowerUpManager.getInstance().buyPowerUpByPriceGame(MaterialPaletteAdapterPU.this, powerup, 1);
+                        }
+                    });
+                }
+                if(holder.titleTextView.getText().equals("Doble Puntuacion")){
+                    builder.setMessage("Quieres confirmar la compra con monedas de oro?")
+                            .setTitle("Comprar PowerUp de doble puntuacion:");
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            UserPowerUpManager.getInstance().buyPowerUpByPriceGame(MaterialPaletteAdapterPU.this, powerup, 1);
+                        }
+                    });
+                }
+                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+
+            }
+        });
+
+        holder.btnDonatorPowerUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("pep", ".........................................");
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                if(holder.titleTextView.getText().equals("Voladoras")){
+                    builder.setMessage("Quieres confirmar la compra con monedas Donator?")
+                            .setTitle("Comprar PowerUp de volar:");
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            UserPowerUpManager.getInstance().buyPowerUpByPricePremium(MaterialPaletteAdapterPU.this, powerup, 1);
+                        }
+                    });
+                }
+                if(holder.titleTextView.getText().equals("Rapidisimas")){
+                    builder.setMessage("Quieres confirmar la compra con monedas Donator?")
+                            .setTitle("Comprar PowerUp de ir rapidisimo:");
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            UserPowerUpManager.getInstance().buyPowerUpByPricePremium(MaterialPaletteAdapterPU.this, powerup, 1);
+                        }
+                    });
+                }
+
+                if(holder.titleTextView.getText().equals("Doble Puntuacion")){
+                    builder.setMessage("Quieres confirmar la compra con monedas Donator?")
+                            .setTitle("Comprar PowerUp de doble puntuacion:");
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            UserPowerUpManager.getInstance().buyPowerUpByPricePremium(MaterialPaletteAdapterPU.this, powerup, 1);
+                        }
+                    });
+                }
+                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return data.size();
     }
+
+    @Override
+    public void onSuccess(List<UserPowerUp> userPowerUpsList) {
+
+    }
+
+    @Override
+    public void onSucces() {
+        Toast.makeText(context,"ARTICULO ADQUIRIDO", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSucces(UserPowerUp userPowerUp) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+        Toast.makeText(context,"NO TIENES SUFICIENTES CREDITOS", Toast.LENGTH_SHORT).show();
+    }
+
 
     class PaletteViewHolder extends RecyclerView.ViewHolder {
         private TextView titleTextView;
@@ -93,12 +211,12 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
             titleTextView = (TextView) elementskin.findViewById(R.id.namepowerup);
             imagePowerUp = (ImageView) elementskin.findViewById(R.id.photopowerup);
             textPowerUp = (TextView) elementskin.findViewById(R.id.textDescripcio);
-            goldText = (TextView) elementskin.findViewById(R.id.dineroDonatorShop);
-            donatorText = (TextView) elementskin.findViewById(R.id.dineroGoldShop);
+            goldText = (TextView) elementskin.findViewById(R.id.dineroGoldShop);
+            donatorText = (TextView) elementskin.findViewById(R.id.dineroDonatorShop);
             btnGoldPowerUp = (Button) elementskin.findViewById(R.id.buttonGoldShop);
             btnDonatorPowerUp = (Button) elementskin.findViewById(R.id.buttonDonatorShop);
 
-            btnGoldPowerUp.setOnClickListener(new View.OnClickListener() {
+            /*btnGoldPowerUp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("pep", ".........................................");
@@ -188,7 +306,7 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
 
 
                 }
-            });
+            });*/
         }
 
         public TextView getTitleTextView() {

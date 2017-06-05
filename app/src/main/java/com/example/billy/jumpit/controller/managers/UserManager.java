@@ -82,7 +82,7 @@ public class UserManager {
                 int code = response.code();
 
                 if (response.isSuccess()) {
-                    userCallback.onSuccess( user);
+                    userCallback.onSuccess(user);
                 } else {
                     userCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
                 }

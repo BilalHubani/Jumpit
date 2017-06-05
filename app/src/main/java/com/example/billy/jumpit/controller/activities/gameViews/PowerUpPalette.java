@@ -36,7 +36,7 @@ public class PowerUpPalette extends LinearLayout implements PowerUpCallback{
 
     public PowerUpPalette(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        context = context;
+        this.context = context;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.powerup, this);
 

@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.billy.jumpit.controller.activities.Scenes.HistoryScene;
 import com.example.billy.jumpit.controller.activities.gameViews.Audio;
@@ -498,6 +499,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         this.user = user;
         coins.setText(user.getMoneyGame());
         diamonds.setText(user.getMoneyPremium());
+        Log.e("--->","" +  user.getId() + user.getMoneyGame());
     }
 
     @Override
@@ -514,7 +516,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
     @Override
     public void onFailure(Throwable t) {
-
+        Log.e("--->","pepeeeeeeeeeeeeeeee");
     }
 }
 

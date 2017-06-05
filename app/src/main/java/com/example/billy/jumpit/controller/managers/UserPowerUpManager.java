@@ -3,7 +3,9 @@ package com.example.billy.jumpit.controller.managers;
 import android.util.Log;
 
 import com.example.billy.jumpit.controller.services.UserPowerUpService;
+import com.example.billy.jumpit.model.PowerUp;
 import com.example.billy.jumpit.model.UserPowerUp;
+import com.example.billy.jumpit.util.CustomProperties;
 
 import java.util.List;
 
@@ -11,6 +13,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Yuna114 on 03/06/2017.
@@ -23,6 +26,13 @@ public class UserPowerUpManager {
     private UserPowerUpService userPowerUpService;
 
     private UserPowerUpManager() {
+        retrofit = new Retrofit.Builder()
+                .baseUrl(CustomProperties.baseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+
+                .build();
+
+
         userPowerUpService = retrofit.create(UserPowerUpService.class);
     }
 
@@ -173,7 +183,7 @@ public class UserPowerUpManager {
         });
     }
     //COMPRAR POWER UP
-    public synchronized void buyPowerUpByPriceGame(final UserPowerUpCallback userPowerUpCallback, UserPowerUp userPowerUp, int quantity) {
+    public synchronized void buyPowerUpByPriceGame(final UserPowerUpCallback userPowerUpCallback, PowerUp userPowerUp, int quantity) {
         Call <UserPowerUp> call = userPowerUpService.buyUserPowerUpByPriceGame(UserLoginManager.getInstance().getBearerToken() , userPowerUp.getId().longValue(), quantity);
         call.enqueue(new Callback<UserPowerUp>() {
             @Override
@@ -182,7 +192,7 @@ public class UserPowerUpManager {
 
                 if (code == 200 || code == 201) {
                     Log.e("BuyPowerUpa->", "buyPowerUp: OOK" + 100);
-
+                    userPowerUpCallback.onSucces();
                 } else {
                     userPowerUpCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
                 }
@@ -197,7 +207,7 @@ public class UserPowerUpManager {
         });
     }
 
-    public synchronized void buyPowerUpByPricePremium(final UserPowerUpCallback userPowerUpCallback, UserPowerUp userPowerUp, int quantity) {
+    public synchronized void buyPowerUpByPricePremium(final UserPowerUpCallback userPowerUpCallback, PowerUp userPowerUp, int quantity) {
         Call <UserPowerUp> call = userPowerUpService.buyUserPowerUpByPricePremium(UserLoginManager.getInstance().getBearerToken() , userPowerUp.getId().longValue(), quantity);
         call.enqueue(new Callback<UserPowerUp>() {
             @Override
@@ -206,7 +216,7 @@ public class UserPowerUpManager {
 
                 if (code == 200 || code == 201) {
                     Log.e("BuyPowerUpa->", "buyPowerUp: OOK" + 100);
-
+                    userPowerUpCallback.onSucces();
                 } else {
                     userPowerUpCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
                 }
