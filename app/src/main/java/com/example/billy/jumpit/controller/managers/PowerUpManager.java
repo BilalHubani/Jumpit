@@ -3,12 +3,16 @@ package com.example.billy.jumpit.controller.managers;
 import android.util.Log;
 import com.example.billy.jumpit.model.PowerUp;
 import com.example.billy.jumpit.controller.services.PowerUpService;
+import com.example.billy.jumpit.util.CustomProperties;
+
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 /**
  * Created by Yuna114 on 03/06/2017.
  */
@@ -20,6 +24,11 @@ public class PowerUpManager {
     private PowerUpService powerUpService;
 
     private PowerUpManager() {
+        retrofit = new Retrofit.Builder()
+            .baseUrl(CustomProperties.baseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+
+            .build();
         powerUpService = retrofit.create(PowerUpService.class);
     }
 

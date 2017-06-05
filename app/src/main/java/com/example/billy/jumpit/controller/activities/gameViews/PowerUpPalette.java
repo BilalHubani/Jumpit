@@ -8,6 +8,7 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -38,7 +39,6 @@ public class PowerUpPalette extends LinearLayout implements PowerUpCallback{
         context = context;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.powerup, this);
-
         PowerUpManager.getInstance().getAllPowerUp(this);
 
     }
@@ -46,7 +46,7 @@ public class PowerUpPalette extends LinearLayout implements PowerUpCallback{
     @Override
     public void onSuccess(List<PowerUp> powerUpsList) {
         datas = powerUpsList;
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleViewPU);
         recyclerView.setAdapter(new MaterialPaletteAdapterPU(datas, context));
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setHorizontalScrollBarEnabled(false);
