@@ -167,7 +167,7 @@ public class GameViewHistoria extends View {
                 }else{
                     vel = 0;
                     paused = true;
-                    pauseButton.setBackgroundResource(ic_media_play);
+                    pauseButton.setBackgroundResource(R.drawable.botonesplay);
                 }
             }
         });

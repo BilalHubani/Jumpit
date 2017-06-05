@@ -88,6 +88,6 @@ public class MagoSkin extends Character{
             }
         }
 
-        canvas.drawBitmap(sprite, x, y+2, paint);
+        canvas.drawBitmap(sprite, x, y-6, paint);
     }
 }

@@ -88,6 +88,6 @@ public class VikingSkin extends Character{
             }
         }
 
-        canvas.drawBitmap(sprite, x, y+2, paint);
+        canvas.drawBitmap(sprite, x, y-4, paint);
     }
 }

@@ -25,8 +25,23 @@ import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria;
 import com.example.billy.jumpit.controller.managers.UserCallback;
 import com.example.billy.jumpit.controller.managers.UserManager;
+import com.example.billy.jumpit.model.AsulsitoBitmapSet;
+import com.example.billy.jumpit.model.AsulsitoSkin;
+import com.example.billy.jumpit.model.CaballeroBitmapSet;
+import com.example.billy.jumpit.model.CaballeroSkin;
+import com.example.billy.jumpit.model.Character;
+import com.example.billy.jumpit.model.DragonBitmapSet;
+import com.example.billy.jumpit.model.DragonSkin;
+import com.example.billy.jumpit.model.MagoBitmapSet;
+import com.example.billy.jumpit.model.MagoSkin;
+import com.example.billy.jumpit.model.MoconsioBitmapSet;
+import com.example.billy.jumpit.model.MoconsioSkin;
+import com.example.billy.jumpit.model.RositoBitmapSet;
+import com.example.billy.jumpit.model.RositoSkin;
 import com.example.billy.jumpit.model.Skin;
 import com.example.billy.jumpit.model.UserCustomAtributes;
+import com.example.billy.jumpit.model.VikingBitmapSet;
+import com.example.billy.jumpit.model.VikingSkin;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -205,42 +220,63 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         azuleteSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AsulsitoBitmapSet bitmapSet = new AsulsitoBitmapSet(getResources());
+                gameViewEndless.setBitmapSet(bitmapSet);
+                gameViewEndless.setCharacter(new AsulsitoSkin(bitmapSet));
                 endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         magoSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MagoBitmapSet bitmapSet = new MagoBitmapSet(getResources());
+                gameViewEndless.setBitmapSet(bitmapSet);
+                gameViewEndless.setCharacter(new MagoSkin(bitmapSet));
                 endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         mocoSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MoconsioBitmapSet bitmapSet = new MoconsioBitmapSet(getResources());
+                gameViewEndless.setBitmapSet(bitmapSet);
+                gameViewEndless.setCharacter(new MoconsioSkin(bitmapSet));
                 endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         caballeroSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CaballeroBitmapSet bitmapSet = new CaballeroBitmapSet(getResources());
+                gameViewEndless.setBitmapSet(bitmapSet);
+                gameViewEndless.setCharacter(new CaballeroSkin(bitmapSet));
                 endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         rositoSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RositoBitmapSet bitmapSet = new RositoBitmapSet(getResources());
+                gameViewEndless.setBitmapSet(bitmapSet);
+                gameViewEndless.setCharacter(new RositoSkin(bitmapSet));
                 endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         vikingoSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                VikingBitmapSet bitmapSet = new VikingBitmapSet(getResources());
+                gameViewEndless.setBitmapSet(bitmapSet);
+                gameViewEndless.setCharacter(new VikingSkin(bitmapSet));
                 endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         dragonSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DragonBitmapSet bitmapSet = new DragonBitmapSet(getResources());
+                gameViewEndless.setBitmapSet(bitmapSet);
+                gameViewEndless.setCharacter(new DragonSkin(bitmapSet));
                 endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });

@@ -88,6 +88,6 @@ public class MoconsioSkin extends Character{
             }
         }
 
-        canvas.drawBitmap(sprite, x, y, paint);
+        canvas.drawBitmap(sprite, x, y+8, paint);
     }
 }

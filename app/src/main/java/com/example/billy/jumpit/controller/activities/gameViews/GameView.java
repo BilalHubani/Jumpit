@@ -77,18 +77,19 @@ public class GameView extends View {
 // Arraylist de bitmaps
         bitmapSetList = new ArrayList<>();
 // Declaramos y añadimos bitmaps al array
-        bitmapSet = new BitmapSet(this.getResources());
-        pokemonBitmapSet = new PokemonBitmapSet(this.getResources());
-        dragonBitmapSet = new DragonBitmapSet(this.getResources());
+//        bitmapSet = new BitmapSet(this.getResources());
+//        pokemonBitmapSet = new PokemonBitmapSet(this.getResources());
+//        dragonBitmapSet = new DragonBitmapSet(this.getResources());
         terrenosBitmapSet = new TerrenosBitmapSet(this.getResources());
-        bitmapSetList.add(bitmapSet);
-        bitmapSetList.add(pokemonBitmapSet);
-        bitmapSetList.add(dragonBitmapSet);
-        bitmapSetList.add(terrenosBitmapSet);
-        endlessScene = new EndlessScene(bitmapSetList.get(bitmapIndex));
-        bonk = new Bonk(bitmapSetList.get(bitmapIndex));
+//        bitmapSetList.add(bitmapSet);
+//        bitmapSetList.add(pokemonBitmapSet);
+//        bitmapSetList.add(dragonBitmapSet);
+//        bitmapSetList.add(terrenosBitmapSet);
+        endlessScene = new EndlessScene(terrenosBitmapSet);
+//        bonk = new Bonk(bitmapSetList.get(bitmapIndex));
 //        character = new Character(pokemonBitmapSet);
-        dragonSkin = new DragonSkin(bitmapSetList.get(2));
+//        dragonSkin = new DragonSkin(bitmapSetList.get(2));
+        character = getCharacter();
         paint = new Paint();
         paint.setTextSize(10);
         // vel = bonk.getVel();
@@ -101,8 +102,8 @@ public class GameView extends View {
         this.postInvalidateDelayed(10);
         if (!paused) {
             if (bitmapSet == null) return;
-            if (pokemonBitmapSet == null) return;
-            if (dragonBitmapSet == null) return;
+            if (character == null) return;
+//            if (dragonBitmapSet == null) return;
             float sc = getHeight() / (16 * 16f);
             canvas.scale(sc, sc);
             if (jump) {
@@ -112,8 +113,8 @@ public class GameView extends View {
             }
             endlessScene.draw(canvas, vel);
 //            bonk.draw(canvas);
-//            character.draw(canvas);
-            dragonSkin.draw(canvas);
+            character.draw(canvas);
+//            dragonSkin.draw(canvas);
             canvas.drawText("SCORE: "+score, 35,20, paint);
             if (score / 2000 == velCounter) {
                 vel++;
@@ -126,8 +127,8 @@ public class GameView extends View {
             canvas.scale(sc, sc);
             endlessScene.draw(canvas, vel);
 //            bonk.draw(canvas);
-//            character.draw(canvas);
-            dragonSkin.draw(canvas);
+            character.draw(canvas);
+//            dragonSkin.draw(canvas);
             canvas.drawText("SCORE: "+score, 200,100, paint);
         }
     }
@@ -144,19 +145,19 @@ public class GameView extends View {
                 }else{
                     vel = 0;
                     paused = true;
-                    pauseButton.setBackgroundResource(ic_media_play);
+                    pauseButton.setBackgroundResource(R.drawable.botonesplay);
                 }
             }
         });
         if (event.getAction() == MotionEvent.ACTION_DOWN && !stateJumping){
-//            if (character.getFrame() <= 2 ){
-//                character.setFrameCounter(0);
-//                character.setFrame(3);
-//            }
-            if (dragonSkin.getFrame() <= 3 ){
-                dragonSkin.setFrameCounter(0);
-                dragonSkin.setFrame(4);
+            if (character.getFrame() <= 2 ){
+                character.setFrameCounter(0);
+                character.setFrame(3);
             }
+//            if (dragonSkin.getFrame() <= 3 ){
+//                dragonSkin.setFrameCounter(0);
+//                dragonSkin.setFrame(4);
+//            }
             jump = true;
             stateJumping = true;
         }
@@ -169,14 +170,14 @@ public class GameView extends View {
 
         if (jumpCounter<jumpMaxHeigh-10){
 //            bonk.setY(bonk.getY()-jumpIncrement);
-//            character.setY(character.getY()-jumpIncrement);
-            dragonSkin.setY(dragonSkin.getY()-jumpIncrement);
+            character.setY(character.getY()-jumpIncrement);
+//            dragonSkin.setY(dragonSkin.getY()-jumpIncrement);
             jumpCounter += jumpIncrement;
             jumpAux = jumpCounter;
         }else if(jumpCounter<jumpMaxHeigh){
 //            bonk.setY(bonk.getY() - jumpIncrement+1);
-//            character.setY(character.getY() - jumpIncrement+1);
-            dragonSkin.setY(dragonSkin.getY() - jumpIncrement+1);
+            character.setY(character.getY() - jumpIncrement+1);
+//            dragonSkin.setY(dragonSkin.getY() - jumpIncrement+1);
             jumpCounter += jumpIncrement-1;
             jumpAux = jumpCounter;
         }else if (jumpCounter >= jumpMaxHeigh){
@@ -184,53 +185,53 @@ public class GameView extends View {
         }
     }
     public void doGoingDown(){
-//        if (character.getFrame() <= 2 ){
-//            character.setFrameCounter(0);
-//            character.setFrame(3);
-//        }
-        if (dragonSkin.getFrame() <= 3 ){
-            dragonSkin.setFrameCounter(0);
-            dragonSkin.setFrame(4);
+        if (character.getFrame() <= 2 ){
+            character.setFrameCounter(0);
+            character.setFrame(3);
         }
+//        if (dragonSkin.getFrame() <= 3 ){
+//            dragonSkin.setFrameCounter(0);
+//            dragonSkin.setFrame(4);
+//        }
         if (jumpCounter>jumpAux-10){
 //            bonk.setY(bonk.getY() + jumpIncrement-1);
-//            character.setY(character.getY() + jumpIncrement-1);
-            dragonSkin.setY(dragonSkin.getY() + jumpIncrement-1);
+            character.setY(character.getY() + jumpIncrement-1);
+//            dragonSkin.setY(dragonSkin.getY() + jumpIncrement-1);
             jumpCounter -= jumpIncrement-1;
         }else {
 //            bonk.setY(bonk.getY()+jumpIncrement);
-//            character.setY(character.getY()+jumpIncrement);
-            dragonSkin.setY(dragonSkin.getY()+jumpIncrement);
+            character.setY(character.getY()+jumpIncrement);
+//            dragonSkin.setY(dragonSkin.getY()+jumpIncrement);
             jumpCounter -= jumpIncrement;
         }
     }
     public boolean checkGround() {
-//        if (character.getFrame() > 2 && !stateJumping){
-//            character.setFrameCounter(0);
-//            character.setFrame(0);
-//        }
-        if (dragonSkin.getFrame() > 3 && !stateJumping){
-            dragonSkin.setFrameCounter(0);
-            dragonSkin.setFrame(0);
+        if (character.getFrame() > 2 && !stateJumping){
+            character.setFrameCounter(0);
+            character.setFrame(0);
         }
+//        if (dragonSkin.getFrame() > 3 && !stateJumping){
+//            dragonSkin.setFrameCounter(0);
+//            dragonSkin.setFrame(0);
+//        }
 //        int r = bonk.getY() >> 4;
-//        int r = (character.getY()) >> 4;
-        int r = (dragonSkin.getY()) >> 4;
+        int r = (character.getY()) >> 4;
+//        int r = (dragonSkin.getY()) >> 4;
         if (r >=16){
             paused = true;
             end();
         }
 //        int c = bonk.getX() >> 4;
-//        int c = character.getX() >> 4;
-        int c = dragonSkin.getX() >> 4;
+        int c = character.getX() >> 4;
+//        int c = dragonSkin.getX() >> 4;
         if (!endlessScene.isGround(r+2, c)){
             stateJumping = true;
             return false;
         }else {
             if (!jump) {
 //                bonk.setY(r << 4);
-//                character.setY((r << 4) + 8);
-                dragonSkin.setY((r << 4) + 8);
+                character.setY((r << 4) + 8);
+//                dragonSkin.setY((r << 4) + 8);
                 stateJumping = false;
                 jumpCounter = 0;
             }
@@ -251,10 +252,10 @@ public class GameView extends View {
         reload.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                endlessScene = new EndlessScene(bitmapSetList.get(bitmapIndex));
-                bonk = new Bonk(bitmapSetList.get(bitmapIndex));
-//        character = new Character(pokemonBitmapSet);
-                dragonSkin = new DragonSkin(bitmapSetList.get(2));
+                endlessScene = new EndlessScene(terrenosBitmapSet);
+//                bonk = new Bonk(bitmapSetList.get(bitmapIndex));
+                character.setY(208);
+//                dragonSkin = new DragonSkin(bitmapSetList.get(2));
                 vel = 4;
                 velCounter = 1;
                 paused = false;
@@ -309,5 +310,21 @@ public class GameView extends View {
 
     public void setReload(ImageButton reload) {
         this.reload = reload;
+    }
+
+    public BitmapSet getBitmapSet() {
+        return bitmapSet;
+    }
+
+    public void setBitmapSet(BitmapSet bitmapSet) {
+        this.bitmapSet = bitmapSet;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 }
