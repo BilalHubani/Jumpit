@@ -25,9 +25,6 @@ import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria;
 import com.example.billy.jumpit.controller.managers.UserCallback;
 import com.example.billy.jumpit.controller.managers.UserManager;
-import com.example.billy.jumpit.model.Character;
-import com.example.billy.jumpit.model.MagoBitmapSet;
-import com.example.billy.jumpit.model.MagoSkin;
 import com.example.billy.jumpit.model.Skin;
 import com.example.billy.jumpit.model.UserCustomAtributes;
 import com.google.android.gms.auth.api.Auth;
@@ -148,8 +145,8 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         ImageButton closeOption = (ImageButton)findViewById(R.id.closeButton);
         ImageButton closeShop = (ImageButton)findViewById(R.id.exitBtn);
         final TextView title = (TextView)findViewById(R.id.Title);
-        coins = (TextView)findViewById(R.id.coins);
-        diamonds = (TextView)findViewById(R.id.diamonds);
+        final TextView coins = (TextView)findViewById(R.id.coins);
+        final TextView diamonds = (TextView)findViewById(R.id.diamonds);
         final ImageView coins_image = (ImageView)findViewById(R.id.coin_image);
         final ImageView diamonds_image = (ImageView)findViewById(R.id.diamonds_image);
         vistaOpciones = (View)findViewById(R.id.options);
@@ -417,7 +414,17 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         });
 
 
-
+        endless.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gameViewEndless.setBackgroundResource(R.drawable.fondocuevadef);
+                pause.setVisibility(View.VISIBLE);
+                gameViewEndless.setVisibility(View.VISIBLE);
+                mainMenuView.setVisibility(View.INVISIBLE);
+                menuniveles.setVisibility(View.INVISIBLE);
+//                signInButton.setVisibility(View.INVISIBLE);
+            }
+        });
 
 //crear listener del volume para mute o play again
         volume.setOnClickListener(new View.OnClickListener() {

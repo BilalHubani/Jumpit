@@ -72,6 +72,31 @@ public class SkinManager {
         });
     }
 
+    public synchronized void getAllSkinsByUser(final SkinCallback skinCallback) {
+        Call<List<Skin>> call = skinService.getAllSkinsByUser(UserLoginManager.getInstance().getBearerToken());
+
+        call.enqueue(new Callback<List<Skin>>() {
+            @Override
+            public void onResponse(Call<List<Skin>> call, Response<List<Skin>> response) {
+                skins = response.body();
+
+                int code = response.code();
+
+                if (response.isSuccess()) {
+                    skinCallback.onSuccess(skins);
+                } else {
+                    skinCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Skin>> call, Throwable t) {
+                Log.e("SkinManager->", "getAllSkinsByUser()->ERROR: " + t);
+                skinCallback.onFailure(t);
+            }
+        });
+    }
+
     public Skin getSkin(String id) {
         for (Skin skin : skins) {
             if (id.equals(skin.getId())) {

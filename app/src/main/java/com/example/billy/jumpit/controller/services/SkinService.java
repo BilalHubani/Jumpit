@@ -46,6 +46,9 @@ public interface SkinService {
     Call<Skin> buySkinByPricePremium(
             @Header("Authorization") String Authorization,
             @Path("idSkin") Long idSkin);
-
+    @GET("/api/skins/byUser")
+    Call<List<Skin>> getAllSkinsByUser(
+            @Header("Authorization") String Authorization
+    );
 
 }
