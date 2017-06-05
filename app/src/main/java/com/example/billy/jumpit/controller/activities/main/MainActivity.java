@@ -413,19 +413,6 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
             }
         });
 
-
-        endless.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                gameViewEndless.setBackgroundResource(R.drawable.fondocuevadef);
-                pause.setVisibility(View.VISIBLE);
-                gameViewEndless.setVisibility(View.VISIBLE);
-                mainMenuView.setVisibility(View.INVISIBLE);
-                menuniveles.setVisibility(View.INVISIBLE);
-//                signInButton.setVisibility(View.INVISIBLE);
-            }
-        });
-
 //crear listener del volume para mute o play again
         volume.setOnClickListener(new View.OnClickListener() {
             @Override
