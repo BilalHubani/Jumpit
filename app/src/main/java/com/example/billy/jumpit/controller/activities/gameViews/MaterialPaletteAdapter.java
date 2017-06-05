@@ -27,7 +27,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPaletteAdapter.PaletteViewHolder> {
+public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPaletteAdapter.PaletteViewHolder> implements SkinCallback{
     private List<Skin> data;
     public List<Skin> skins = new ArrayList<>();
     RecyclerView list;
@@ -62,9 +62,57 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
         Skin skin = data.get(position);
         //int foto = Integer.parseInt(skin.getSplashArt());
 
+        switch (skin.getSplashArt()) {
+            case "skinrosita":
+                holder.getImageskin().setImageResource(R.drawable.skinrosita);
+                break;
+            case "moco":
+                holder.getImageskin().setImageResource(R.drawable.moco);
+                break;
+            case "blackdragon":
+                holder.getImageskin().setImageResource(R.drawable.blackdragon);
+                break;
+            case "vikings":
+                holder.getImageskin().setImageResource(R.drawable.vikingsshop);
+                break;
+            case "caballero":
+                holder.getImageskin().setImageResource(R.drawable.caballeroshop);
+                break;
+            case "mago":
+                holder.getImageskin().setImageResource(R.drawable.magoshop);
+                break;
+            case "azulete":
+                holder.getImageskin().setImageResource(R.drawable.azuleteshop);
+                break;
+            default:
+                break;
+        }
+
         holder.getTitleTextView().setText(skin.getName());
-        holder.getImageskin().setImageResource(R.drawable.skinrosita);
-        holder.getBtnskin();
+        holder.getBtnDonatorPowerUp();
+        holder.getBtnGoldPowerUp();
+
+
+    }
+
+    @Override
+    public void onSuccess(List<Skin> skinsList) {
+
+    }
+
+    @Override
+    public void onSucces() {
+
+    }
+
+    @Override
+    public void onSucces(Skin skin) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+
     }
 
 
@@ -74,7 +122,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
         private Button btnGoldPowerUp;
         private Button btnDonatorPowerUp;
 
-        public PaletteViewHolder(View elementskin) {
+        public PaletteViewHolder(final View elementskin) {
             super(elementskin);
             titleTextView = (TextView) elementskin.findViewById(R.id.nameskin);
             imageskin = (ImageView) elementskin.findViewById(R.id.photoskin);
@@ -85,14 +133,13 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
                 @Override
                 public void onClick(View v) {
 
-
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                     builder.setMessage("Quieres confirmar la compra?")
                             .setTitle("Compra gold:");
                     builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            // User clicked OK button
+                            dialog.dismiss();
                         }
                     });
                     builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -145,16 +192,15 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
             return btnskin;
         }
 
+        public Button getBtnGoldPowerUp() {
+            return btnGoldPowerUp;
+        }
+
+        public Button getBtnDonatorPowerUp() {
+            return btnDonatorPowerUp;
+        }
     }
 
-    public void pepe(){
-        btnskin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-    }
 
     @Override
     public int getItemCount() {

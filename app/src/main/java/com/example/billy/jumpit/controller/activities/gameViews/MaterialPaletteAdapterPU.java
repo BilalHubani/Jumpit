@@ -60,10 +60,10 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
 //        holder.getImageskin().setImageResource(imagenes.get(position));
 
         holder.getTextPowerUp().setText(descripcion.get(position));
+        Log.e("-------->>>>", "" + powerup.getPriceGame());
+        holder.getGoldText().setText("" + powerup.getPriceGame());
 //
-//        holder.getBtnGoldPowerUp().setText(powerup.getPriceGame());
-//
-//        holder.getBtnDonatorPowerUp().setText(powerup.getPricePremium());
+        holder.getDonatorText().setText("" + powerup.getPricePremium());
     }
 
     @Override

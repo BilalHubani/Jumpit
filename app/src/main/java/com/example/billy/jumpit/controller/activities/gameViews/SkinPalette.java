@@ -27,8 +27,12 @@ import com.example.billy.jumpit.model.Skin;
 import java.util.List;
 
 public class SkinPalette extends LinearLayout implements SkinCallback{
+    private ImageView imgskin;
+    private TextView nameskin;
     private List<Skin> datas;
     private Context context;
+    private Button button, btnShowSkin;
+    private View vistaShowSkin;
 
 
     public SkinPalette(Context context) {
