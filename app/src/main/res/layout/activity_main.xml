@@ -159,14 +159,6 @@
 
     </LinearLayout>
 
-    <view
-        android:id="@+id/vistaNiveles"
-        class="com.example.billy.jumpit.controller.activities.gameViews.VistaNiveles"
-        android:layout_width="500dp"
-        android:layout_height="250dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
-
     <ImageButton
         android:id="@+id/pause"
         android:layout_width="50dp"
@@ -176,6 +168,14 @@
         android:background="@drawable/botonespausa"
         android:visibility="invisible"
         app:srcCompat="@android:drawable/ic_media_pause" />
+
+    <view
+        android:id="@+id/vistaNiveles"
+        class="com.example.billy.jumpit.controller.activities.gameViews.VistaNiveles"
+        android:layout_width="500dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
     <ImageButton
         android:id="@+id/goHome"
@@ -204,10 +204,9 @@
         layout_alignTop="@+id/goHome"
         layout_toEndOf="@+id/goHome"
         android:layout_width="500dp"
-        android:layout_height="500dp"
+        android:layout_height="250dp"
         android:layout_alignTop="@+id/view2"
-        android:layout_toEndOf="@+id/pause"
-        android:layout_alignBottom="@+id/view3" />
+        android:layout_alignStart="@+id/view2" />
 
 
 </RelativeLayout>

@@ -187,7 +187,15 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         final ImageButton rositoSelect = (ImageButton)findViewById(R.id.rositoSelect);
         final ImageButton vikingoSelect = (ImageButton)findViewById(R.id.vikingoSelect);
         final ImageButton dragonSelect = (ImageButton)findViewById(R.id.dragonSelect);
+        final ImageButton exitSelector = (ImageButton)findViewById(R.id.exitselector);
 
+        exitSelector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectorSkin.setVisibility(View.INVISIBLE);
+                menuniveles.setVisibility(View.VISIBLE);
+            }
+        });
         endless.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

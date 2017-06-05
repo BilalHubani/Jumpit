@@ -10,54 +10,62 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/azuleteshop"
-        android:layout_alignTop="@+id/vikingoSelect"
+        android:layout_marginStart="34dp"
+        android:layout_below="@+id/exitselector"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp" />
+        android:layout_marginTop="12dp" />
 
     <ImageButton
         android:id="@+id/dragonSelect"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/dragonimagen"
-        android:layout_alignTop="@+id/magoSelect"
+        android:layout_alignTop="@+id/vikingoSelect"
         android:layout_toEndOf="@+id/vikingoSelect"
-        android:layout_marginStart="33dp" />
+        android:layout_marginStart="18dp" />
 
     <ImageButton
         android:id="@+id/rositoSelect"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/skinrosita"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/azuleteSelect"
-        android:layout_alignStart="@+id/azuleteSelect" />
+        android:layout_alignTop="@+id/caballeroSelect"
+        android:layout_toStartOf="@+id/vikingoSelect" />
 
     <ImageButton
         android:id="@+id/mocoSelect"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/moco"
-        android:layout_alignTop="@+id/rositoSelect"
-        android:layout_alignStart="@+id/dragonSelect" />
-
+        android:layout_below="@+id/dragonSelect"
+        android:layout_alignStart="@+id/dragonSelect"
+        android:layout_marginTop="13dp" />
+    <ImageButton
+        android:id="@+id/exitselector"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/buttoncancel" />
     <ImageButton
         android:id="@+id/vikingoSelect"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/vikingsshop"
-        android:layout_alignTop="@+id/dragonSelect"
-        android:layout_toEndOf="@+id/azuleteSelect"
-        android:layout_marginStart="32dp" />
+        android:layout_marginStart="13dp"
+        android:layout_alignTop="@+id/azuleteSelect"
+        android:layout_toEndOf="@+id/azuleteSelect" />
 
     <ImageButton
         android:id="@+id/magoSelect"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/magoshop"
-        android:layout_marginTop="29dp"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/dragonSelect"
         android:layout_toEndOf="@+id/dragonSelect"
-        android:layout_marginStart="30dp" />
+        android:layout_marginStart="15dp" />
 
     <ImageButton
         android:id="@+id/caballeroSelect"
