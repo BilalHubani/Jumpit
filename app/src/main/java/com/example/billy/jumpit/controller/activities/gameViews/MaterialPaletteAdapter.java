@@ -88,14 +88,10 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
             default:
                 break;
         }
-
         holder.getTitleTextView().setText(skin.getName());
-        holder.getImageskin().setImageResource(R.drawable.skinrosita);
         holder.textGoldSkin.setText(skin.getPriceGame().toString());
         holder.textDonatorSkin.setText(skin.getPricePremium().toString());
         holder.getBtnskin();
-
-
     }
 
     @Override
@@ -141,7 +137,6 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
                 @Override
                 public void onClick(View v) {
 
-
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                     builder.setMessage("Quieres confirmar la compra?")
@@ -158,8 +153,6 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
-
-
                 }
             });
             btnDonatorSkin.setOnClickListener(new View.OnClickListener() {
@@ -183,8 +176,6 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
-
-
                 }
             });
         }
@@ -204,7 +195,6 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
         public Button getBtnGoldSkin() {
             return btnGoldSkin;
         }
-    }
 
         public Button getBtnDonatorSkin() {
             return btnDonatorSkin;

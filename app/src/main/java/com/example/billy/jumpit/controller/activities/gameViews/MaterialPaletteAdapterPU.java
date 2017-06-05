@@ -57,13 +57,22 @@ public class MaterialPaletteAdapterPU extends RecyclerView.Adapter<MaterialPalet
 
         holder.getTitleTextView().setText(powerup.getName());
 
-//        holder.getImageskin().setImageResource(imagenes.get(position));
-
+        switch (powerup.getSplashArt()) {
+            case "zapatasrojasvoladoras":
+                holder.getImageskin().setImageResource(R.drawable.zapatasrojasvoladoras);
+                break;
+            case "zapatasrojasboost":
+                holder.getImageskin().setImageResource(R.drawable.zapatasrojasboost);
+                break;
+            case "doublescoregold":
+                holder.getImageskin().setImageResource(R.drawable.doublescoregold);
+                break;
+            default:
+                break;
+        }
         holder.getTextPowerUp().setText(descripcion.get(position));
-        Log.e("-------->>>>", "" + powerup.getPriceGame());
-        holder.getGoldText().setText("" + powerup.getPriceGame());
-//
-        holder.getDonatorText().setText("" + powerup.getPricePremium());
+        holder.getGoldText().setText(powerup.getPriceGame().toString());
+        holder.getDonatorText().setText(powerup.getPricePremium().toString());
     }
 
     @Override
