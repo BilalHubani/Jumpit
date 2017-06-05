@@ -82,7 +82,7 @@ public class UserManager {
 
     /* POST - CREATE PLAYER */
 
-    public synchronized void createAthlete(final UserCallback userCallback, User user) {
+    public synchronized void createUser(final UserCallback userCallback, User user) {
         Call<User> call = userService.createUser(UserLoginManager.getInstance().getBearerToken(), user);
         call.enqueue(new Callback<User>() {
             @Override
@@ -107,7 +107,7 @@ public class UserManager {
     }
 
     /* PUT - UPDATE Athlete */
-    public synchronized void updateAthlete(final UserCallback userCallback, User user) {
+    public synchronized void updateUser(final UserCallback userCallback, User user) {
         Call <User> call = userService.updateUser(UserLoginManager.getInstance().getBearerToken() ,user);
         call.enqueue(new Callback<User>() {
             @Override
@@ -125,6 +125,30 @@ public class UserManager {
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Log.e("UserManager->", "updateUser: " + t);
+
+                userCallback.onFailure(t);
+            }
+        });
+    }
+
+    public synchronized void updateUserScore(final UserCallback userCallback, User user, Integer score) {
+        Call <User> call = userService.updateUserScore(UserLoginManager.getInstance().getBearerToken() ,user, score);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                int code = response.code();
+
+                if (code == 200 || code == 201) {
+                    Log.e("User->", "updateScore: OOK" + 100);
+
+                } else {
+                    userCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e("UserManager->", "updateScore: " + t);
 
                 userCallback.onFailure(t);
             }

@@ -34,6 +34,9 @@ public interface UserService {
     Call<Void> deleteUser(
             @Header("Authorization") String Authorization,
             @Path("id") Long id);
-
-
+    @PUT("api/user-custom-atributes/score/{score}/")
+    Call<User> updateUserScore(
+            @Header("Authorization") String Authorization,
+            @Body User user,
+            @Path("score") Integer score);
 }
