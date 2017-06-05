@@ -4,14 +4,18 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.Scenes.HistoryScene;
 import com.example.billy.jumpit.controller.activities.main.MainActivity;
+import com.example.billy.jumpit.controller.managers.UserCallback;
+import com.example.billy.jumpit.controller.managers.UserManager;
 import com.example.billy.jumpit.model.BitmapSet;
 import com.example.billy.jumpit.model.Bonk;
 import com.example.billy.jumpit.model.Character;
@@ -19,6 +23,7 @@ import com.example.billy.jumpit.model.DragonBitmapSet;
 import com.example.billy.jumpit.model.DragonSkin;
 import com.example.billy.jumpit.model.PokemonBitmapSet;
 import com.example.billy.jumpit.model.TerrenosBitmapSet;
+import com.example.billy.jumpit.model.UserCustomAtributes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +35,7 @@ import static android.R.drawable.ic_media_play;
  * Created by dam on 2/3/17.
  */
 
-public class GameViewHistoria extends View {
+public class GameViewHistoria extends View implements UserCallback{
     private Paint paint;
     private BitmapSet bitmapSet;
     private PokemonBitmapSet pokemonBitmapSet;
@@ -67,6 +72,7 @@ public class GameViewHistoria extends View {
     private List<Character> characterList;
     private int characterIndex = 0;
     private int bitmapIndex = 3;
+    private UserCustomAtributes user;
 
 
     public int getNivel() {
@@ -259,6 +265,7 @@ public class GameViewHistoria extends View {
             }
         }
         if(scene.isWall(r, c+20)){
+            UserManager.getInstance().getUserCustomAtributes(this);
             paused = true;
             end();
         }
@@ -348,5 +355,35 @@ public class GameViewHistoria extends View {
 
     public TerrenosBitmapSet getTerrenosBitmapSet() {
         return terrenosBitmapSet;
+    }
+
+    @Override
+    public void onSuccess(List<UserCustomAtributes> userList) {
+
+    }
+
+    @Override
+    public void onSuccess(UserCustomAtributes user) {
+        this.user = user;
+        Log.e("----->>>>" , "HAS TERMINADO");
+        int sumar = 50;
+        this.user.setMoneyGame(this.user.getMoneyGame() + sumar);
+        Toast.makeText(getContext(),"OBTIENES " + sumar + " MONEDAS", Toast.LENGTH_SHORT).show();
+        UserManager.getInstance().updateUser(this, this.user);
+    }
+
+    @Override
+    public void onSucces() {
+
+    }
+
+    @Override
+    public void onSucces(UserCustomAtributes user) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+        Log.e("--->>", "NÑEEEEEEEEEEEEEEEEE");
     }
 }

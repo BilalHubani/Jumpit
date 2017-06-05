@@ -88,6 +88,7 @@ public class SkinPalette extends LinearLayout implements SkinCallback{
         //recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setHorizontalScrollBarEnabled(false);
+
         }
     }
 
