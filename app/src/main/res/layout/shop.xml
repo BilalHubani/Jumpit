@@ -20,7 +20,7 @@
 
     <view
         android:id="@+id/view5"
-        class="com.example.billy.jumpit.controller.activities.gameViews.Skin"
+        class="com.example.billy.jumpit.controller.activities.gameViews.SkinPalette"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignBottom="@+id/linearLayout"

@@ -2,6 +2,9 @@ package com.example.billy.jumpit.controller.activities.gameViews;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -20,12 +23,13 @@ import com.example.billy.jumpit.controller.services.SkinService;
 import com.example.billy.jumpit.model.*;
 import com.example.billy.jumpit.model.Skin;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPaletteAdapter.PaletteViewHolder> implements SkinCallback {
-    private List<ClassSkin> data;
-    public List<Skin> skins = new ArrayList<>();;
+public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPaletteAdapter.PaletteViewHolder> {
+    private List<Skin> data;
+    public List<Skin> skins = new ArrayList<>();
     RecyclerView list;
     SkinManager skinManager;
     //SkinCallback skinCallback;
@@ -35,7 +39,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
     Button btnskin;
     int i = 0;
 
-    public MaterialPaletteAdapter(@NonNull List<ClassSkin> data, Context context) {
+    public MaterialPaletteAdapter(@NonNull List<Skin> data, Context context) {
         this.data = data;
         this.context = context;
     }
@@ -49,13 +53,17 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
     @Override
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
 
-        SkinManager.getInstance().getAllSkins(this);
-        Log.e("------->>>>>", "" + skins.size());
-        Skin skin = skins.get(position);
+        //String uri = "drawable/skinrosita";
 
+        //int imageResource = context.getResources().getIdentifier(uri, null, context.getPackageName());
+
+        //Drawable image = context.getResources().getDrawable(imageResource);
+
+        Skin skin = data.get(position);
+        //int foto = Integer.parseInt(skin.getSplashArt());
 
         holder.getTitleTextView().setText(skin.getName());
-        holder.getImageskin().setImageResource(Integer.parseInt(skin.getSplashArt()));
+        holder.getImageskin().setImageResource(R.drawable.skinrosita);
         holder.getBtnskin();
     }
 
@@ -152,29 +160,6 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
     public int getItemCount() {
         return data.size();
     }
-
-
-    @Override
-    public void onSuccess(List<Skin> skinsList) {
-        skins = skinsList;
-    }
-
-    @Override
-    public void onSucces() {
-
-    }
-
-    @Override
-    public void onSucces(Skin skin) {
-
-    }
-
-    @Override
-    public void onFailure(Throwable t) {
-
-    }
-
-
 
 
 }

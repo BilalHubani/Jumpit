@@ -5,9 +5,12 @@ package com.example.billy.jumpit.controller.activities.gameViews;
  */
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -16,40 +19,70 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
-import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapter;
 import com.example.billy.jumpit.controller.managers.SkinCallback;
+import com.example.billy.jumpit.controller.managers.SkinManager;
 import com.example.billy.jumpit.model.ClassSkin;
+import com.example.billy.jumpit.model.Skin;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Skin extends LinearLayout{
+public class SkinPalette extends LinearLayout implements SkinCallback{
     private ImageView imgskin;
     private TextView nameskin;
-    private List<ClassSkin> datas;
+    private List<Skin> datas;
     private Button button, btnShowSkin;
     private View vistaShowSkin;
+    private Context context;
 
 
-    public Skin(Context context) {
+    public SkinPalette(Context context) {
         this(context, null, 0);
     }
 
-    public Skin(Context context, AttributeSet attrs) {
+    public SkinPalette(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public Skin(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinPalette(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        context = context;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.skins, this);
 
+        SkinManager.getInstance().getAllSkins(this);
+        //Log.e("-------->>>>", "" + datas.size());
 
+        //RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
+        //recyclerView.setAdapter(new MaterialPaletteAdapter(datas, context));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        //recyclerView.setHorizontalScrollBarEnabled(false);
+
+    }
+
+
+    @Override
+    public void onSuccess(List<Skin> skinsList) {
+        datas = skinsList;
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
         recyclerView.setAdapter(new MaterialPaletteAdapter(datas, context));
         //recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setHorizontalScrollBarEnabled(false);
+    }
+
+    @Override
+    public void onSucces() {
+
+    }
+
+    @Override
+    public void onSucces(Skin skin) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
 
     }
 }
