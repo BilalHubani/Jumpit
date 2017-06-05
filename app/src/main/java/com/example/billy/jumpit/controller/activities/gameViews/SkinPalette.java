@@ -36,6 +36,7 @@ public class SkinPalette extends LinearLayout implements SkinCallback{
     private Button button, btnShowSkin;
     private View vistaShowSkin;
     private int contador = 0;
+    private List<Skin> datasPrincipal;
 
 
     public SkinPalette(Context context) {
@@ -67,22 +68,27 @@ public class SkinPalette extends LinearLayout implements SkinCallback{
 
     @Override
     public void onSuccess(List<Skin> skinsList) {
+        if(contador==0){
+            datasPrincipal = skinsList;
+            contador++;
+        }else{
 
-//        for(Skin skin: getAllSkins){
-//            boolean bool = false;
-//            for(Skin skin2 : getAllSkinsByUser){
-//                if(skin2.equals(skin)){ bool = true; }
-//            }
-//            if(!bool){
-//                datas.add(skin);
-//            }
-//        }
+        for(Skin skin: datasPrincipal){
+            boolean bool = false;
+            for(Skin skin2 : skinsList){
+                if(skin2.equals(skin)){ bool = true; }
+            }
+            if(!bool){
+                datas.add(skin);
+            }
+        }
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
         recyclerView.setAdapter(new MaterialPaletteAdapter(datas, context));
         //recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setHorizontalScrollBarEnabled(false);
+        }
     }
 
     @Override
