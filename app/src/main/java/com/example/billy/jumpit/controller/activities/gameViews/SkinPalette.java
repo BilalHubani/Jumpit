@@ -45,7 +45,7 @@ public class SkinPalette extends LinearLayout implements SkinCallback{
 
     public SkinPalette(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        context = context;
+        this.context = context;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.skins, this);
         SkinManager.getInstance().getAllSkins(this);
