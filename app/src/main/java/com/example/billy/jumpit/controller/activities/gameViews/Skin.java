@@ -17,12 +17,13 @@ import android.widget.TextView;
 
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.gameViews.MaterialPaletteAdapter;
+import com.example.billy.jumpit.controller.managers.SkinCallback;
 import com.example.billy.jumpit.model.ClassSkin;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Skin extends LinearLayout {
+public class Skin extends LinearLayout{
     private ImageView imgskin;
     private TextView nameskin;
     private List<ClassSkin> datas;
@@ -42,14 +43,7 @@ public class Skin extends LinearLayout {
         super(context, attrs, defStyleAttr);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.skins, this);
-        datas = new ArrayList<>();
-        datas.add(new ClassSkin("Chico Rosa", R.drawable.skinrosita));
-        datas.add(new ClassSkin("dragonsio", R.drawable.blackdragon));
-        datas.add(new ClassSkin("moconsio", R.drawable.moco));
-        datas.add(new ClassSkin("Vikingo", R.drawable.vikingsshop));
-        datas.add(new ClassSkin("mago", R.drawable.magoshop));
-        datas.add(new ClassSkin("azulete", R.drawable.azuleteshop));
-        datas.add(new ClassSkin("caballero", R.drawable.caballeroshop));
+
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
         recyclerView.setAdapter(new MaterialPaletteAdapter(datas, context));

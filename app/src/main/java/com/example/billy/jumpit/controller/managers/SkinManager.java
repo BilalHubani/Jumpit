@@ -67,7 +67,7 @@ public class SkinManager {
             @Override
             public void onFailure(Call<List<Skin>> call, Throwable t) {
                 Log.e("SkinManager->", "getAllSkins()->ERROR: " + t);
-               skinCallback.onFailure(t);
+                skinCallback.onFailure(t);
             }
         });
     }

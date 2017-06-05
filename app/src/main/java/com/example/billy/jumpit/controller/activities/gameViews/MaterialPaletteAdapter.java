@@ -23,12 +23,12 @@ import com.example.billy.jumpit.model.Skin;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPaletteAdapter.PaletteViewHolder> {
+public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPaletteAdapter.PaletteViewHolder> implements SkinCallback {
     private List<ClassSkin> data;
-    public List<Skin> skins;
+    public List<Skin> skins = new ArrayList<>();;
     RecyclerView list;
     SkinManager skinManager;
-    SkinCallback skinCallback;
+    //SkinCallback skinCallback;
     Context context;
     ArrayList <Integer> imagenes = new ArrayList();
     ArrayList <String> ids = new ArrayList();
@@ -49,23 +49,16 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
     @Override
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
 
-        skins = new ArrayList<>();
+        SkinManager.getInstance().getAllSkins(this);
+        Log.e("------->>>>>", "" + skins.size());
+        Skin skin = skins.get(position);
 
-        //SkinManager.getInstance().getAllSkins(skinCallback);
 
-
-        Log.e("------->>>>>", "");
-
-        ClassSkin color = data.get(position);
-        holder.getTitleTextView().setText(color.getNombre());
-        holder.getImageskin().setImageResource(color.getFoto());
+        holder.getTitleTextView().setText(skin.getName());
+        holder.getImageskin().setImageResource(Integer.parseInt(skin.getSplashArt()));
         holder.getBtnskin();
     }
 
-    @Override
-    public int getItemCount() {
-        return data.size();
-    }
 
     class PaletteViewHolder extends RecyclerView.ViewHolder {
         private TextView titleTextView;
@@ -154,6 +147,33 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
             }
         });
     }
+
+    @Override
+    public int getItemCount() {
+        return data.size();
+    }
+
+
+    @Override
+    public void onSuccess(List<Skin> skinsList) {
+        skins = skinsList;
+    }
+
+    @Override
+    public void onSucces() {
+
+    }
+
+    @Override
+    public void onSucces(Skin skin) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+
+    }
+
 
 
 
