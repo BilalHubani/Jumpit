@@ -25,6 +25,10 @@ import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria;
 import com.example.billy.jumpit.controller.managers.UserCallback;
 import com.example.billy.jumpit.controller.managers.UserManager;
+import com.example.billy.jumpit.model.Character;
+import com.example.billy.jumpit.model.MagoBitmapSet;
+import com.example.billy.jumpit.model.MagoSkin;
+import com.example.billy.jumpit.model.Skin;
 import com.example.billy.jumpit.model.UserCustomAtributes;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -50,6 +54,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     private ImageButton volume, imageLevel;
     private Bundle bundle;
     private TextView diamonds, coins;
+    private List<Skin> skins;
 
     private MainActivity mainActivity = this;
     private ImageButton reloadEndless, goHome;
@@ -183,47 +188,55 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         final ImageButton vikingoSelect = (ImageButton)findViewById(R.id.vikingoSelect);
         final ImageButton dragonSelect = (ImageButton)findViewById(R.id.dragonSelect);
 
+        endless.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectorSkin.setVisibility(View.VISIBLE);
+                menuniveles.setVisibility(View.INVISIBLE);
+
+            }
+        });
 
         azuleteSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         magoSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         mocoSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         caballeroSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         rositoSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         vikingoSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
         dragonSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                endlessStart(gameViewEndless,pause,mainMenuView,menuniveles,selectorSkin);
             }
         });
 
@@ -396,17 +409,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         });
 
 
-        endless.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                gameViewEndless.setBackgroundResource(R.drawable.fondocuevadef);
-                pause.setVisibility(View.VISIBLE);
-                gameViewEndless.setVisibility(View.VISIBLE);
-                mainMenuView.setVisibility(View.INVISIBLE);
-                menuniveles.setVisibility(View.INVISIBLE);
-//                signInButton.setVisibility(View.INVISIBLE);
-            }
-        });
+
 
 //crear listener del volume para mute o play again
         volume.setOnClickListener(new View.OnClickListener() {
@@ -512,11 +515,21 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         this.user = user;
         coins.setText(user.getMoneyGame());
         diamonds.setText(user.getMoneyPremium());
+
     }
 
     @Override
     public void onFailure(Throwable t) {
         Log.e("--->","pepeeeeeeeeeeeeeeee");
     }
+    public void endlessStart(GameView gameViewEndless, ImageButton pause, View mainMenuView, View menuniveles, View selectorSkin){
+        gameViewEndless.setBackgroundResource(R.drawable.fondocuevadef);
+        pause.setVisibility(View.VISIBLE);
+        gameViewEndless.setVisibility(View.VISIBLE);
+        mainMenuView.setVisibility(View.INVISIBLE);
+        menuniveles.setVisibility(View.INVISIBLE);
+        selectorSkin.setVisibility(View.INVISIBLE);
+    }
+
 }
 

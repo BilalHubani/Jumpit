@@ -75,7 +75,6 @@ public class GameViewHistoria extends View {
 
     int nivel = R.raw.nivel2;
 
-
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }

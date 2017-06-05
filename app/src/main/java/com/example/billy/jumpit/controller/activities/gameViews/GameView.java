@@ -18,6 +18,7 @@ import com.example.billy.jumpit.model.Bonk;
 import com.example.billy.jumpit.model.Character;
 import com.example.billy.jumpit.model.DragonBitmapSet;
 import com.example.billy.jumpit.model.DragonSkin;
+import com.example.billy.jumpit.model.MagoBitmapSet;
 import com.example.billy.jumpit.model.PokemonBitmapSet;
 import com.example.billy.jumpit.model.TerrenosBitmapSet;
 
@@ -59,7 +60,6 @@ public class GameView extends View {
     private List<Character> characterList;
     private int characterIndex = 0;
     private int bitmapIndex = 3;
-
 
     private TextView scoreTextView;
 
