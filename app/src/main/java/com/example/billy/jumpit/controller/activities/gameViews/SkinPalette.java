@@ -52,9 +52,7 @@ public class SkinPalette extends LinearLayout implements SkinCallback{
         this.context = context;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.skins, this);
-        SkinManager.getInstance().getAllSkins(this);
-
-        SkinManager.getInstance().getAllSkinsByUser(this);
+        SkinManager.getInstance().getAllSkinsDoesntHaveUser(this);
         //Log.e("-------->>>>", "" + datas.size());
 
         //RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
