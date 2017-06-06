@@ -356,20 +356,6 @@ public class GameViewHistoria extends View implements UserCallback{
         return terrenosBitmapSet;
     }
 
-    @Override
-    public void onSuccess(List<UserCustomAtributes> userList) {
-
-    }
-
-    @Override
-    public void onSuccess(UserCustomAtributes user) {
-        this.user = user;
-        Log.e("----->>>>" , "HAS TERMINADO");
-        int sumar = 50;
-        this.user.setMoneyGame(this.user.getMoneyGame() + sumar);
-        Toast.makeText(getContext(),"OBTIENES " + sumar + " MONEDAS", Toast.LENGTH_SHORT).show();
-        UserManager.getInstance().updateUser(this, this.user);
-    }
 
     @Override
     public void onSucces() {
@@ -378,7 +364,12 @@ public class GameViewHistoria extends View implements UserCallback{
 
     @Override
     public void onSucces(UserCustomAtributes user) {
-
+        this.user = user;
+        Log.e("----->>>>" , "HAS TERMINADO");
+        int sumar = 50;
+        this.user.setMoneyGame(this.user.getMoneyGame() + sumar);
+        Toast.makeText(getContext(),"OBTIENES " + sumar + " MONEDAS", Toast.LENGTH_SHORT).show();
+        UserManager.getInstance().updateUser(this, this.user);
     }
 
     @Override

@@ -340,13 +340,17 @@ public class GameView extends View implements UserCallback {
     }
 
 //-------------------------------
+
+
+
+
     @Override
-    public void onSuccess(List<UserCustomAtributes> userList) {
+    public void onSucces() {
 
     }
 
     @Override
-    public void onSuccess(UserCustomAtributes user) {
+    public void onSucces(UserCustomAtributes user) {
         this.user = user;
         Log.e("----->>>>" , "HAS TERMINADO");
         //int sumar = (int) Math.ceil(score/100);
@@ -358,15 +362,6 @@ public class GameView extends View implements UserCallback {
         UserManager.getInstance().updateUser(this, this.user);
     }
 
-    @Override
-    public void onSucces() {
-
-    }
-
-    @Override
-    public void onSucces(UserCustomAtributes user) {
-
-    }
 
     @Override
     public void onFailure(Throwable t) {
