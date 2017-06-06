@@ -50,5 +50,9 @@ public interface SkinService {
     Call<List<Skin>> getAllSkinsByUser(
             @Header("Authorization") String Authorization
     );
+    @GET("/api/skins/doesntHaveUser")
+    Call<List<Skin>> getAllSkinsDoesntHaveUser(
+            @Header("Authorization") String Authorization
+    );
 
 }
