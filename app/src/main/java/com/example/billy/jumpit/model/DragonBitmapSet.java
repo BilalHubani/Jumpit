@@ -19,7 +19,12 @@ public class DragonBitmapSet extends BitmapSet{
             { 317, 165, 37, 22, 0 },//  1: firing right 2
             { 360, 163, 41, 24, 0 },	//  2: firing right 3
             { 407, 167, 44, 22, 0 },	//  3: firing right 4
+            { 317, 165, 37, 22, 0 },//  4: firing right 2
+            { 360, 163, 41, 24, 0 },	//  5: firing right 3
+
             { 110, 39, 33, 21, 0 }, //  4: flying right 1
+            { 145, 42, 34, 18, 0 }, //  5: flying right 2
+            { 181, 41, 33, 19, 0 }, //  6: flying right 3
             { 145, 42, 34, 18, 0 }, //  5: flying right 2
             { 181, 41, 33, 19, 0 }, //  6: flying right 3
     };

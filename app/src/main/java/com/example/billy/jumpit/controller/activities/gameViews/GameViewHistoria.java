@@ -22,6 +22,8 @@ import com.example.billy.jumpit.model.Character;
 import com.example.billy.jumpit.model.DragonBitmapSet;
 import com.example.billy.jumpit.model.DragonSkin;
 import com.example.billy.jumpit.model.PokemonBitmapSet;
+import com.example.billy.jumpit.model.RositoBitmapSet;
+import com.example.billy.jumpit.model.RositoSkin;
 import com.example.billy.jumpit.model.TerrenosBitmapSet;
 import com.example.billy.jumpit.model.UserCustomAtributes;
 
@@ -39,7 +41,7 @@ public class GameViewHistoria extends View implements UserCallback{
     private Paint paint;
     private BitmapSet bitmapSet;
     private PokemonBitmapSet pokemonBitmapSet;
-    private DragonBitmapSet dragonBitmapSet;
+    private RositoBitmapSet rositoBitmapSet;
     private TerrenosBitmapSet terrenosBitmapSet;
 
     public HistoryScene getScene() {
@@ -52,7 +54,7 @@ public class GameViewHistoria extends View implements UserCallback{
 
     private HistoryScene scene;
     private Bonk bonk;
-    private DragonSkin dragonSkin;
+    private RositoSkin rositoSkin;
     private Character character;
     private ImageButton pauseButton;
     private int vel = 4;
@@ -103,7 +105,7 @@ public class GameViewHistoria extends View implements UserCallback{
 
     public GameViewHistoria(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-// Arraylist de bitmaps
+        // Arraylist de bitmaps
         bitmapSetList = new ArrayList<>();
 // Declaramos y añadimos bitmaps al array
         bitmapSet = new BitmapSet(this.getResources());
@@ -111,19 +113,17 @@ public class GameViewHistoria extends View implements UserCallback{
         scene = new HistoryScene(this);
         this.nivel = nivel;
         pokemonBitmapSet = new PokemonBitmapSet(this.getResources());
-        dragonBitmapSet = new DragonBitmapSet(this.getResources());
+        rositoBitmapSet = new RositoBitmapSet(this.getResources());
         bitmapSetList.add(bitmapSet);
         bitmapSetList.add(pokemonBitmapSet);
-        bitmapSetList.add(dragonBitmapSet);
+        bitmapSetList.add(rositoBitmapSet);
         bitmapSetList.add(terrenosBitmapSet);
         bonk = new Bonk(bitmapSetList.get(bitmapIndex));
         scene.load(nivel);
 //        character = new Character(pokemonBitmapSet);
-        dragonSkin = new DragonSkin(bitmapSetList.get(2));
+        rositoSkin = new RositoSkin(bitmapSetList.get(2));
         paint = new Paint();
         paint.setTextSize(10);
-        // vel = bonk.getVel();
-        // jumpMaxHeigh = bonk.getJumpMaxHeigh();
     }
 
     // dibujar la pantalla
@@ -132,8 +132,7 @@ public class GameViewHistoria extends View implements UserCallback{
         this.postInvalidateDelayed(10);
         if (!paused) {
             if (bitmapSet == null) return;
-            if (pokemonBitmapSet == null) return;
-            if (dragonBitmapSet == null) return;
+            if (rositoSkin == null) return;
             scene.setPausa(false);
             float sc = getHeight() / (16 * 16f);
             canvas.scale(sc, sc);
@@ -145,7 +144,7 @@ public class GameViewHistoria extends View implements UserCallback{
             scene.draw(canvas, vel);
 //            bonk.draw(canvas);
 //            character.draw(canvas);
-            dragonSkin.draw(canvas);
+            rositoSkin.draw(canvas);
             canvas.drawText("SCORE: "+score, 35,20, paint);
             score++;
         }else {
@@ -156,7 +155,7 @@ public class GameViewHistoria extends View implements UserCallback{
             scene.setPausa(true);
 //            bonk.draw(canvas);
 //            character.draw(canvas);
-            dragonSkin.draw(canvas);
+            rositoSkin.draw(canvas);
             canvas.drawText("SCORE: "+score, 200,100, paint);
         }
     }
@@ -182,9 +181,9 @@ public class GameViewHistoria extends View implements UserCallback{
 //                character.setFrameCounter(0);
 //                character.setFrame(3);
 //            }
-            if (dragonSkin.getFrame() <= 3 ){
-                dragonSkin.setFrameCounter(0);
-                dragonSkin.setFrame(4);
+            if (rositoSkin.getFrame() <= 5 ){
+                rositoSkin.setFrameCounter(0);
+                rositoSkin.setFrame(6);
             }
             jump = true;
             stateJumping = true;
@@ -199,13 +198,13 @@ public class GameViewHistoria extends View implements UserCallback{
         if (jumpCounter<jumpMaxHeigh-10){
 //            bonk.setY(bonk.getY()-jumpIncrement);
 //            character.setY(character.getY()-jumpIncrement);
-            dragonSkin.setY(dragonSkin.getY()-jumpIncrement);
+            rositoSkin.setY(rositoSkin.getY()-jumpIncrement);
             jumpCounter += jumpIncrement;
             jumpAux = jumpCounter;
         }else if(jumpCounter<jumpMaxHeigh){
 //            bonk.setY(bonk.getY() - jumpIncrement+1);
 //            character.setY(character.getY() - jumpIncrement+1);
-            dragonSkin.setY(dragonSkin.getY() - jumpIncrement+1);
+            rositoSkin.setY(rositoSkin.getY() - jumpIncrement+1);
             jumpCounter += jumpIncrement-1;
             jumpAux = jumpCounter;
         }else if (jumpCounter >= jumpMaxHeigh){
@@ -217,19 +216,19 @@ public class GameViewHistoria extends View implements UserCallback{
 //            character.setFrameCounter(0);
 //            character.setFrame(3);
 //        }
-        if (dragonSkin.getFrame() <= 3 ){
-            dragonSkin.setFrameCounter(0);
-            dragonSkin.setFrame(4);
+        if (rositoSkin.getFrame() <= 5 ){
+            rositoSkin.setFrameCounter(0);
+            rositoSkin.setFrame(6);
         }
         if (jumpCounter>jumpAux-10){
 //            bonk.setY(bonk.getY() + jumpIncrement-1);
 //            character.setY(character.getY() + jumpIncrement-1);
-            dragonSkin.setY(dragonSkin.getY() + jumpIncrement-1);
+            rositoSkin.setY(rositoSkin.getY() + jumpIncrement-1);
             jumpCounter -= jumpIncrement-1;
         }else {
 //            bonk.setY(bonk.getY()+jumpIncrement);
 //            character.setY(character.getY()+jumpIncrement);
-            dragonSkin.setY(dragonSkin.getY()+jumpIncrement);
+            rositoSkin.setY(rositoSkin.getY()+jumpIncrement);
             jumpCounter -= jumpIncrement;
         }
     }
@@ -238,20 +237,20 @@ public class GameViewHistoria extends View implements UserCallback{
 //            character.setFrameCounter(0);
 //            character.setFrame(0);
 //        }
-        if (dragonSkin.getFrame() > 3 && !stateJumping){
-            dragonSkin.setFrameCounter(0);
-            dragonSkin.setFrame(0);
+        if (rositoSkin.getFrame() > 5 && !stateJumping){
+            rositoSkin.setFrameCounter(0);
+            rositoSkin.setFrame(0);
         }
 //        int r = bonk.getY() >> 4;
 //        int r = (character.getY()) >> 4;
-        int r = (dragonSkin.getY()) >> 4;
+        int r = (rositoSkin.getY()) >> 4;
         if (r >=16){
             paused = true;
             end();
         }
 //        int c = bonk.getX() >> 4;
 //        int c = character.getX() >> 4;
-        int c = dragonSkin.getX() >> 4;
+        int c = rositoSkin.getX() >> 4;
         if (!scene.isGround(r+2, c)){
             stateJumping = true;
             return false;
@@ -259,7 +258,7 @@ public class GameViewHistoria extends View implements UserCallback{
             if (!jump) {
 //                bonk.setY(r << 4);
 //                character.setY((r << 4) + 8);
-                dragonSkin.setY((r << 4) + 8);
+                rositoSkin.setY((r << 4) + 8);
                 stateJumping = false;
                 jumpCounter = 0;
             }
@@ -288,7 +287,7 @@ public class GameViewHistoria extends View implements UserCallback{
 //                scene = new HistoryScene();
                 bonk = new Bonk(bitmapSet);
 //                character = new Character(pokemonBitmapSet);
-                dragonSkin = new DragonSkin(dragonBitmapSet);
+                rositoSkin = new RositoSkin(rositoBitmapSet);
                 vel = 4;
                 velCounter = 1;
                 paused = false;

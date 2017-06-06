@@ -17,8 +17,16 @@ public class MoconsioBitmapSet extends BitmapSet{
     private int[][] sheetInfo = {
             { 10, 12, 35, 25, 0 },//  0: walking right 1
             { 48, 12, 35, 25, 0 },//  1: walking right 2
+            { 10, 12, 35, 25, 0 },//  0: walking right 1
+            { 48, 12, 35, 25, 0 },//  1: walking right 2
+            { 10, 12, 35, 25, 0 },//  0: walking right 1
+            { 48, 12, 35, 25, 0 },//  1: walking right 2
+
             { 10, 40, 35, 33, 0 },	//  2: jump right 3
             { 48, 40, 35, 33, 0 },	//  3: jump right 4
+            { 10, 40, 35, 33, 0 },	//  2: jump right 3
+            { 48, 40, 35, 33, 0 },	//  3: jump right 4
+            { 10, 40, 35, 33, 0 },	//  2: jump right 3
     };
 
     public Bitmap getBitmap(int i) { return bitmaps[i]; }

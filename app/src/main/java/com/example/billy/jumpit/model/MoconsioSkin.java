@@ -77,18 +77,18 @@ public class MoconsioSkin extends Character{
             counter = 0;
         }
         counter++;
-        if (frame > 1){
-            if (frameCounter == 1){
+        if (frame > 6){
+            if (frameCounter == 5){
                 frame = frame - frameCounter;
                 frameCounter = 0;
             }
         }else {
-            if (frameCounter == 1){
+            if (frameCounter == 4){
                 frame = frame - frameCounter;
                 frameCounter = 0;
             }
         }
 
-        canvas.drawBitmap(sprite, x, y+8, paint);
+        canvas.drawBitmap(sprite, x, y, paint);
     }
 }

@@ -158,9 +158,9 @@ public class GameView extends View implements UserCallback {
             }
         });
         if (event.getAction() == MotionEvent.ACTION_DOWN && !stateJumping){
-            if (character.getFrame() <= 2 ){
+            if (character.getFrame() <= 5 ){
                 character.setFrameCounter(0);
-                character.setFrame(3);
+                character.setFrame(6);
             }
 //            if (dragonSkin.getFrame() <= 3 ){
 //                dragonSkin.setFrameCounter(0);
@@ -193,9 +193,9 @@ public class GameView extends View implements UserCallback {
         }
     }
     public void doGoingDown(){
-        if (character.getFrame() <= 2 ){
+        if (character.getFrame() <= 5 ){
             character.setFrameCounter(0);
-            character.setFrame(3);
+            character.setFrame(6);
         }
 //        if (dragonSkin.getFrame() <= 3 ){
 //            dragonSkin.setFrameCounter(0);
@@ -214,7 +214,7 @@ public class GameView extends View implements UserCallback {
         }
     }
     public boolean checkGround() {
-        if (character.getFrame() > 2 && !stateJumping){
+        if (character.getFrame() > 5 && !stateJumping){
             character.setFrameCounter(0);
             character.setFrame(0);
         }

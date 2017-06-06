@@ -82,7 +82,7 @@ public class CaballeroSkin extends Character{
                 frameCounter = 0;
             }
         }else {
-            if (frameCounter == 4){
+            if (frameCounter == 5){
                 frame = frame - frameCounter;
                 frameCounter = 0;
             }
