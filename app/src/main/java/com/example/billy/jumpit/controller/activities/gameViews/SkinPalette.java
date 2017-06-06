@@ -68,20 +68,7 @@ public class SkinPalette extends LinearLayout implements SkinCallback{
 
     @Override
     public void onSuccess(List<Skin> skinsList) {
-        if(contador==0){
-            datasPrincipal = skinsList;
-            contador++;
-        }else{
-
-        for(Skin skin: datasPrincipal){
-            boolean bool = false;
-            for(Skin skin2 : skinsList){
-                if(skin2.equals(skin)){ bool = true; }
-            }
-            if(!bool){
-                datas.add(skin);
-            }
-        }
+        datas = skinsList;
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecycleView);
         recyclerView.setAdapter(new MaterialPaletteAdapter(datas, context));
@@ -89,7 +76,6 @@ public class SkinPalette extends LinearLayout implements SkinCallback{
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setHorizontalScrollBarEnabled(false);
 
-        }
     }
 
     @Override

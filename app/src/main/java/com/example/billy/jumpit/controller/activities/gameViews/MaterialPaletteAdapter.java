@@ -32,15 +32,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPaletteAdapter.PaletteViewHolder> implements SkinCallback{
-    private List<Skin> data;
+    private List<Skin> data2;
     public List<Skin> skins = new ArrayList<>();
     RecyclerView list;
     SkinManager skinManager;
     //SkinCallback skinCallback;
     Context context;
+    List<Skin> data;
     ArrayList <Integer> imagenes = new ArrayList();
     ArrayList <String> ids = new ArrayList();
     Button btnskin;
+
 
     public MaterialPaletteAdapter(@NonNull List<Skin> data, Context context) {
         this.data = data;
@@ -55,9 +57,7 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
 
     @Override
     public void onBindViewHolder(PaletteViewHolder holder, int position) {
-
         final Skin skin = data.get(position);
-
 
         switch (skin.getSplashArt()) {
             case "skinrosita":
@@ -138,7 +138,6 @@ public class MaterialPaletteAdapter extends RecyclerView.Adapter<MaterialPalette
 
     @Override
     public void onSuccess(List<Skin> skinsList) {
-
     }
 
     @Override
