@@ -23,6 +23,8 @@ import com.example.billy.jumpit.controller.activities.gameViews.Audio;
 import com.example.billy.jumpit.controller.activities.gameViews.GameView;
 import com.example.billy.jumpit.R;
 import com.example.billy.jumpit.controller.activities.gameViews.GameViewHistoria;
+import com.example.billy.jumpit.controller.managers.SkinCallback;
+import com.example.billy.jumpit.controller.managers.SkinManager;
 import com.example.billy.jumpit.controller.managers.UserCallback;
 import com.example.billy.jumpit.controller.managers.UserManager;
 import com.example.billy.jumpit.model.AsulsitoBitmapSet;
@@ -56,7 +58,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener, UserCallback{
+public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener, UserCallback, SkinCallback{
     boolean musicaOn = true;
     private GameViewHistoria gameViewHistoria;
     private HistoryScene historyScene;
@@ -67,6 +69,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     private Bundle bundle;
     private TextView diamonds, coins;
     private List<Skin> skins;
+    private List<Skin> skinsUsuario;
 
     private MainActivity mainActivity = this;
     private ImageButton reloadEndless, goHome;
@@ -200,7 +203,8 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         final ImageButton vikingoSelect = (ImageButton)findViewById(R.id.vikingoSelect);
         final ImageButton dragonSelect = (ImageButton)findViewById(R.id.dragonSelect);
         final ImageButton exitSelector = (ImageButton)findViewById(R.id.exitselector);
-
+        SkinManager.getInstance().getAllSkinsByUser(this);
+//        Log.e("SIZE____SKINS___USER"," "+skinsUsuario.size());
         exitSelector.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -530,21 +534,19 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         return bundle;
     }
 
-    @Override
-    public void onSuccess(List<UserCustomAtributes> userList) {
-
-    }
 
     @Override
-    public void onSuccess(UserCustomAtributes user) {
-        this.user = user;
-        coins.setText(user.getMoneyGame());
-        diamonds.setText(user.getMoneyPremium());
-        Log.e("--->","" +  user.getId() + user.getMoneyGame());
+    public void onSuccess(List<Skin> skinsList) {
+        skinsUsuario = skinsList;
     }
 
     @Override
     public void onSucces() {
+
+    }
+
+    @Override
+    public void onSucces(Skin skin) {
 
     }
 

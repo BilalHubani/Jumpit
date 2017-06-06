@@ -45,31 +45,7 @@ public class UserManager {
     }
 
 
-    public synchronized void getAllUser(final UserCallback userCallback) {
-        Call<List<UserCustomAtributes>> call = userService.getAllUsers(UserLoginManager.getInstance().getBearerToken());
 
-        call.enqueue(new Callback<List<UserCustomAtributes>>() {
-            @Override
-            public void onResponse(Call<List<UserCustomAtributes>> call, Response<List<UserCustomAtributes>> response) {
-                users = response.body();
-
-                int code = response.code();
-
-                if (response.isSuccess()) {
-                    userCallback.onSuccess(users);
-                } else {
-                    userCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<UserCustomAtributes>> call, Throwable t) {
-                Log.e("UserManager->", "getAllUser()->ERROR: " + t);
-
-                userCallback.onFailure(t);
-            }
-        });
-    }
 
     public synchronized void getUserCustomAtributes(final UserCallback userCallback) {
         Call <UserCustomAtributes> call =  userService.userCustomAtributes(UserLoginManager.getInstance().getBearerToken());
@@ -82,7 +58,7 @@ public class UserManager {
                 int code = response.code();
 
                 if (response.isSuccess()) {
-                    userCallback.onSuccess(user);
+                    userCallback.onSucces(user);
                 } else {
                     userCallback.onFailure(new Throwable("ERROR" + code + ", " + response.raw().message()));
                 }

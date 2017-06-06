@@ -59,15 +59,6 @@ public class Levels extends LinearLayout implements UserCallback{
     }
 
 
-    @Override
-    public void onSuccess(List<UserCustomAtributes> userList) {
-
-    }
-
-    @Override
-    public void onSuccess(UserCustomAtributes user) {
-
-    }
 
     @Override
     public void onSucces() {
